@@ -2,6 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nathan-lallier.com/sitemap.xml
-
-# Bloquer l'accès aux includes
-Disallow: /includes/
