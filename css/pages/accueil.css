@@ -1,0 +1,652 @@
+/* ==================== BOUTONS GLOBAUX ==================== */
+.btn {
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #DD9933 0%, #c4872d 100%);
+    color: white !important;
+    box-shadow: 0 4px 20px rgba(221, 153, 51, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(221, 153, 51, 0.45);
+    color: white !important;
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    color: var(--accent-text) !important;
+    border: 2px solid #DD9933;
+}
+
+.btn-secondary:hover {
+    background: #DD9933;
+    color: white !important;
+}
+
+.btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover svg {
+    transform: translateX(5px);
+}
+
+/* ==================== ANIMATIONS GLOBALES ==================== */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes ripple {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.1;
+    }
+}
+
+
+/* ==================== SECTION 1 : HERO ==================== */
+.hero {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 80px 20px 48px;
+    position: relative;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-content {
+    animation: fadeInLeft 1s ease-out;
+}
+
+.hero-name {
+    font-family: 'Abril Fatface', serif;
+    font-size: 72px;
+    color: var(--accent-text);
+    line-height: 1.1;
+    margin-bottom: 10px;
+    animation: fadeInLeft 1s ease-out 0.2s both;
+}
+
+.hero-title {
+    font-family: 'Abril Fatface', serif;
+    font-size: 56px;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 25px;
+    animation: fadeInLeft 1s ease-out 0.4s both;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+    max-width: 550px;
+    animation: fadeInLeft 1s ease-out 0.6s both;
+}
+
+.hero-description strong {
+    color: var(--accent-text);
+}
+
+html.dark-mode .hero-description strong {
+    color: var(--accent-text);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    animation: fadeInLeft 1s ease-out 0.8s both;
+}
+
+/* Social Icons Hero */
+.hero-social-icons {
+    display: flex;
+    gap: 15px;
+    animation: fadeInLeft 1s ease-out 1s both;
+}
+
+.hero-social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.hero-social-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--text-secondary);
+    transition: fill 0.3s ease;
+}
+
+.hero-social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(221, 153, 51, 0.3);
+}
+
+.hero-social-icon:hover svg {
+    fill: #DD9933;
+}
+
+/* Photo Hero */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInRight 1s ease-out 0.5s both;
+}
+
+.photo-container {
+    position: relative;
+}
+
+.photo-placeholder {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8dcc8 0%, #f6eedc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.photo-container::before {
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border: 3px dashed #DD9933;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+    animation: rotate 30s linear infinite;
+}
+
+.photo-container::after {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 2px solid #DD9933;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+}
+
+/* Badges flottants */
+.floating-badge {
+    position: absolute;
+    background: var(--bg-card);
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-badge img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.badge-azure {
+    top: 20px;
+    right: -20px;
+    animation-delay: 0s;
+}
+
+.badge-cisco {
+    bottom: 60px;
+    left: -40px;
+    animation-delay: 1s;
+}
+
+.badge-linux {
+    bottom: -10px;
+    right: 40px;
+    animation-delay: 2s;
+}
+
+.badge-windows {
+    top: 10px;
+    left: -30px;
+    animation-delay: 3s;
+}
+
+
+
+/* ==================== SECTION 2 : PARCOURS ==================== */
+.parcours-section {
+    padding: 80px 20px;
+}
+
+.parcours-section .section-title {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    width: calc((100% - 40px) / 2);
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 30px 24px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #DD9933 0%, #c4872d 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(221, 153, 51, 0.15);
+}
+
+.stat-card:hover::after {
+    transform: scaleX(1);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.stat-icon svg {
+    width: 48px;
+    height: 48px;
+    color: #111111;
+}
+
+.stat-number {
+    font-family: 'Abril Fatface', serif;
+    font-size: 56px;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-number .suffix {
+    font-size: 36px;
+    color: #DD9933;
+}
+
+.stat-label {
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+/* Tablette portrait (jusqu'à 1024px) */
+@media (max-width: 1024px) {
+
+    /* Badges flottants - taille fixe pour éviter l'étirement */
+    .floating-badge {
+        font-size: 12px;
+        padding: 8px 14px;
+        white-space: nowrap;
+    }
+
+    .floating-badge img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Repositionner les badges pour tablette */
+    .badge-azure {
+        top: 15px;
+        right: -25px;
+    }
+
+    .badge-windows {
+        top: 10px;
+        left: -35px;
+    }
+
+    .badge-cisco {
+        bottom: 60px;
+        left: -40px;
+    }
+
+    .badge-linux {
+        bottom: -10px;
+        right: 30px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    /* Hero */
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+
+    .hero-image {
+        order: 1;
+    }
+
+    .hero-name {
+        font-size: 56px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-social-icons {
+        justify-content: center;
+    }
+
+    .photo-placeholder {
+        width: 280px;
+        height: 280px;
+    }
+
+    .photo-container::before {
+        width: 310px;
+        height: 310px;
+    }
+
+    .photo-container::after {
+        width: 350px;
+        height: 350px;
+    }
+
+    .floating-badge {
+        font-size: 11px;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+
+    .badge-azure {
+        top: 15px;
+        right: -15px;
+    }
+
+    .badge-cisco {
+        bottom: 50px;
+        left: -25px;
+    }
+
+    .badge-linux {
+        bottom: -5px;
+        right: 25px;
+    }
+
+    /* Windows reste à GAUCHE, pas à droite */
+    .badge-windows {
+        top: 10px;
+        left: -25px;
+        right: auto;
+    }
+
+    /* Sections */
+    .section-title {
+        font-size: 56px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid .stat-card:last-child {
+        grid-column: span 2;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .stat-number {
+        font-size: 44px;
+    }
+
+    .stat-number .suffix {
+        font-size: 28px;
+    }
+
+
+}
+
+
+
+@media (max-width: 500px) {
+    .hero-name {
+        font-size: 42px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    /* Garder les badges visibles mais plus petits */
+    .floating-badge {
+        font-size: 10px;
+        padding: 6px 10px;
+        max-width: 80px;
+    }
+
+    .floating-badge img {
+        width: 16px;
+        height: 16px;
+        max-width: 16px;
+        max-height: 16px;
+    }
+
+    .badge-azure {
+        top: 10px;
+        right: -5px;
+    }
+
+    .badge-cisco {
+        bottom: 50px;
+        left: -15px;
+    }
+
+    .badge-linux {
+        bottom: -5px;
+        right: 20px;
+    }
+
+    .badge-windows {
+        top: 5px;
+        left: -15px;
+        max-width: 85px;
+    }
+
+    .hero-social-icons {
+        margin-bottom: 30px;
+    }
+}

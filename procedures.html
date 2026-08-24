@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6eedc">
+    <meta name="description" content="Procédures techniques Windows, Linux, Cisco et Azure">
+    <title>Procédures | Nathan LALLIER</title>
+    <link rel="canonical" href="https://nathan-lallier.com/procedures">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Procédures | Nathan LALLIER">
+    <meta property="og:description" content="Procédures techniques Windows, Linux, Cisco et Azure">
+    <meta property="og:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:url" content="https://nathan-lallier.com/procedures">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Procédures | Nathan LALLIER">
+    <meta name="twitter:description" content="Procédures techniques Windows, Linux, Cisco et Azure">
+    <meta name="twitter:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+    <link rel="icon" href="assets/img/logo.webp">
+
+
+
+    <!-- CSS -->
+    <!-- Preload critical font -->
+    <link rel="preload" href="assets/fonts/abril-fatface-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/main.min.css?v=1.6">
+    <link rel="stylesheet" href="css/pages/procedures.min.css?v=1.0">
+
+    <!-- Dark mode anti-flash (head) -->
+    <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark-mode');})()</script>
+    <script src="js/main.min.js?v=1.9" defer></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Contenu de la page -->
+    <main id="main-content" tabindex="-1">
+        <section class="proc-section" id="procedures">
+            <div class="proc-container">
+
+                <h2 class="proc-title">Mes <span class="highlight">procédures</span></h2>
+
+                <p class="proc-intro">
+                    Documentation technique rédigée au cours de ma formation et de mon alternance. Ces procédures
+                    couvrent
+                    l'administration réseau, systèmes Windows/Linux et les services Cloud Azure.
+                </p>
+
+                <!-- Barre de recherche -->
+                <div class="proc-search-container">
+                    <div class="proc-search-box">
+                        <input type="text" id="searchInput" class="proc-search-input"
+                            placeholder="Rechercher une procédure..."
+                            aria-label="Rechercher une procédure" autocomplete="off">
+                        <svg class="proc-search-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                    </div>
+                    <div id="searchResults" class="proc-search-results" role="status" aria-live="polite"></div>
+                </div>
+
+                <!-- Onglets de navigation -->
+                <div class="proc-tabs-container">
+                    <div class="proc-tabs-nav" role="tablist" aria-label="Catégories de procédures">
+                        <button class="proc-tab-btn active" data-tab="cisco" id="proc-tab-cisco" type="button"
+                            role="tab" aria-selected="true" aria-controls="tab-cisco" tabindex="0"
+                            >
+                            <span class="proc-tab-icon">
+                                <img loading="lazy" src="assets/img/cisco.webp" alt="Cisco" width="64" height="64">
+                            </span>
+                            <span>Cisco</span>
+                            <span class="proc-tab-count" id="count-cisco"></span>
+                        </button>
+                        <button class="proc-tab-btn" data-tab="windows" id="proc-tab-windows" type="button"
+                            role="tab" aria-selected="false" aria-controls="tab-windows" tabindex="-1"
+                            >
+                            <span class="proc-tab-icon">
+                                <img loading="lazy" src="assets/img/windows.webp" alt="Windows" width="64" height="64">
+                            </span>
+                            <span>Windows</span>
+                            <span class="proc-tab-count" id="count-windows"></span>
+                        </button>
+                        <button class="proc-tab-btn" data-tab="linux" id="proc-tab-linux" type="button" role="tab"
+                            aria-selected="false" aria-controls="tab-linux" tabindex="-1"
+                            >
+                            <span class="proc-tab-icon">
+                                <img loading="lazy" src="assets/img/linux.webp" alt="Linux" width="64" height="64">
+                            </span>
+                            <span>Linux</span>
+                            <span class="proc-tab-count" id="count-linux"></span>
+                        </button>
+                        <button class="proc-tab-btn" data-tab="azure" id="proc-tab-azure" type="button" role="tab"
+                            aria-selected="false" aria-controls="tab-azure" tabindex="-1"
+                            >
+                            <span class="proc-tab-icon">
+                                <img loading="lazy" src="assets/img/azure.webp" alt="Azure" width="64" height="64">
+                            </span>
+                            <span>Azure</span>
+                            <span class="proc-tab-count" id="count-azure"></span>
+                        </button>
+                    </div>
+
+                    <!-- Message "Aucun résultat" -->
+                    <div id="noResults" class="proc-search-results" role="status" aria-live="polite">
+                        Aucune procédure trouvée
+                    </div>
+
+                    <!-- Panels statiques pour conformité ARIA/validation; contenu remplacé par JavaScript -->
+                    <div id="proceduresContainer">
+                        <div class="proc-tab-content active" id="tab-cisco" role="tabpanel"
+                            aria-labelledby="proc-tab-cisco" tabindex="0">
+                            <div class="proc-grid"></div>
+                        </div>
+                        <div class="proc-tab-content" id="tab-windows" role="tabpanel"
+                            aria-labelledby="proc-tab-windows" tabindex="-1" hidden>
+                            <div class="proc-grid"></div>
+                        </div>
+                        <div class="proc-tab-content" id="tab-linux" role="tabpanel" aria-labelledby="proc-tab-linux"
+                            tabindex="-1" hidden>
+                            <div class="proc-grid"></div>
+                        </div>
+                        <div class="proc-tab-content" id="tab-azure" role="tabpanel" aria-labelledby="proc-tab-azure"
+                            tabindex="-1" hidden>
+                            <div class="proc-grid"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Cookie banner placeholder -->
+    <div id="cookie-banner-placeholder"></div>
+
+</body>
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6eedc">
+    <meta name="description" content="Contactez Nathan LALLIER">
+    <title>Contact | Nathan LALLIER</title>
+    <link rel="canonical" href="https://nathan-lallier.com/contact">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact | Nathan LALLIER">
+    <meta property="og:description" content="Contactez Nathan LALLIER, alternant ingénieur infrastructure & cloud.">
+    <meta property="og:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:url" content="https://nathan-lallier.com/contact">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Contact | Nathan LALLIER">
+    <meta name="twitter:description" content="Contactez Nathan LALLIER, alternant ingénieur infrastructure & cloud.">
+    <meta name="twitter:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+    <link rel="icon" href="assets/img/logo.webp">
+
+
+
+    <!-- CSS -->
+    <!-- Preload critical font -->
+    <link rel="preload" href="assets/fonts/abril-fatface-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="css/main.min.css?v=1.6">
+    <link rel="stylesheet" href="css/pages/contact.min.css?v=1.2">
+
+    <!-- Dark mode anti-flash (head) -->
+    <script>(function () { var t = localStorage.getItem('theme'); if (t === 'dark') document.documentElement.classList.add('dark-mode'); })()</script>
+    <script src="js/main.min.js?v=1.9" defer></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Contenu de la page -->
+    <main id="main-content" tabindex="-1">
+
+        <!-- ==================== SECTION CONTACT ==================== -->
+        <div class="contact-page">
+            <div class="container">
+
+                <h1 class="section-title">Me <span class="highlight">contacter</span></h1>
+                <p class="section-intro">
+                    Pour toute question, projet ou demande d'information, n'hésitez pas à me contacter via le formulaire
+                    ci-dessous.
+                </p>
+
+                <div class="contact-layout">
+
+                    <!-- Formulaire -->
+                    <div class="form-card">
+                        <h2 class="form-title">Envoyez-moi un message</h2>
+
+                        <form action="https://formspree.io/f/mykwvywd" method="POST">
+                            <p class="form-required-note"><span class="required" aria-hidden="true">*</span> Champs
+                                obligatoires</p>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="nom"><span>Nom</span> <span
+                                            class="required">*</span></label>
+                                    <input id="nom" type="text" name="nom" class="form-input" placeholder="Votre nom"
+                                        autocomplete="family-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="prenom">Prénom</label>
+                                    <input id="prenom" type="text" name="prenom" class="form-input"
+                                        placeholder="Votre prénom" autocomplete="given-name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email"><span>Email</span> <span
+                                        class="required">*</span></label>
+                                <input id="email" type="email" name="email" class="form-input"
+                                    placeholder="votre@email.com" autocomplete="email" inputmode="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="sujet"><span>Sujet</span> <span
+                                        class="required">*</span></label>
+                                <input id="sujet" type="text" name="sujet" class="form-input"
+                                    placeholder="Objet de votre message" maxlength="120" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="message"><span>Message</span> <span
+                                        class="required">*</span></label>
+                                <textarea id="message" name="message" class="form-textarea"
+                                    placeholder="Votre message..." maxlength="2000" required></textarea>
+                            </div>
+
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="rgpd" name="rgpd" required>
+                                <label for="rgpd">
+                                    <span class="required">*</span> <span>En soumettant ce formulaire, j'accepte que les
+                                        informations
+                                        saisies soient exploitées dans le cadre de la demande de contact.</span>
+                                </label>
+                            </div>
+
+                            <!-- Google reCAPTCHA -->
+                            <div class="recaptcha-container">
+                                <div class="g-recaptcha" data-sitekey="6LcMQ1gsAAAAAFYwd9FUF9i8z1-Sd18_RVSFONaO"></div>
+                            </div>
+
+                            <button type="submit" class="form-submit" data-sending-label="Envoi en cours...">
+                                <span>Envoyer le message</span>
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                                </svg>
+                            </button>
+
+                        </form>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="contact-sidebar">
+                        <div class="sidebar-card">
+
+                            <h3 class="sidebar-title"><span class="highlight">Autres moyens</span> <span>de
+                                    contact</span></h3>
+                            <p class="sidebar-subtitle">Retrouvez-moi également sur</p>
+
+                            <div class="contact-icons">
+                                <!-- LinkedIn -->
+                                <a href="https://www.linkedin.com/in/nathan-lallier" target="_blank"
+                                    aria-label="LinkedIn de Nathan LALLIER" rel="noopener noreferrer"
+                                    class="contact-icon linkedin" title="LinkedIn">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                    </svg>
+                                </a>
+
+                                <!-- Email -->
+                                <a href="mailto:contact@nathan-lallier.com"
+                                    aria-label="Envoyer un email à Nathan LALLIER" class="contact-icon email"
+                                    title="Email">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div class="response-info">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                </svg>
+                                <span>Réponse sous <strong>24 à 48h</strong></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Cookie banner placeholder -->
+    <div id="cookie-banner-placeholder"></div>
+
+    <!-- JavaScript -->
+</body>
+
+</html>

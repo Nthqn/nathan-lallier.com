@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6eedc">
+    <meta name="description"
+        content="Page introuvable : le contenu demandé n'existe pas ou a été déplacé. Retournez vers l'accueil ou la page contact.">
+    <meta name="robots" content="noindex, follow">
+    <title>404 | Nathan LALLIER</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="404 | Page introuvable | Nathan LALLIER">
+    <meta property="og:description"
+        content="La page demandée n'existe pas ou a été déplacée. Revenez à l'accueil de mon portfolio.">
+    <meta property="og:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:url" content="https://nathan-lallier.com/404">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="404 | Page introuvable | Nathan LALLIER">
+    <meta name="twitter:description"
+        content="La page demandée n'existe pas ou a été déplacée. Revenez à l'accueil du portfolio.">
+    <meta name="twitter:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+
+    <link rel="icon" href="/assets/img/logo.webp">
+
+
+
+    <!-- CSS -->
+    <!-- Preload critical font -->
+    <link rel="preload" href="/assets/fonts/abril-fatface-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="/css/main.min.css?v=1.6">
+    <link rel="stylesheet" href="/css/pages/404.min.css?v=1.0">
+
+    <!-- Dark mode anti-flash (head) -->
+    <script>(function () { var t = localStorage.getItem('theme'); if (t === 'dark') document.documentElement.classList.add('dark-mode'); })()</script>
+    <script src="/js/main.min.js?v=1.9" defer></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Contenu de la page -->
+    <main id="main-content" tabindex="-1">
+        <div class="error-page">
+            <div class="error-container">
+                <div class="error-illustration">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+                    </svg>
+                </div>
+                <div class="error-code">404</div>
+                <h1 class="error-title">Page introuvable</h1>
+                <p class="error-description">
+                    La page que vous cherchez n'existe pas ou a été déplacée.
+                    Pas de panique, vous pouvez revenir à l'accueil !
+                </p>
+                <div class="error-actions">
+                    <a href="/" class="error-btn error-btn-primary">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                        <span>Retour à l'accueil</span>
+                    </a>
+                    <a href="/contact" class="error-btn error-btn-secondary">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span>Me contacter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Cookie banner placeholder -->
+    <div id="cookie-banner-placeholder"></div>
+
+    <!-- JavaScript -->
+</body>
+
+</html>

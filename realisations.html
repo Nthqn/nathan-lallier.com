@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6eedc">
+    <meta name="description"
+        content="Projets et réalisations techniques de Nathan LALLIER, infrastructure on-premise et migration cloud Azure.">
+    <title>Réalisations | Nathan LALLIER</title>
+    <link rel="canonical" href="https://nathan-lallier.com/realisations">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Réalisations | Nathan LALLIER">
+    <meta property="og:description"
+        content="Projets d'infrastructure et cloud d'un alternant certifié AZ-104, dont ORION Consulting Group et VERIDIS Life Sciences.">
+    <meta property="og:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:url" content="https://nathan-lallier.com/realisations">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Réalisations | Nathan LALLIER">
+    <meta name="twitter:description"
+        content="Projets d'infrastructure et cloud d'un alternant certifié AZ-104, dont ORION Consulting Group et VERIDIS Life Sciences.">
+    <meta name="twitter:image" content="https://nathan-lallier.com/assets/img/logo.webp">
+    <link rel="icon" href="assets/img/logo.webp">
+
+
+
+    <!-- CSS -->
+    <!-- Preload critical font -->
+    <link rel="preload" href="assets/fonts/abril-fatface-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/main.min.css?v=1.6">
+    <link rel="stylesheet" href="css/pages/realisations.min.css?v=2.3">
+
+    <!-- Dark mode anti-flash (head) -->
+    <script>(function () { var t = localStorage.getItem('theme'); if (t === 'dark') document.documentElement.classList.add('dark-mode'); })()</script>
+    <script src="js/main.min.js?v=1.9" defer></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Contenu de la page -->
+    <main id="main-content" tabindex="-1">
+
+        <!-- SECTION PROJET -->
+        <section class="projet-section" id="projet">
+            <div class="projet-container">
+
+                <!-- Titre -->
+                <h1 class="projet-title">Mes réalisations</h1>
+                <p class="projet-description">
+                    Études de cas et infrastructures conçues de bout en bout, de l'architecture réseau au plan
+                    de reprise d'activité, avec la documentation technique associée.
+                </p>
+
+                <div class="projet-toolbar" role="group" aria-label="Filtrer les projets">
+                    <div class="projet-filter-group">
+                        <button type="button" class="projet-filter-btn is-active" data-project-filter="all"
+                            aria-pressed="true">Tous</button>
+                        <button type="button" class="projet-filter-btn" data-project-filter="completed"
+                            aria-pressed="false">Terminés</button>
+                        <button type="button" class="projet-filter-btn" data-project-filter="in-progress"
+                            aria-pressed="false">En cours</button>
+                    </div>
+                    <p class="projet-filter-count" data-project-count>2 projets visibles</p>
+                </div>
+
+                <!-- Carte projet -->
+                <div class="projet-card" data-project-status="completed">
+
+                    <div class="projet-card-top">
+                        <!-- Icône -->
+                        <div class="projet-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M3 5h18v4H3V5zm0 5h18v4H3v-4zm0 5h18v4H3v-4zm2-8h4v2H5V7zm0 5h4v2H5v-2zm0 5h4v2H5v-2z" />
+                            </svg>
+                        </div>
+
+                        <div class="projet-head">
+                            <p class="projet-kicker">Étude de cas infrastructure</p>
+                            <h3 class="projet-card-title" id="projet-orion-title">
+                                Orion <span class="highlight">Consulting Group</span>
+                            </h3>
+                            <p class="projet-card-text">
+                                Conception et déploiement d'une infrastructure complète d'entreprise avec
+                                <strong>9 VMs</strong>, segmentation réseau, services d'identité, supervision,
+                                sauvegarde et documentation de continuité.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="projet-card-controls">
+                        <span class="projet-status projet-status-completed">Terminé</span>
+                        <button type="button" class="projet-toggle-btn" data-projet-toggle aria-expanded="true">
+                            <span data-toggle-label>Réduire</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="projet-meta-grid">
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Périmètre</span>
+                            <strong>9 machines virtuelles</strong>
+                        </div>
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Type</span>
+                            <strong>Infrastructure SI complète</strong>
+                        </div>
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Livrable majeur</span>
+                            <strong>DRT de 50 pages</strong>
+                        </div>
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Objectif</span>
+                            <strong>Segmentation, résilience et continuité</strong>
+                        </div>
+                    </div>
+
+                    <div class="projet-pill-list">
+                        <span class="projet-pill">VPN IPsec site-à-site</span>
+                        <span class="projet-pill">pfSense (ORION / LYRA)</span>
+                        <span class="projet-pill">VLAN 802.1Q</span>
+                        <span class="projet-pill">AD DS</span>
+                        <span class="projet-pill">DNS / DHCP</span>
+                        <span class="projet-pill">DFS-R</span>
+                        <span class="projet-pill">Nginx en DMZ</span>
+                        <span class="projet-pill">Zabbix</span>
+                        <span class="projet-pill">GLPI + LDAPS</span>
+                        <span class="projet-pill">GPO</span>
+                        <span class="projet-pill">Sauvegarde / supervision</span>
+                    </div>
+
+                    <div class="projet-arch" role="group"
+                        aria-label="Schéma infrastructure Orion: Internet, Upstream Gateway, pare-feu ORION et LYRA reliés en VPN IPSec, DMZ avec MEISSA, LAN gauche avec BELLATRIX, RIGEL et PC-CLIENT-01, LAN droite avec VEGA, SULAFAT et PC-CLIENT-02.">
+                        <p class="projet-arch-title">Architecture de l'infrastructure</p>
+                        <p class="projet-arch-subtitle">Cliquez sur un équipement pour afficher son rôle et ses
+                            services.</p>
+
+                        <div class="projet-arch-grid">
+                            <div class="arch-cloud">Internet</div>
+
+                            <button type="button" class="arch-gateway arch-interactive" data-arch-node="gateway"
+                                aria-pressed="false">
+                                <span class="arch-node-icon arch-node-icon-gw" aria-hidden="true">GW</span>
+                                <span class="arch-label">Upstream Gateway</span>
+                            </button>
+
+                            <button type="button" class="arch-fw arch-fw-left arch-interactive" data-arch-node="orion"
+                                aria-pressed="false">
+                                <span class="arch-node-icon arch-node-icon-fw" aria-hidden="true">FW</span>
+                                <span class="arch-label">ORION</span>
+                            </button>
+
+                            <div class="arch-vpn">
+                                <span class="arch-vpn-line"></span>
+                                <span class="arch-vpn-label">VPN IPSec</span>
+                            </div>
+
+                            <button type="button" class="arch-fw arch-fw-right arch-interactive" data-arch-node="lyra"
+                                aria-pressed="false">
+                                <span class="arch-node-icon arch-node-icon-fw" aria-hidden="true">FW</span>
+                                <span class="arch-label">LYRA</span>
+                            </button>
+
+                            <div class="arch-zone arch-zone-dmz">
+                                <span class="arch-zone-name">DMZ</span>
+                                <button type="button" class="arch-host arch-host-ubuntu arch-interactive" data-icon="U"
+                                    data-arch-node="meissa" aria-pressed="false"><span
+                                        class="arch-label">MEISSA</span></button>
+                            </div>
+
+                            <div class="arch-zone arch-zone-lan-right">
+                                <span class="arch-zone-name">LAN</span>
+                                <button type="button" class="arch-host arch-host-windows arch-interactive" data-icon="W"
+                                    data-arch-node="vega" aria-pressed="false"><span
+                                        class="arch-label">VEGA</span></button>
+                                <button type="button" class="arch-host arch-host-ubuntu arch-interactive" data-icon="U"
+                                    data-arch-node="sulafat" aria-pressed="false"><span
+                                        class="arch-label">SULAFAT</span></button>
+                                <button type="button" class="arch-host arch-host-client arch-interactive" data-icon="PC"
+                                    data-arch-node="pc-client-02" aria-pressed="false"><span
+                                        class="arch-label">PC-CLIENT-02</span></button>
+                            </div>
+
+                            <div class="arch-zone arch-zone-lan-left">
+                                <span class="arch-zone-name">LAN</span>
+                                <button type="button" class="arch-host arch-host-ubuntu arch-interactive" data-icon="U"
+                                    data-arch-node="bellatrix" aria-pressed="false"><span
+                                        class="arch-label">BELLATRIX</span></button>
+                                <button type="button" class="arch-host arch-host-windows arch-interactive" data-icon="W"
+                                    data-arch-node="rigel" aria-pressed="false"><span
+                                        class="arch-label">RIGEL</span></button>
+                                <button type="button" class="arch-host arch-host-client arch-interactive" data-icon="PC"
+                                    data-arch-node="pc-client-01" aria-pressed="false"><span
+                                        class="arch-label">PC-CLIENT-01</span></button>
+                            </div>
+                        </div>
+
+                        <div class="projet-arch-inspector" id="archInspector" aria-live="polite">
+                            <div class="arch-inspector-header">
+                                <h4 class="arch-inspector-title" data-arch-title>ORION</h4>
+                                <span class="arch-inspector-role" data-arch-role>Pare-feu principal</span>
+                            </div>
+                            <p class="arch-inspector-text" data-arch-text>Pare-feu pfSense du site principal :
+                                segmentation VLAN, règles inter-zones et terminaison du tunnel IPsec.</p>
+                            <div class="arch-inspector-grid">
+                                <div>
+                                    <p class="arch-inspector-label">Services</p>
+                                    <ul class="arch-inspector-list" data-arch-services>
+                                        <li>pfSense</li>
+                                        <li>Règles VLAN/DMZ</li>
+                                        <li>NAT</li>
+                                        <li>VPN IPsec</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="arch-inspector-label">Liens utiles</p>
+                                    <ul class="arch-inspector-links" data-arch-links>
+                                        <li><a href="assets/docs/DRT-%20ORION%20Consulting%20Group.pdf#page=16"
+                                                target="_blank" rel="noopener noreferrer">DRT - Tunnel IPsec</a></li>
+                                        <li><a href="assets/docs/DRT-%20ORION%20Consulting%20Group.pdf#page=32"
+                                                target="_blank" rel="noopener noreferrer">DRT - Règles pare-feu
+                                                ORION</a></li>
+                                        <li><a href="/procedures">Procédures réseau</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projet-panels">
+                        <article class="projet-panel">
+                            <h4>Objectif du projet</h4>
+                            <p>
+                                Concevoir une infrastructure multisites capable d'assurer l'accès inter-sites, le
+                                cloisonnement réseau par métier et la continuité d'activité en cas de défaillance du
+                                site principal.
+                            </p>
+                        </article>
+                        <article class="projet-panel">
+                            <h4>Mon rôle</h4>
+                            <ul>
+                                <li>Concevoir l'architecture réseau/système et le plan d'adressage.</li>
+                                <li>Déployer les VMs et configurer les services techniques.</li>
+                                <li>Sécuriser l'infrastructure (segmentation, droits, politiques).</li>
+                                <li>Rédiger la documentation opérationnelle et le DRT complet.</li>
+                            </ul>
+                        </article>
+                        <article class="projet-panel">
+                            <h4>Décisions techniques clés</h4>
+                            <ul>
+                                <li>Architecture en étoile autour de deux pare-feu pfSense (ORION/LYRA).</li>
+                                <li>Interconnexion sécurisée via tunnel VPN IPsec site-à-site.</li>
+                                <li>Segmentation VLAN 802.1Q avec filtrage inter-VLAN au pare-feu.</li>
+                                <li>Réplication AD et fichiers (DFS-R) pour la résilience inter-sites.</li>
+                            </ul>
+                        </article>
+                        <article class="projet-panel">
+                            <h4>Résultat & livrables</h4>
+                            <ul>
+                                <li>Infrastructure complète fonctionnelle, testée et reproductible.</li>
+                                <li>DRT version 2.0 de 50 pages (révision du 21/02/2026).</li>
+                                <li>Plan de reprise structuré + documentation d'exploitation détaillée.</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="projet-actions">
+                        <a href="/procedures" class="projet-action-btn">Voir les procédures liées</a>
+                        <a href="assets/docs/DRT-%20ORION%20Consulting%20Group.pdf" target="_blank"
+                            rel="noopener noreferrer" class="projet-action-btn projet-action-btn-secondary">Voir le DRT
+                            complet</a>
+                    </div>
+
+                </div>
+
+                <div class="projet-card" data-project-status="in-progress">
+
+                    <div class="projet-card-top">
+                        <div class="projet-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2L4 5v6c0 5.2 3.4 10 8 11 4.6-1 8-5.8 8-11V5l-8-3zm0 2.2l5.8 2.2v4.6c0 4.3-2.7 8.3-5.8 9.2-3.1-.9-5.8-4.9-5.8-9.2V6.4L12 4.2zM8 11h8v2H8v-2z" />
+                            </svg>
+                        </div>
+
+                        <div class="projet-head">
+                            <p class="projet-kicker">Cloud migration (Azure)</p>
+                            <h3 class="projet-card-title" id="projet-veridis-title">
+                                Groupe <span class="highlight">VERIDIS Life Sciences</span>
+                            </h3>
+                            <p class="projet-card-text">
+                                Projet orienté Azure et migration cloud pour moderniser le SI, améliorer la sécurité et
+                                préparer une exploitation hybride.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="projet-card-controls">
+                        <span class="projet-status projet-status-progress">En cours</span>
+                        <button type="button" class="projet-toggle-btn" data-projet-toggle aria-expanded="true">
+                            <span data-toggle-label>Réduire</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="projet-meta-grid">
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Statut</span>
+                            <strong>En cours</strong>
+                        </div>
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Orientation</span>
+                            <strong>Azure / Cloud</strong>
+                        </div>
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Périmètre</span>
+                            <strong>Migration progressive</strong>
+                        </div>
+                        <div class="projet-meta-item">
+                            <span class="projet-meta-label">Publication</span>
+                            <strong>Bientôt disponible</strong>
+                        </div>
+                    </div>
+
+                    <div class="projet-pill-list">
+                        <span class="projet-pill">Azure Virtual Network</span>
+                        <span class="projet-pill">Microsoft Entra ID</span>
+                        <span class="projet-pill">Sécurisation des accès</span>
+                        <span class="projet-pill">Migration des services</span>
+                        <span class="projet-pill">Supervision cloud</span>
+                    </div>
+
+                    <div class="projet-panels">
+                        <article class="projet-panel">
+                            <h4>Vision du projet</h4>
+                            <p>
+                                Déplacer progressivement les briques critiques vers Azure, sans rupture de service, avec
+                                une architecture hybride maîtrisée.
+                            </p>
+                        </article>
+                        <article class="projet-panel">
+                            <h4>Travaux en cours</h4>
+                            <ul>
+                                <li>Conception de l'architecture cible et du plan de migration.</li>
+                                <li>Définition des exigences sécurité et gouvernance.</li>
+                                <li>Préparation des premières vagues de bascule.</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="projet-actions">
+                        <a href="/contact" class="projet-action-btn">Me contacter pour en savoir plus</a>
+                    </div>
+
+                    <span class="projet-badge">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2a10 10 0 1010 10A10.01 10.01 0 0012 2zm1 11H7v-2h4V7h2z" />
+                        </svg>
+                        Projet en cours - publication prochainement
+                    </span>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Cookie banner placeholder -->
+    <div id="cookie-banner-placeholder"></div>
+
+</body>
+
+</html>
