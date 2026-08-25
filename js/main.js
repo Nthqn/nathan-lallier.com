@@ -599,6 +599,45 @@ function initContactForm() {
     });
 }
 
+// ===== HERO DROPDOWN (bouton "Mes réalisations") =====
+function initHeroDropdown() {
+    var dropdown = document.getElementById('realisationsDropdown');
+    var toggle = document.getElementById('realisationsDropdownToggle');
+    if (!dropdown || !toggle) return;
+
+    function closeDropdown() {
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function openDropdown() {
+        dropdown.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (dropdown.classList.contains('open')) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        if (dropdown.classList.contains('open') && !dropdown.contains(e.target)) {
+            closeDropdown();
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+            closeDropdown();
+            toggle.focus();
+        }
+    });
+}
+
 // ===== REALISATIONS PAGE =====
 function initRealisations() {
     var hasProcedures = Boolean(document.querySelector('#proceduresContainer'));
@@ -1136,6 +1175,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initCounters();
     initContactForm();
     initRealisations();
+    initHeroDropdown();
 });
 
 // ===== HEADER & FOOTER INCLUDES =====
