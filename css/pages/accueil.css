@@ -204,6 +204,72 @@ html.dark-mode .hero-description strong {
     flex-wrap: wrap;
     margin-bottom: 30px;
     animation: fadeInLeft 1s ease-out 0.8s both;
+    position: relative;
+    z-index: 2;
+}
+
+/* Dropdown "Mes réalisations" */
+.btn-dropdown {
+    position: relative;
+    display: inline-flex;
+}
+
+.btn-dropdown-toggle {
+    cursor: pointer;
+    font: inherit;
+}
+
+.btn-dropdown-toggle:hover svg {
+    transform: none;
+}
+
+.btn-dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+.btn-dropdown.open .btn-dropdown-toggle .btn-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.btn-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 200px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card-hover);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    z-index: 20;
+}
+
+.btn-dropdown.open .btn-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btn-dropdown-item {
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: var(--text-primary) !important;
+    text-decoration: none !important;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-dropdown-item:hover,
+.btn-dropdown-item:focus-visible {
+    background: #DD9933;
+    color: white !important;
 }
 
 /* Social Icons Hero */
@@ -520,6 +586,15 @@ html.dark-mode .hero-description strong {
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .btn-dropdown-menu {
+        left: 50%;
+        transform: translate(-50%, -8px);
+    }
+
+    .btn-dropdown.open .btn-dropdown-menu {
+        transform: translate(-50%, 0);
     }
 
     .hero-social-icons {

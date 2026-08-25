@@ -130,8 +130,22 @@
                         et l'intégration de l'IA en production.
                     </p>    
                     <div class="hero-buttons">
-                        <a href="/realisations" class="btn btn-secondary">Mes
-                            réalisations</a>
+                        <div class="btn-dropdown" id="realisationsDropdown">
+                            <button type="button" class="btn btn-secondary btn-dropdown-toggle"
+                                id="realisationsDropdownToggle" aria-haspopup="true" aria-expanded="false"
+                                aria-controls="realisationsDropdownMenu">
+                                Mes réalisations
+                                <svg class="btn-dropdown-arrow" viewBox="0 0 24 24">
+                                    <path d="M7 10l5 5 5-5z" />
+                                </svg>
+                            </button>
+                            <div class="btn-dropdown-menu" id="realisationsDropdownMenu" role="menu"
+                                aria-labelledby="realisationsDropdownToggle">
+                                <a href="/realisations" class="btn-dropdown-item" role="menuitem">Mes projets</a>
+                                <a href="/procedures" class="btn-dropdown-item" role="menuitem">Mes procédures</a>
+                            </div>
+                        </div>
+                        <a href="/parcours" class="btn btn-secondary">Mon parcours</a>
                     </div>
                     <div class="hero-social-icons">
                         <a href="https://www.linkedin.com/in/nathan-lallier" target="_blank" rel="noopener noreferrer"
