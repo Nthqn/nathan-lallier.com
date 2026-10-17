@@ -7,7 +7,7 @@ import { githubLabs } from './lib/github-loader';
 // Procédures copiées depuis Proton Drive par `npm run sync`
 const procedures = defineCollection({
   loader: glob({
-    pattern: '**/markdown/*.md',
+    pattern: '*/*/*.md',
     base: './src/content/procedures',
     generateId: ({ entry, data }) =>
       `${entry.split('/')[0].toLowerCase()}/${slugify(String(data.titre ?? entry))}`,

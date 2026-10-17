@@ -2,8 +2,8 @@
 // Copie les procédures Markdown (et leurs images) depuis la bibliothèque Proton Drive
 // vers src/content/procedures, puis liste celles qui restent à valider.
 //
-// Publication : une procédure est publiée si elle a un PDF à côté de son dossier markdown/
-// (procédure finalisée), ou si sa référence ou son titre figure dans procedures-validees.txt.
+// Publication : toute procédure rangée dans PLATEFORME/PILIER/ est publiée.
+// Les brouillons restent dans _A_FAIRE, qui n'est jamais publié et sert de liste à valider.
 //
 // Usage : npm run sync [-- "C:\chemin\vers\Procèdures"]
 
@@ -18,9 +18,9 @@ const SOURCE = path.resolve(
   path.join(os.homedir(), 'Proton Drive', 'Ciaiuu', 'My files', 'Procèdures')
 );
 const DEST = path.join(ROOT, 'src', 'content', 'procedures');
-const VALIDATED_FILE = path.join(ROOT, 'procedures-validees.txt');
 const PENDING_FILE = path.join(ROOT, 'procedures-a-valider.md');
-const IGNORED_DIRS = new Set(['_A_VERIFIER', 'word', 'banque-images', 'Packet Tracer']);
+const DRAFTS_DIR = '_A_FAIRE';
+const IGNORED_DIRS = new Set([DRAFTS_DIR, 'word', 'banque-images', 'Packet Tracer']);
 
 export function slugify(value) {
   return value
@@ -47,18 +47,20 @@ function listMarkdown(dir) {
     if (IGNORED_DIRS.has(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) found.push(...listMarkdown(full));
-    else if (entry.name.endsWith('.md') && path.basename(dir) === 'markdown') found.push(full);
+    // Une procédure se trouve exactement dans PLATEFORME/PILIER/<titre>.md
+    else if (entry.name.endsWith('.md') && path.relative(SOURCE, full).split(path.sep).length === 3) found.push(full);
   }
   return found;
 }
 
-function readValidated() {
-  if (!fs.existsSync(VALIDATED_FILE)) return new Set();
-  return new Set(
-    fs.readFileSync(VALIDATED_FILE, 'utf8').split(/\r?\n/)
-      .map((line) => line.replace(/#.*/, '').trim().toLowerCase())
-      .filter(Boolean)
-  );
+// Brouillons : tous les .md de _A_FAIRE, quelle que soit leur profondeur
+function listDrafts(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return listDrafts(full);
+    return entry.name.endsWith('.md') && !entry.name.startsWith('Points') ? [full] : [];
+  });
 }
 
 // Hors blocs de code : titres décalés d'un niveau (le titre de la page est le seul h1)
@@ -123,39 +125,38 @@ function main() {
     console.error(`Dossier source introuvable : ${SOURCE}`);
     process.exit(1);
   }
-  const validated = readValidated();
   const entries = listMarkdown(SOURCE).map((file) => {
     const raw = fs.readFileSync(file, 'utf8');
     const data = readFrontmatter(raw) || {};
     const title = (data.titre || path.basename(file, '.md')).normalize('NFC');
     const platform = path.relative(SOURCE, file).split(path.sep)[0].toLowerCase();
-    const pdf = path.join(path.dirname(path.dirname(file)), path.basename(file, '.md') + '.pdf');
-    const published = fs.existsSync(pdf)
-      || validated.has((data.reference || '').toLowerCase())
-      || validated.has(title.toLowerCase());
-    return { file, raw, data, title, platform, slug: slugify(title), published };
+    return { file, raw, data, title, platform, slug: slugify(title) };
   });
 
   const linkMap = new Map(
-    entries.filter((e) => e.published).map((e) => [e.slug, `/procedures/${e.platform}/${e.slug}`])
+    entries.map((e) => [e.slug, `/procedures/${e.platform}/${e.slug}`])
   );
 
   fs.rmSync(DEST, { recursive: true, force: true });
   let images = 0;
-  for (const entry of entries.filter((e) => e.published)) {
+  for (const entry of entries) {
     const dst = path.join(DEST, path.relative(SOURCE, entry.file));
     fs.mkdirSync(path.dirname(dst), { recursive: true });
     fs.writeFileSync(dst, transform(entry.raw, linkMap));
     images += copyImages(entry.raw, entry.file);
   }
 
-  const pending = entries.filter((e) => !e.published)
+  const pending = listDrafts(path.join(SOURCE, DRAFTS_DIR))
+    .map((file) => {
+      const data = readFrontmatter(fs.readFileSync(file, 'utf8')) || {};
+      return { file, data, title: (data.titre || path.basename(file, '.md')).normalize('NFC') };
+    })
     .sort((a, b) => (a.data.reference || '').localeCompare(b.data.reference || '') || a.title.localeCompare(b.title));
   const lines = [
     '# Procédures à valider',
     '',
-    'Ces procédures existent en Markdown mais ne sont pas publiées, car elles n\'ont pas encore de PDF.',
-    'Pour en publier une, ajoute son titre (ou sa référence) sur une ligne de `procedures-validees.txt`, puis relance `npm run sync`.',
+    `Ces brouillons sont dans \`${DRAFTS_DIR}\` et ne sont pas publiés.`,
+    'Pour en publier un, range-le dans `PLATEFORME/PILIER/` avec sa référence, puis relance `npm run sync`.',
     '',
     `Dernière mise à jour : ${new Date().toLocaleDateString('fr-FR')} · ${pending.length} procédure(s)`,
     '',
