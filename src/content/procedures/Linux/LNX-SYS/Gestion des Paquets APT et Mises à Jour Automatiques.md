@@ -355,5 +355,5 @@ Ubuntu Pro active ESM-Infra et ESM-Apps, qui prolongent les correctifs de sécur
 - [Installation d'un Serveur Ubuntu en Ligne de Commande (CLI)](/procedures/linux/installation-dun-serveur-ubuntu-en-ligne-de-commande-cli) *(Sources et Ubuntu Pro à l'installation)*
 - [Installation de Docker et Portainer sur Ubuntu](/procedures/linux/installation-de-docker-et-portainer-sur-ubuntu) *(Exemple de dépôt tiers signé)*
 - Planification des Tâches avec cron et les Timers systemd *(Timers apt-daily et fenêtres de maintenance)*
-- Gestion des Services avec systemd et journald *(Redémarrage des services après mise à jour)*
+- [Gestion des Services avec systemd et journald](/procedures/linux/gestion-des-services-avec-systemd-et-journald) *(Redémarrage des services après mise à jour)*
 - [Configuration d'un Proxy Squid sur OPNSense](/procedures/pare-feu/configuration-dun-proxy-squid-sur-opnsense) *(Accès sortant aux dépôts par proxy)*

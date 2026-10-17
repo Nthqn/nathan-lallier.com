@@ -326,4 +326,4 @@ sudo systemctl restart fail2ban
 - [Accès distant sécurisé via WireGuard](/procedures/pare-feu/acces-distant-securise-via-wireguard) *(Administration sans exposer SSH)*
 - Intégration d'un Serveur Linux à Active Directory (realmd et SSSD) *(Connexion SSH avec des comptes AD)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Suivi des connexions et des bannissements)*
-- Gestion des Services avec systemd et journald *(Unités ssh.service et ssh.socket)*
+- [Gestion des Services avec systemd et journald](/procedures/linux/gestion-des-services-avec-systemd-et-journald) *(Unités ssh.service et ssh.socket)*

@@ -312,7 +312,7 @@ sudo grep -r "Test de centralisation" /var/log/remote/srv-lnx-01/
 
 ## Procédures Liées
 
-- Gestion des Services avec systemd et journald *(Fonctionnement de journald et lecture locale des journaux)*
+- [Gestion des Services avec systemd et journald](/procedures/linux/gestion-des-services-avec-systemd-et-journald) *(Fonctionnement de journald et lecture locale des journaux)*
 - Synchronisation de l'Heure avec chrony *(Horodatages cohérents entre les serveurs)*
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(Ouverture du port 514 sur le collecteur)*
 - [Gestion des Disques avec LVM et Montage par fstab](/procedures/linux/gestion-des-disques-avec-lvm-et-montage-par-fstab) *(Volume dédié aux journaux centralisés)*

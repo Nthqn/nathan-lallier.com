@@ -420,7 +420,7 @@ Pour déployer le même script et son timer sur tous les serveurs, un playbook A
 ## Procédures Liées
 
 - [Planification des Tâches avec cron et les Timers systemd *(Planification des scripts)*
-- Gestion des Services avec systemd et journald *(Lecture des journaux des scripts)*
+- [Gestion des Services avec systemd et journald](/procedures/linux/gestion-des-services-avec-systemd-et-journald) *(Lecture des journaux des scripts)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Remontée des alertes des scripts vers le collecteur)*
 - Déploiement Continu avec GitHub Actions *(Contrôle automatique des scripts par ShellCheck)*
 - Configuration de PowerShell Remoting et de JEA *(Équivalent de l'automatisation côté Windows)*

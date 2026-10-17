@@ -341,6 +341,6 @@ sudo systemctl stop run-XXXX.timer
 
 - [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Protection du service SSH en complément du filtrage)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Collecte des paquets rejetés)*
-- Gestion des Services avec systemd et journald *(Pilotage des services ufw et nftables, lecture du journal noyau)*
+- [Gestion des Services avec systemd et journald](/procedures/linux/gestion-des-services-avec-systemd-et-journald) *(Pilotage des services ufw et nftables, lecture du journal noyau)*
 - [Installation de Docker et Portainer sur Ubuntu](/procedures/linux/installation-de-docker-et-portainer-sur-ubuntu) *(Interaction entre Docker et le pare-feu local)*
 - [Configuration d'un Serveur Passerelle Internet](/procedures/windows/configuration-dun-serveur-passerelle-internet) *(Usage de nftables pour le NAT et le forward)*
