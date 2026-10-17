@@ -43,6 +43,8 @@
   "cisco/Routage-Inter-VLANs-avec-un-Routeur-Router-on-a-Stick.pdf": "Routage Inter-VLANs avec un Routeur (Router-on-a-Stick)",
   "cisco/Routage-Statique.pdf": "Routage Statique",
   "linux/Acces-distant-securise-via-WireGuard.pdf": "Accès distant sécurisé via WireGuard",
+  "linux/Automatisation-de-lAdministration-avec-des-Scripts-Bash.pdf": "Automatisation de l'Administration avec des Scripts Bash",
+  "linux/Configuration-Reseau-avec-Netplan.pdf": "Configuration Réseau avec Netplan",
   "linux/Configuration-du-Pare-feu-avec-UFW-et-nftables.pdf": "Configuration du Pare-feu avec UFW et nftables",
   "linux/Configuration-dun-Proxy-Squid-sur-OPNSense.pdf": "Configuration d'un Proxy Squid sur OPNSense",
   "linux/Deploiement-Serveur-DNS-Local-Bind9-Conteneurise.pdf": "Déploiement Serveur DNS Local Bind9 (Conteneurisé)",

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-17T11:32:34.862185Z",
-  "total_documents": 82,
+  "generated_at": "2026-10-17T12:44:06.767501Z",
+  "total_documents": 84,
   "categories": [
     {
       "id": "azure",
@@ -16,7 +16,7 @@
     },
     {
       "id": "linux",
-      "count": 20
+      "count": 22
     },
     {
       "id": "windows",
@@ -33,7 +33,7 @@
       "url": "assets/docs/azure/Configuration-dAzCopy-pour-Transfert-de-Donnees.pdf",
       "size_bytes": 736411,
       "size_human": "719.2 KB",
-      "updated_at": "2026-10-17T11:07:58.586793Z"
+      "updated_at": "2026-10-17T12:33:16.908403Z"
     },
     {
       "id": "azure__Configuration-dAzure-DNS.pdf",
@@ -44,7 +44,7 @@
       "url": "assets/docs/azure/Configuration-dAzure-DNS.pdf",
       "size_bytes": 311120,
       "size_human": "303.8 KB",
-      "updated_at": "2026-10-17T11:08:06.764985Z"
+      "updated_at": "2026-10-17T12:33:25.707998Z"
     },
     {
       "id": "azure__Configuration-de-Entra-ID-Connect-Hybrid-Identity.pdf",
@@ -55,7 +55,7 @@
       "url": "assets/docs/azure/Configuration-de-Entra-ID-Connect-Hybrid-Identity.pdf",
       "size_bytes": 315840,
       "size_human": "308.4 KB",
-      "updated_at": "2026-10-17T11:08:14.383316Z"
+      "updated_at": "2026-10-17T12:33:33.063715Z"
     },
     {
       "id": "azure__Configuration-de-la-Replication-LRS-GRS-RA-GRS.pdf",
@@ -66,7 +66,7 @@
       "url": "assets/docs/azure/Configuration-de-la-Replication-LRS-GRS-RA-GRS.pdf",
       "size_bytes": 342000,
       "size_human": "334.0 KB",
-      "updated_at": "2026-10-17T11:08:23.601341Z"
+      "updated_at": "2026-10-17T12:33:41.578790Z"
     },
     {
       "id": "azure__Configuration-des-Access-Tiers-et-Lifecycle-Policies.pdf",
@@ -77,7 +77,7 @@
       "url": "assets/docs/azure/Configuration-des-Access-Tiers-et-Lifecycle-Policies.pdf",
       "size_bytes": 347820,
       "size_human": "339.7 KB",
-      "updated_at": "2026-10-17T11:08:32.942800Z"
+      "updated_at": "2026-10-17T12:33:50.598481Z"
     },
     {
       "id": "azure__Configuration-des-Adresses-IP-Publiques.pdf",
@@ -88,7 +88,7 @@
       "url": "assets/docs/azure/Configuration-des-Adresses-IP-Publiques.pdf",
       "size_bytes": 266306,
       "size_human": "260.1 KB",
-      "updated_at": "2026-10-17T11:08:41.339276Z"
+      "updated_at": "2026-10-17T12:33:57.602097Z"
     },
     {
       "id": "azure__Configuration-des-Budgets-et-Alertes-de-Couts.pdf",
@@ -99,7 +99,7 @@
       "url": "assets/docs/azure/Configuration-des-Budgets-et-Alertes-de-Couts.pdf",
       "size_bytes": 248638,
       "size_human": "242.8 KB",
-      "updated_at": "2026-10-17T11:08:49.647810Z"
+      "updated_at": "2026-10-17T12:34:04.737714Z"
     },
     {
       "id": "azure__Configuration-des-Locks-sur-les-Ressources.pdf",
@@ -110,7 +110,7 @@
       "url": "assets/docs/azure/Configuration-des-Locks-sur-les-Ressources.pdf",
       "size_bytes": 435229,
       "size_human": "425.0 KB",
-      "updated_at": "2026-10-17T11:08:56.991617Z"
+      "updated_at": "2026-10-17T12:34:13.920712Z"
     },
     {
       "id": "azure__Configuration-des-Management-Group.pdf",
@@ -121,7 +121,7 @@
       "url": "assets/docs/azure/Configuration-des-Management-Group.pdf",
       "size_bytes": 251465,
       "size_human": "245.6 KB",
-      "updated_at": "2026-10-17T11:09:05.298709Z"
+      "updated_at": "2026-10-17T12:34:21.247870Z"
     },
     {
       "id": "azure__Configuration-des-Routes-Definies-par-lUtilisateur-UDR.pdf",
@@ -132,7 +132,7 @@
       "url": "assets/docs/azure/Configuration-des-Routes-Definies-par-lUtilisateur-UDR.pdf",
       "size_bytes": 308569,
       "size_human": "301.3 KB",
-      "updated_at": "2026-10-17T11:09:12.963246Z"
+      "updated_at": "2026-10-17T12:34:29.329314Z"
     },
     {
       "id": "azure__Configuration-du-Conditional-Access-et-MFA.pdf",
@@ -143,7 +143,7 @@
       "url": "assets/docs/azure/Configuration-du-Conditional-Access-et-MFA.pdf",
       "size_bytes": 305123,
       "size_human": "298.0 KB",
-      "updated_at": "2026-10-17T11:09:21.138662Z"
+      "updated_at": "2026-10-17T12:34:36.827752Z"
     },
     {
       "id": "azure__Configuration-du-Soft-Delete-et-Versioning.pdf",
@@ -154,7 +154,7 @@
       "url": "assets/docs/azure/Configuration-du-Soft-Delete-et-Versioning.pdf",
       "size_bytes": 358714,
       "size_human": "350.3 KB",
-      "updated_at": "2026-10-17T11:09:29.715146Z"
+      "updated_at": "2026-10-17T12:34:45.628258Z"
     },
     {
       "id": "azure__Configuration-dun-Load-Balancer.pdf",
@@ -165,7 +165,7 @@
       "url": "assets/docs/azure/Configuration-dun-Load-Balancer.pdf",
       "size_bytes": 381362,
       "size_human": "372.4 KB",
-      "updated_at": "2026-10-17T11:09:39.878499Z"
+      "updated_at": "2026-10-17T12:34:53.775625Z"
     },
     {
       "id": "azure__Creation-dun-Groupe-de-Ressources.pdf",
@@ -176,7 +176,7 @@
       "url": "assets/docs/azure/Creation-dun-Groupe-de-Ressources.pdf",
       "size_bytes": 253456,
       "size_human": "247.5 KB",
-      "updated_at": "2026-10-17T11:09:46.946275Z"
+      "updated_at": "2026-10-17T12:35:01.811701Z"
     },
     {
       "id": "azure__Deploiement-dAzure-Bastion.pdf",
@@ -187,7 +187,7 @@
       "url": "assets/docs/azure/Deploiement-dAzure-Bastion.pdf",
       "size_bytes": 344801,
       "size_human": "336.7 KB",
-      "updated_at": "2026-10-17T11:09:56.665118Z"
+      "updated_at": "2026-10-17T12:35:09.366658Z"
     },
     {
       "id": "azure__Deploiement-dun-Azure-File-Sync.pdf",
@@ -198,7 +198,7 @@
       "url": "assets/docs/azure/Deploiement-dun-Azure-File-Sync.pdf",
       "size_bytes": 415674,
       "size_human": "405.9 KB",
-      "updated_at": "2026-10-17T11:10:05.628569Z"
+      "updated_at": "2026-10-17T12:35:19.436389Z"
     },
     {
       "id": "azure__Deploiement-dun-Compte-de-Stockage.pdf",
@@ -209,7 +209,7 @@
       "url": "assets/docs/azure/Deploiement-dun-Compte-de-Stockage.pdf",
       "size_bytes": 352816,
       "size_human": "344.5 KB",
-      "updated_at": "2026-10-17T11:10:13.597145Z"
+      "updated_at": "2026-10-17T12:35:28.545909Z"
     },
     {
       "id": "azure__Deploiement-dun-Reseau-Virtuel.pdf",
@@ -220,7 +220,7 @@
       "url": "assets/docs/azure/Deploiement-dun-Reseau-Virtuel.pdf",
       "size_bytes": 298839,
       "size_human": "291.8 KB",
-      "updated_at": "2026-10-17T11:10:22.227468Z"
+      "updated_at": "2026-10-17T12:35:35.724521Z"
     },
     {
       "id": "azure__Deploiement-et-Montage-dun-Partage-Azure-Files.pdf",
@@ -231,7 +231,7 @@
       "url": "assets/docs/azure/Deploiement-et-Montage-dun-Partage-Azure-Files.pdf",
       "size_bytes": 595310,
       "size_human": "581.4 KB",
-      "updated_at": "2026-10-17T11:10:30.572376Z"
+      "updated_at": "2026-10-17T12:35:44.578127Z"
     },
     {
       "id": "azure__Diagnostic-Reseau-avec-Network-Watcher.pdf",
@@ -242,7 +242,7 @@
       "url": "assets/docs/azure/Diagnostic-Reseau-avec-Network-Watcher.pdf",
       "size_bytes": 370512,
       "size_human": "361.8 KB",
-      "updated_at": "2026-10-17T11:10:38.132614Z"
+      "updated_at": "2026-10-17T12:35:51.634204Z"
     },
     {
       "id": "azure__Gestion-de-la-Securite-Reseau-NSG.pdf",
@@ -253,7 +253,7 @@
       "url": "assets/docs/azure/Gestion-de-la-Securite-Reseau-NSG.pdf",
       "size_bytes": 323225,
       "size_human": "315.6 KB",
-      "updated_at": "2026-10-17T11:10:47.775761Z"
+      "updated_at": "2026-10-17T12:35:59.093119Z"
     },
     {
       "id": "azure__Gestion-des-Managed-Identities-System-User-Assigned.pdf",
@@ -264,7 +264,7 @@
       "url": "assets/docs/azure/Gestion-des-Managed-Identities-System-User-Assigned.pdf",
       "size_bytes": 256504,
       "size_human": "250.5 KB",
-      "updated_at": "2026-10-17T11:10:57.024728Z"
+      "updated_at": "2026-10-17T12:36:06.541379Z"
     },
     {
       "id": "azure__Gestion-des-Policy-Azure.pdf",
@@ -275,7 +275,7 @@
       "url": "assets/docs/azure/Gestion-des-Policy-Azure.pdf",
       "size_bytes": 312714,
       "size_human": "305.4 KB",
-      "updated_at": "2026-10-17T11:11:04.119368Z"
+      "updated_at": "2026-10-17T12:36:13.107497Z"
     },
     {
       "id": "azure__Gestion-des-SAS-Tokens-et-Access-Keys.pdf",
@@ -286,7 +286,7 @@
       "url": "assets/docs/azure/Gestion-des-SAS-Tokens-et-Access-Keys.pdf",
       "size_bytes": 338775,
       "size_human": "330.8 KB",
-      "updated_at": "2026-10-17T11:25:14.703571Z"
+      "updated_at": "2026-10-17T12:36:22.168700Z"
     },
     {
       "id": "azure__Gestion-des-Secrets-avec-Azure-Key-Vault.pdf",
@@ -297,7 +297,7 @@
       "url": "assets/docs/azure/Gestion-des-Secrets-avec-Azure-Key-Vault.pdf",
       "size_bytes": 366378,
       "size_human": "357.8 KB",
-      "updated_at": "2026-10-17T11:25:24.253874Z"
+      "updated_at": "2026-10-17T12:36:31.638992Z"
     },
     {
       "id": "azure__Gestion-des-Tags-et-Strategie-de-Tagging.pdf",
@@ -308,7 +308,7 @@
       "url": "assets/docs/azure/Gestion-des-Tags-et-Strategie-de-Tagging.pdf",
       "size_bytes": 355533,
       "size_human": "347.2 KB",
-      "updated_at": "2026-10-17T11:25:31.531147Z"
+      "updated_at": "2026-10-17T12:36:40.012140Z"
     },
     {
       "id": "azure__Gestion-des-Utilisateurs-et-des-Roles.pdf",
@@ -319,7 +319,7 @@
       "url": "assets/docs/azure/Gestion-des-Utilisateurs-et-des-Roles.pdf",
       "size_bytes": 353701,
       "size_human": "345.4 KB",
-      "updated_at": "2026-10-17T11:25:39.197825Z"
+      "updated_at": "2026-10-17T12:36:50.590281Z"
     },
     {
       "id": "azure__Mise-en-Place-dun-Peering-Appairage-VNet.pdf",
@@ -330,7 +330,7 @@
       "url": "assets/docs/azure/Mise-en-Place-dun-Peering-Appairage-VNet.pdf",
       "size_bytes": 274028,
       "size_human": "267.6 KB",
-      "updated_at": "2026-10-17T11:25:46.097158Z"
+      "updated_at": "2026-10-17T12:36:58.814992Z"
     },
     {
       "id": "azure__Securisation-PaaS-via-Private-Endpoint.pdf",
@@ -341,7 +341,7 @@
       "url": "assets/docs/azure/Securisation-PaaS-via-Private-Endpoint.pdf",
       "size_bytes": 321884,
       "size_human": "314.3 KB",
-      "updated_at": "2026-10-17T11:25:53.166372Z"
+      "updated_at": "2026-10-17T12:37:07.476759Z"
     },
     {
       "id": "cisco__ACLs-Standard-et-Etendues.pdf",
@@ -350,9 +350,9 @@
       "file_name": "ACLs-Standard-et-Etendues.pdf",
       "relative_path": "cisco/ACLs-Standard-et-Etendues.pdf",
       "url": "assets/docs/cisco/ACLs-Standard-et-Etendues.pdf",
-      "size_bytes": 220436,
-      "size_human": "215.3 KB",
-      "updated_at": "2026-10-17T11:26:00.398954Z"
+      "size_bytes": 227403,
+      "size_human": "222.1 KB",
+      "updated_at": "2026-10-17T12:37:17.968518Z"
     },
     {
       "id": "cisco__Agregation-de-Liens-avec-EtherChannel-LACP.pdf",
@@ -361,9 +361,9 @@
       "file_name": "Agregation-de-Liens-avec-EtherChannel-LACP.pdf",
       "relative_path": "cisco/Agregation-de-Liens-avec-EtherChannel-LACP.pdf",
       "url": "assets/docs/cisco/Agregation-de-Liens-avec-EtherChannel-LACP.pdf",
-      "size_bytes": 337831,
-      "size_human": "329.9 KB",
-      "updated_at": "2026-10-17T11:26:07.384552Z"
+      "size_bytes": 344231,
+      "size_human": "336.2 KB",
+      "updated_at": "2026-10-17T12:37:25.472617Z"
     },
     {
       "id": "cisco__Configuration-Initiale-et-Securisation-dun-Routeur-Cisco.pdf",
@@ -372,9 +372,9 @@
       "file_name": "Configuration-Initiale-et-Securisation-dun-Routeur-Cisco.pdf",
       "relative_path": "cisco/Configuration-Initiale-et-Securisation-dun-Routeur-Cisco.pdf",
       "url": "assets/docs/cisco/Configuration-Initiale-et-Securisation-dun-Routeur-Cisco.pdf",
-      "size_bytes": 232775,
-      "size_human": "227.3 KB",
-      "updated_at": "2026-10-17T11:26:15.703120Z"
+      "size_bytes": 238307,
+      "size_human": "232.7 KB",
+      "updated_at": "2026-10-17T12:37:33.876932Z"
     },
     {
       "id": "cisco__Configuration-Initiale-et-Securisation-dun-Switch-Cisco.pdf",
@@ -383,9 +383,9 @@
       "file_name": "Configuration-Initiale-et-Securisation-dun-Switch-Cisco.pdf",
       "relative_path": "cisco/Configuration-Initiale-et-Securisation-dun-Switch-Cisco.pdf",
       "url": "assets/docs/cisco/Configuration-Initiale-et-Securisation-dun-Switch-Cisco.pdf",
-      "size_bytes": 232071,
-      "size_human": "226.6 KB",
-      "updated_at": "2026-10-17T11:26:24.031778Z"
+      "size_bytes": 239623,
+      "size_human": "234.0 KB",
+      "updated_at": "2026-10-17T12:37:40.508020Z"
     },
     {
       "id": "cisco__DHCP-pour-Multiples-VLANs.pdf",
@@ -394,9 +394,9 @@
       "file_name": "DHCP-pour-Multiples-VLANs.pdf",
       "relative_path": "cisco/DHCP-pour-Multiples-VLANs.pdf",
       "url": "assets/docs/cisco/DHCP-pour-Multiples-VLANs.pdf",
-      "size_bytes": 234836,
-      "size_human": "229.3 KB",
-      "updated_at": "2026-10-17T11:26:30.919367Z"
+      "size_bytes": 239374,
+      "size_human": "233.8 KB",
+      "updated_at": "2026-10-17T12:37:48.250407Z"
     },
     {
       "id": "cisco__DHCP-Relay.pdf",
@@ -405,9 +405,9 @@
       "file_name": "DHCP-Relay.pdf",
       "relative_path": "cisco/DHCP-Relay.pdf",
       "url": "assets/docs/cisco/DHCP-Relay.pdf",
-      "size_bytes": 223323,
-      "size_human": "218.1 KB",
-      "updated_at": "2026-10-17T11:26:38.004560Z"
+      "size_bytes": 228128,
+      "size_human": "222.8 KB",
+      "updated_at": "2026-10-17T12:37:56.594583Z"
     },
     {
       "id": "cisco__DHCP-sur-un-Routeur-Cisco.pdf",
@@ -416,9 +416,9 @@
       "file_name": "DHCP-sur-un-Routeur-Cisco.pdf",
       "relative_path": "cisco/DHCP-sur-un-Routeur-Cisco.pdf",
       "url": "assets/docs/cisco/DHCP-sur-un-Routeur-Cisco.pdf",
-      "size_bytes": 242836,
-      "size_human": "237.1 KB",
-      "updated_at": "2026-10-17T11:26:46.158925Z"
+      "size_bytes": 246887,
+      "size_human": "241.1 KB",
+      "updated_at": "2026-10-17T12:38:04.544505Z"
     },
     {
       "id": "cisco__NAT-Dynamique-et-PAT.pdf",
@@ -427,9 +427,9 @@
       "file_name": "NAT-Dynamique-et-PAT.pdf",
       "relative_path": "cisco/NAT-Dynamique-et-PAT.pdf",
       "url": "assets/docs/cisco/NAT-Dynamique-et-PAT.pdf",
-      "size_bytes": 308782,
-      "size_human": "301.5 KB",
-      "updated_at": "2026-10-17T11:26:54.656239Z"
+      "size_bytes": 313778,
+      "size_human": "306.4 KB",
+      "updated_at": "2026-10-17T12:38:12.941308Z"
     },
     {
       "id": "cisco__Prevention-des-Boucles-Reseau-avec-Spanning-Tree-Protocol-STP.pdf",
@@ -438,9 +438,9 @@
       "file_name": "Prevention-des-Boucles-Reseau-avec-Spanning-Tree-Protocol-STP.pdf",
       "relative_path": "cisco/Prevention-des-Boucles-Reseau-avec-Spanning-Tree-Protocol-STP.pdf",
       "url": "assets/docs/cisco/Prevention-des-Boucles-Reseau-avec-Spanning-Tree-Protocol-STP.pdf",
-      "size_bytes": 215571,
-      "size_human": "210.5 KB",
-      "updated_at": "2026-10-17T11:27:03.085360Z"
+      "size_bytes": 220708,
+      "size_human": "215.5 KB",
+      "updated_at": "2026-10-17T12:38:20.043427Z"
     },
     {
       "id": "cisco__Redondance-Routeur-avec-HSRP.pdf",
@@ -449,9 +449,9 @@
       "file_name": "Redondance-Routeur-avec-HSRP.pdf",
       "relative_path": "cisco/Redondance-Routeur-avec-HSRP.pdf",
       "url": "assets/docs/cisco/Redondance-Routeur-avec-HSRP.pdf",
-      "size_bytes": 203788,
-      "size_human": "199.0 KB",
-      "updated_at": "2026-10-17T11:27:10.109300Z"
+      "size_bytes": 208387,
+      "size_human": "203.5 KB",
+      "updated_at": "2026-10-17T12:38:26.828936Z"
     },
     {
       "id": "cisco__Routage-Dynamique-avec-EIGRP.pdf",
@@ -460,9 +460,9 @@
       "file_name": "Routage-Dynamique-avec-EIGRP.pdf",
       "relative_path": "cisco/Routage-Dynamique-avec-EIGRP.pdf",
       "url": "assets/docs/cisco/Routage-Dynamique-avec-EIGRP.pdf",
-      "size_bytes": 237506,
-      "size_human": "231.9 KB",
-      "updated_at": "2026-10-17T11:27:17.382351Z"
+      "size_bytes": 242074,
+      "size_human": "236.4 KB",
+      "updated_at": "2026-10-17T12:38:35.221126Z"
     },
     {
       "id": "cisco__Routage-Dynamique-avec-OSPF.pdf",
@@ -471,9 +471,9 @@
       "file_name": "Routage-Dynamique-avec-OSPF.pdf",
       "relative_path": "cisco/Routage-Dynamique-avec-OSPF.pdf",
       "url": "assets/docs/cisco/Routage-Dynamique-avec-OSPF.pdf",
-      "size_bytes": 232545,
-      "size_human": "227.1 KB",
-      "updated_at": "2026-10-17T11:27:26.026407Z"
+      "size_bytes": 238399,
+      "size_human": "232.8 KB",
+      "updated_at": "2026-10-17T12:38:43.693885Z"
     },
     {
       "id": "cisco__Routage-Inter-VLANs-avec-un-Routeur-Router-on-a-Stick.pdf",
@@ -482,9 +482,9 @@
       "file_name": "Routage-Inter-VLANs-avec-un-Routeur-Router-on-a-Stick.pdf",
       "relative_path": "cisco/Routage-Inter-VLANs-avec-un-Routeur-Router-on-a-Stick.pdf",
       "url": "assets/docs/cisco/Routage-Inter-VLANs-avec-un-Routeur-Router-on-a-Stick.pdf",
-      "size_bytes": 276864,
-      "size_human": "270.4 KB",
-      "updated_at": "2026-10-17T11:27:33.295017Z"
+      "size_bytes": 281218,
+      "size_human": "274.6 KB",
+      "updated_at": "2026-10-17T12:38:50.979021Z"
     },
     {
       "id": "cisco__Routage-Statique.pdf",
@@ -493,9 +493,9 @@
       "file_name": "Routage-Statique.pdf",
       "relative_path": "cisco/Routage-Statique.pdf",
       "url": "assets/docs/cisco/Routage-Statique.pdf",
-      "size_bytes": 222556,
-      "size_human": "217.3 KB",
-      "updated_at": "2026-10-17T11:27:40.346097Z"
+      "size_bytes": 228311,
+      "size_human": "223.0 KB",
+      "updated_at": "2026-10-17T12:38:59.226572Z"
     },
     {
       "id": "CV-Nathan-LALLIER.pdf",
@@ -526,9 +526,20 @@
       "file_name": "Acces-distant-securise-via-WireGuard.pdf",
       "relative_path": "linux/Acces-distant-securise-via-WireGuard.pdf",
       "url": "assets/docs/linux/Acces-distant-securise-via-WireGuard.pdf",
-      "size_bytes": 269922,
-      "size_human": "263.6 KB",
-      "updated_at": "2026-10-17T11:27:47.138068Z"
+      "size_bytes": 276366,
+      "size_human": "269.9 KB",
+      "updated_at": "2026-10-17T12:39:06.551352Z"
+    },
+    {
+      "id": "linux__Automatisation-de-lAdministration-avec-des-Scripts-Bash.pdf",
+      "category": "linux",
+      "title": "Automatisation de l'Administration avec des Scripts Bash",
+      "file_name": "Automatisation-de-lAdministration-avec-des-Scripts-Bash.pdf",
+      "relative_path": "linux/Automatisation-de-lAdministration-avec-des-Scripts-Bash.pdf",
+      "url": "assets/docs/linux/Automatisation-de-lAdministration-avec-des-Scripts-Bash.pdf",
+      "size_bytes": 344204,
+      "size_human": "336.1 KB",
+      "updated_at": "2026-10-17T12:39:15.924796Z"
     },
     {
       "id": "linux__Configuration-du-Pare-feu-avec-UFW-et-nftables.pdf",
@@ -539,7 +550,7 @@
       "url": "assets/docs/linux/Configuration-du-Pare-feu-avec-UFW-et-nftables.pdf",
       "size_bytes": 330384,
       "size_human": "322.6 KB",
-      "updated_at": "2026-10-17T11:27:56.421678Z"
+      "updated_at": "2026-10-17T12:39:26.220984Z"
     },
     {
       "id": "linux__Configuration-dun-Proxy-Squid-sur-OPNSense.pdf",
@@ -548,9 +559,20 @@
       "file_name": "Configuration-dun-Proxy-Squid-sur-OPNSense.pdf",
       "relative_path": "linux/Configuration-dun-Proxy-Squid-sur-OPNSense.pdf",
       "url": "assets/docs/linux/Configuration-dun-Proxy-Squid-sur-OPNSense.pdf",
-      "size_bytes": 497942,
-      "size_human": "486.3 KB",
-      "updated_at": "2026-10-17T11:28:05.090931Z"
+      "size_bytes": 502001,
+      "size_human": "490.2 KB",
+      "updated_at": "2026-10-17T12:39:34.258910Z"
+    },
+    {
+      "id": "linux__Configuration-Reseau-avec-Netplan.pdf",
+      "category": "linux",
+      "title": "Configuration Réseau avec Netplan",
+      "file_name": "Configuration-Reseau-avec-Netplan.pdf",
+      "relative_path": "linux/Configuration-Reseau-avec-Netplan.pdf",
+      "url": "assets/docs/linux/Configuration-Reseau-avec-Netplan.pdf",
+      "size_bytes": 282562,
+      "size_human": "275.9 KB",
+      "updated_at": "2026-10-17T12:39:43.722447Z"
     },
     {
       "id": "linux__Deploiement-de-GLPI-Conteneurise.pdf",
@@ -559,9 +581,9 @@
       "file_name": "Deploiement-de-GLPI-Conteneurise.pdf",
       "relative_path": "linux/Deploiement-de-GLPI-Conteneurise.pdf",
       "url": "assets/docs/linux/Deploiement-de-GLPI-Conteneurise.pdf",
-      "size_bytes": 325011,
-      "size_human": "317.4 KB",
-      "updated_at": "2026-10-17T11:28:11.833565Z"
+      "size_bytes": 329570,
+      "size_human": "321.8 KB",
+      "updated_at": "2026-10-17T12:39:50.638289Z"
     },
     {
       "id": "linux__Deploiement-de-Zabbix-Conteneurise.pdf",
@@ -570,9 +592,9 @@
       "file_name": "Deploiement-de-Zabbix-Conteneurise.pdf",
       "relative_path": "linux/Deploiement-de-Zabbix-Conteneurise.pdf",
       "url": "assets/docs/linux/Deploiement-de-Zabbix-Conteneurise.pdf",
-      "size_bytes": 367686,
-      "size_human": "359.1 KB",
-      "updated_at": "2026-10-17T11:28:18.756539Z"
+      "size_bytes": 373886,
+      "size_human": "365.1 KB",
+      "updated_at": "2026-10-17T12:39:58.309042Z"
     },
     {
       "id": "linux__Deploiement-dun-Serveur-NFS.pdf",
@@ -583,7 +605,7 @@
       "url": "assets/docs/linux/Deploiement-dun-Serveur-NFS.pdf",
       "size_bytes": 278466,
       "size_human": "271.9 KB",
-      "updated_at": "2026-10-17T11:28:28.006304Z"
+      "updated_at": "2026-10-17T12:40:06.563097Z"
     },
     {
       "id": "linux__Deploiement-Serveur-DNS-Local-Bind9-Conteneurise.pdf",
@@ -592,9 +614,9 @@
       "file_name": "Deploiement-Serveur-DNS-Local-Bind9-Conteneurise.pdf",
       "relative_path": "linux/Deploiement-Serveur-DNS-Local-Bind9-Conteneurise.pdf",
       "url": "assets/docs/linux/Deploiement-Serveur-DNS-Local-Bind9-Conteneurise.pdf",
-      "size_bytes": 290662,
-      "size_human": "283.8 KB",
-      "updated_at": "2026-10-17T11:28:35.817477Z"
+      "size_bytes": 297219,
+      "size_human": "290.3 KB",
+      "updated_at": "2026-10-17T12:40:13.946723Z"
     },
     {
       "id": "linux__Filtrage-DNS-et-IP-avec-pfBlockerNG.pdf",
@@ -603,9 +625,9 @@
       "file_name": "Filtrage-DNS-et-IP-avec-pfBlockerNG.pdf",
       "relative_path": "linux/Filtrage-DNS-et-IP-avec-pfBlockerNG.pdf",
       "url": "assets/docs/linux/Filtrage-DNS-et-IP-avec-pfBlockerNG.pdf",
-      "size_bytes": 288609,
-      "size_human": "281.8 KB",
-      "updated_at": "2026-10-17T11:28:42.441416Z"
+      "size_bytes": 293497,
+      "size_human": "286.6 KB",
+      "updated_at": "2026-10-17T12:40:22.019580Z"
     },
     {
       "id": "linux__Installation-de-Docker-et-Portainer-sur-Ubuntu.pdf",
@@ -614,9 +636,9 @@
       "file_name": "Installation-de-Docker-et-Portainer-sur-Ubuntu.pdf",
       "relative_path": "linux/Installation-de-Docker-et-Portainer-sur-Ubuntu.pdf",
       "url": "assets/docs/linux/Installation-de-Docker-et-Portainer-sur-Ubuntu.pdf",
-      "size_bytes": 313795,
-      "size_human": "306.4 KB",
-      "updated_at": "2026-10-17T11:28:49.573768Z"
+      "size_bytes": 320532,
+      "size_human": "313.0 KB",
+      "updated_at": "2026-10-17T12:40:29.713490Z"
     },
     {
       "id": "linux__Installation-de-GLPI.pdf",
@@ -625,9 +647,9 @@
       "file_name": "Installation-de-GLPI.pdf",
       "relative_path": "linux/Installation-de-GLPI.pdf",
       "url": "assets/docs/linux/Installation-de-GLPI.pdf",
-      "size_bytes": 310209,
-      "size_human": "302.9 KB",
-      "updated_at": "2026-10-17T11:28:57.055212Z"
+      "size_bytes": 314488,
+      "size_human": "307.1 KB",
+      "updated_at": "2026-10-17T12:40:37.727016Z"
     },
     {
       "id": "linux__Installation-de-Zabbix.pdf",
@@ -636,9 +658,9 @@
       "file_name": "Installation-de-Zabbix.pdf",
       "relative_path": "linux/Installation-de-Zabbix.pdf",
       "url": "assets/docs/linux/Installation-de-Zabbix.pdf",
-      "size_bytes": 410734,
-      "size_human": "401.1 KB",
-      "updated_at": "2026-10-17T11:29:04.327353Z"
+      "size_bytes": 416536,
+      "size_human": "406.8 KB",
+      "updated_at": "2026-10-17T12:40:45.893521Z"
     },
     {
       "id": "linux__Installation-dun-Serveur-de-Fichiers-Samba.pdf",
@@ -647,9 +669,9 @@
       "file_name": "Installation-dun-Serveur-de-Fichiers-Samba.pdf",
       "relative_path": "linux/Installation-dun-Serveur-de-Fichiers-Samba.pdf",
       "url": "assets/docs/linux/Installation-dun-Serveur-de-Fichiers-Samba.pdf",
-      "size_bytes": 230423,
-      "size_human": "225.0 KB",
-      "updated_at": "2026-10-17T11:29:11.365556Z"
+      "size_bytes": 236496,
+      "size_human": "231.0 KB",
+      "updated_at": "2026-10-17T12:40:52.818370Z"
     },
     {
       "id": "linux__Installation-dun-Serveur-Debian-en-Ligne-de-Commande-CLI.pdf",
@@ -658,9 +680,9 @@
       "file_name": "Installation-dun-Serveur-Debian-en-Ligne-de-Commande-CLI.pdf",
       "relative_path": "linux/Installation-dun-Serveur-Debian-en-Ligne-de-Commande-CLI.pdf",
       "url": "assets/docs/linux/Installation-dun-Serveur-Debian-en-Ligne-de-Commande-CLI.pdf",
-      "size_bytes": 291709,
-      "size_human": "284.9 KB",
-      "updated_at": "2026-10-17T11:29:18.970110Z"
+      "size_bytes": 297557,
+      "size_human": "290.6 KB",
+      "updated_at": "2026-10-17T12:40:59.736430Z"
     },
     {
       "id": "linux__Installation-dun-Serveur-DHCP-sous-Linux-ISC-DHCP-Server.pdf",
@@ -669,9 +691,9 @@
       "file_name": "Installation-dun-Serveur-DHCP-sous-Linux-ISC-DHCP-Server.pdf",
       "relative_path": "linux/Installation-dun-Serveur-DHCP-sous-Linux-ISC-DHCP-Server.pdf",
       "url": "assets/docs/linux/Installation-dun-Serveur-DHCP-sous-Linux-ISC-DHCP-Server.pdf",
-      "size_bytes": 213127,
-      "size_human": "208.1 KB",
-      "updated_at": "2026-10-17T11:29:26.122075Z"
+      "size_bytes": 219975,
+      "size_human": "214.8 KB",
+      "updated_at": "2026-10-17T12:41:07.563294Z"
     },
     {
       "id": "linux__Installation-dun-Serveur-Ubuntu-en-Ligne-de-Commande-CLI.pdf",
@@ -680,9 +702,9 @@
       "file_name": "Installation-dun-Serveur-Ubuntu-en-Ligne-de-Commande-CLI.pdf",
       "relative_path": "linux/Installation-dun-Serveur-Ubuntu-en-Ligne-de-Commande-CLI.pdf",
       "url": "assets/docs/linux/Installation-dun-Serveur-Ubuntu-en-Ligne-de-Commande-CLI.pdf",
-      "size_bytes": 251879,
-      "size_human": "246.0 KB",
-      "updated_at": "2026-10-17T11:29:32.884559Z"
+      "size_bytes": 258589,
+      "size_human": "252.5 KB",
+      "updated_at": "2026-10-17T12:41:14.951205Z"
     },
     {
       "id": "linux__Installation-dun-Serveur-Web-LAMP.pdf",
@@ -691,9 +713,9 @@
       "file_name": "Installation-dun-Serveur-Web-LAMP.pdf",
       "relative_path": "linux/Installation-dun-Serveur-Web-LAMP.pdf",
       "url": "assets/docs/linux/Installation-dun-Serveur-Web-LAMP.pdf",
-      "size_bytes": 223459,
-      "size_human": "218.2 KB",
-      "updated_at": "2026-10-17T11:29:39.481915Z"
+      "size_bytes": 229062,
+      "size_human": "223.7 KB",
+      "updated_at": "2026-10-17T12:41:21.538305Z"
     },
     {
       "id": "linux__Installation-dun-Serveur-Web-LEMP-Nginx.pdf",
@@ -702,9 +724,9 @@
       "file_name": "Installation-dun-Serveur-Web-LEMP-Nginx.pdf",
       "relative_path": "linux/Installation-dun-Serveur-Web-LEMP-Nginx.pdf",
       "url": "assets/docs/linux/Installation-dun-Serveur-Web-LEMP-Nginx.pdf",
-      "size_bytes": 276347,
-      "size_human": "269.9 KB",
-      "updated_at": "2026-10-17T11:29:46.615800Z"
+      "size_bytes": 282770,
+      "size_human": "276.1 KB",
+      "updated_at": "2026-10-17T12:41:29.854825Z"
     },
     {
       "id": "linux__Installation-et-Configuration-Initiale-de-pfSense.pdf",
@@ -713,9 +735,9 @@
       "file_name": "Installation-et-Configuration-Initiale-de-pfSense.pdf",
       "relative_path": "linux/Installation-et-Configuration-Initiale-de-pfSense.pdf",
       "url": "assets/docs/linux/Installation-et-Configuration-Initiale-de-pfSense.pdf",
-      "size_bytes": 246675,
-      "size_human": "240.9 KB",
-      "updated_at": "2026-10-17T11:29:54.637249Z"
+      "size_bytes": 250590,
+      "size_human": "244.7 KB",
+      "updated_at": "2026-10-17T12:41:37.849890Z"
     },
     {
       "id": "linux__Mise-en-Place-dun-Volume-RAID-5-Logiciel-sous-Linux.pdf",
@@ -724,9 +746,9 @@
       "file_name": "Mise-en-Place-dun-Volume-RAID-5-Logiciel-sous-Linux.pdf",
       "relative_path": "linux/Mise-en-Place-dun-Volume-RAID-5-Logiciel-sous-Linux.pdf",
       "url": "assets/docs/linux/Mise-en-Place-dun-Volume-RAID-5-Logiciel-sous-Linux.pdf",
-      "size_bytes": 276786,
-      "size_human": "270.3 KB",
-      "updated_at": "2026-10-17T11:30:01.986106Z"
+      "size_bytes": 281741,
+      "size_human": "275.1 KB",
+      "updated_at": "2026-10-17T12:41:45.698128Z"
     },
     {
       "id": "linux__Segmentation-Reseau-VLANs-sur-pfSense.pdf",
@@ -735,9 +757,9 @@
       "file_name": "Segmentation-Reseau-VLANs-sur-pfSense.pdf",
       "relative_path": "linux/Segmentation-Reseau-VLANs-sur-pfSense.pdf",
       "url": "assets/docs/linux/Segmentation-Reseau-VLANs-sur-pfSense.pdf",
-      "size_bytes": 327288,
-      "size_human": "319.6 KB",
-      "updated_at": "2026-10-17T11:30:10.341511Z"
+      "size_bytes": 331788,
+      "size_human": "324.0 KB",
+      "updated_at": "2026-10-17T12:41:52.712469Z"
     },
     {
       "id": "windows__Ajout-dun-Controleur-de-Domaine-Secondaire.pdf",
@@ -746,9 +768,9 @@
       "file_name": "Ajout-dun-Controleur-de-Domaine-Secondaire.pdf",
       "relative_path": "windows/Ajout-dun-Controleur-de-Domaine-Secondaire.pdf",
       "url": "assets/docs/windows/Ajout-dun-Controleur-de-Domaine-Secondaire.pdf",
-      "size_bytes": 257674,
-      "size_human": "251.6 KB",
-      "updated_at": "2026-10-17T11:30:17.338955Z"
+      "size_bytes": 262909,
+      "size_human": "256.7 KB",
+      "updated_at": "2026-10-17T12:42:00.492693Z"
     },
     {
       "id": "windows__Configuration-dAppLocker-par-GPO.pdf",
@@ -757,9 +779,9 @@
       "file_name": "Configuration-dAppLocker-par-GPO.pdf",
       "relative_path": "windows/Configuration-dAppLocker-par-GPO.pdf",
       "url": "assets/docs/windows/Configuration-dAppLocker-par-GPO.pdf",
-      "size_bytes": 754067,
-      "size_human": "736.4 KB",
-      "updated_at": "2026-10-17T11:30:25.244978Z"
+      "size_bytes": 760583,
+      "size_human": "742.8 KB",
+      "updated_at": "2026-10-17T12:42:09.758499Z"
     },
     {
       "id": "windows__Configuration-dun-Serveur-de-Temps-NTP-pour-un-Domaine-AD.pdf",
@@ -768,9 +790,9 @@
       "file_name": "Configuration-dun-Serveur-de-Temps-NTP-pour-un-Domaine-AD.pdf",
       "relative_path": "windows/Configuration-dun-Serveur-de-Temps-NTP-pour-un-Domaine-AD.pdf",
       "url": "assets/docs/windows/Configuration-dun-Serveur-de-Temps-NTP-pour-un-Domaine-AD.pdf",
-      "size_bytes": 186127,
-      "size_human": "181.8 KB",
-      "updated_at": "2026-10-17T11:30:31.750203Z"
+      "size_bytes": 193049,
+      "size_human": "188.5 KB",
+      "updated_at": "2026-10-17T12:42:15.915854Z"
     },
     {
       "id": "windows__Configuration-dun-Serveur-DNS-Dedie.pdf",
@@ -779,9 +801,9 @@
       "file_name": "Configuration-dun-Serveur-DNS-Dedie.pdf",
       "relative_path": "windows/Configuration-dun-Serveur-DNS-Dedie.pdf",
       "url": "assets/docs/windows/Configuration-dun-Serveur-DNS-Dedie.pdf",
-      "size_bytes": 238815,
-      "size_human": "233.2 KB",
-      "updated_at": "2026-10-17T11:30:39.747683Z"
+      "size_bytes": 246328,
+      "size_human": "240.6 KB",
+      "updated_at": "2026-10-17T12:42:22.987820Z"
     },
     {
       "id": "windows__Configuration-dun-Serveur-Passerelle-Internet.pdf",
@@ -790,9 +812,9 @@
       "file_name": "Configuration-dun-Serveur-Passerelle-Internet.pdf",
       "relative_path": "windows/Configuration-dun-Serveur-Passerelle-Internet.pdf",
       "url": "assets/docs/windows/Configuration-dun-Serveur-Passerelle-Internet.pdf",
-      "size_bytes": 221560,
-      "size_human": "216.4 KB",
-      "updated_at": "2026-10-17T11:30:46.740459Z"
+      "size_bytes": 227344,
+      "size_human": "222.0 KB",
+      "updated_at": "2026-10-17T12:42:30.601589Z"
     },
     {
       "id": "windows__Deploiement-Automatique-de-lAgent-GLPI-via-GPO.pdf",
@@ -801,9 +823,9 @@
       "file_name": "Deploiement-Automatique-de-lAgent-GLPI-via-GPO.pdf",
       "relative_path": "windows/Deploiement-Automatique-de-lAgent-GLPI-via-GPO.pdf",
       "url": "assets/docs/windows/Deploiement-Automatique-de-lAgent-GLPI-via-GPO.pdf",
-      "size_bytes": 318285,
-      "size_human": "310.8 KB",
-      "updated_at": "2026-10-17T11:30:53.639889Z"
+      "size_bytes": 322139,
+      "size_human": "314.6 KB",
+      "updated_at": "2026-10-17T12:42:37.933306Z"
     },
     {
       "id": "windows__Deploiement-dun-Serveur-WDS-pour-lInstallation-dOS-par-le-Reseau-PXE.pdf",
@@ -812,9 +834,9 @@
       "file_name": "Deploiement-dun-Serveur-WDS-pour-lInstallation-dOS-par-le-Reseau-PXE.pdf",
       "relative_path": "windows/Deploiement-dun-Serveur-WDS-pour-lInstallation-dOS-par-le-Reseau-PXE.pdf",
       "url": "assets/docs/windows/Deploiement-dun-Serveur-WDS-pour-lInstallation-dOS-par-le-Reseau-PXE.pdf",
-      "size_bytes": 226295,
-      "size_human": "221.0 KB",
-      "updated_at": "2026-10-17T11:31:01.798766Z"
+      "size_bytes": 230402,
+      "size_human": "225.0 KB",
+      "updated_at": "2026-10-17T12:42:45.816636Z"
     },
     {
       "id": "windows__Gestion-des-Objets-dans-Active-Directory.pdf",
@@ -823,9 +845,9 @@
       "file_name": "Gestion-des-Objets-dans-Active-Directory.pdf",
       "relative_path": "windows/Gestion-des-Objets-dans-Active-Directory.pdf",
       "url": "assets/docs/windows/Gestion-des-Objets-dans-Active-Directory.pdf",
-      "size_bytes": 250380,
-      "size_human": "244.5 KB",
-      "updated_at": "2026-10-17T11:31:10.192977Z"
+      "size_bytes": 257598,
+      "size_human": "251.6 KB",
+      "updated_at": "2026-10-17T12:42:53.877654Z"
     },
     {
       "id": "windows__Installation-de-Windows-Server-2025.pdf",
@@ -834,9 +856,9 @@
       "file_name": "Installation-de-Windows-Server-2025.pdf",
       "relative_path": "windows/Installation-de-Windows-Server-2025.pdf",
       "url": "assets/docs/windows/Installation-de-Windows-Server-2025.pdf",
-      "size_bytes": 248003,
-      "size_human": "242.2 KB",
-      "updated_at": "2026-10-17T11:31:17.671543Z"
+      "size_bytes": 255055,
+      "size_human": "249.1 KB",
+      "updated_at": "2026-10-17T12:43:01.643050Z"
     },
     {
       "id": "windows__Installation-dun-Client-Windows-11-Professionnel.pdf",
@@ -845,9 +867,9 @@
       "file_name": "Installation-dun-Client-Windows-11-Professionnel.pdf",
       "relative_path": "windows/Installation-dun-Client-Windows-11-Professionnel.pdf",
       "url": "assets/docs/windows/Installation-dun-Client-Windows-11-Professionnel.pdf",
-      "size_bytes": 169743,
-      "size_human": "165.8 KB",
-      "updated_at": "2026-10-17T11:31:24.007779Z"
+      "size_bytes": 177551,
+      "size_human": "173.4 KB",
+      "updated_at": "2026-10-17T12:43:07.727299Z"
     },
     {
       "id": "windows__Installation-dun-Controleur-de-Domaine-Active-Directory.pdf",
@@ -856,9 +878,9 @@
       "file_name": "Installation-dun-Controleur-de-Domaine-Active-Directory.pdf",
       "relative_path": "windows/Installation-dun-Controleur-de-Domaine-Active-Directory.pdf",
       "url": "assets/docs/windows/Installation-dun-Controleur-de-Domaine-Active-Directory.pdf",
-      "size_bytes": 518859,
-      "size_human": "506.7 KB",
-      "updated_at": "2026-10-17T11:31:31.370361Z"
+      "size_bytes": 523714,
+      "size_human": "511.4 KB",
+      "updated_at": "2026-10-17T12:43:14.840117Z"
     },
     {
       "id": "windows__Installation-et-Configuration-dun-Serveur-DHCP.pdf",
@@ -867,9 +889,9 @@
       "file_name": "Installation-et-Configuration-dun-Serveur-DHCP.pdf",
       "relative_path": "windows/Installation-et-Configuration-dun-Serveur-DHCP.pdf",
       "url": "assets/docs/windows/Installation-et-Configuration-dun-Serveur-DHCP.pdf",
-      "size_bytes": 219134,
-      "size_human": "214.0 KB",
-      "updated_at": "2026-10-17T11:31:38.897632Z"
+      "size_bytes": 225457,
+      "size_human": "220.2 KB",
+      "updated_at": "2026-10-17T12:43:21.289395Z"
     },
     {
       "id": "windows__Mappage-de-Lecteurs-Reseau-avec-les-Strategies-de-Groupe-GPO.pdf",
@@ -878,9 +900,9 @@
       "file_name": "Mappage-de-Lecteurs-Reseau-avec-les-Strategies-de-Groupe-GPO.pdf",
       "relative_path": "windows/Mappage-de-Lecteurs-Reseau-avec-les-Strategies-de-Groupe-GPO.pdf",
       "url": "assets/docs/windows/Mappage-de-Lecteurs-Reseau-avec-les-Strategies-de-Groupe-GPO.pdf",
-      "size_bytes": 245922,
-      "size_human": "240.2 KB",
-      "updated_at": "2026-10-17T11:31:45.453888Z"
+      "size_bytes": 251973,
+      "size_human": "246.1 KB",
+      "updated_at": "2026-10-17T12:43:27.634152Z"
     },
     {
       "id": "windows__Mise-en-Place-de-la-Haute-Disponibilite-DHCP-Failover.pdf",
@@ -889,9 +911,9 @@
       "file_name": "Mise-en-Place-de-la-Haute-Disponibilite-DHCP-Failover.pdf",
       "relative_path": "windows/Mise-en-Place-de-la-Haute-Disponibilite-DHCP-Failover.pdf",
       "url": "assets/docs/windows/Mise-en-Place-de-la-Haute-Disponibilite-DHCP-Failover.pdf",
-      "size_bytes": 233207,
-      "size_human": "227.7 KB",
-      "updated_at": "2026-10-17T11:31:52.129357Z"
+      "size_bytes": 237684,
+      "size_human": "232.1 KB",
+      "updated_at": "2026-10-17T12:43:35.405932Z"
     },
     {
       "id": "windows__Mise-en-Place-de-la-Redondance-DNS-avec-une-Zone-Secondaire.pdf",
@@ -900,9 +922,9 @@
       "file_name": "Mise-en-Place-de-la-Redondance-DNS-avec-une-Zone-Secondaire.pdf",
       "relative_path": "windows/Mise-en-Place-de-la-Redondance-DNS-avec-une-Zone-Secondaire.pdf",
       "url": "assets/docs/windows/Mise-en-Place-de-la-Redondance-DNS-avec-une-Zone-Secondaire.pdf",
-      "size_bytes": 214648,
-      "size_human": "209.6 KB",
-      "updated_at": "2026-10-17T11:32:00.033906Z"
+      "size_bytes": 221009,
+      "size_human": "215.8 KB",
+      "updated_at": "2026-10-17T12:43:42.809397Z"
     },
     {
       "id": "windows__Mise-en-Place-dun-Serveur-de-Fichiers-avec-Partages-et-Securite-NTFS.pdf",
@@ -911,9 +933,9 @@
       "file_name": "Mise-en-Place-dun-Serveur-de-Fichiers-avec-Partages-et-Securite-NTFS.pdf",
       "relative_path": "windows/Mise-en-Place-dun-Serveur-de-Fichiers-avec-Partages-et-Securite-NTFS.pdf",
       "url": "assets/docs/windows/Mise-en-Place-dun-Serveur-de-Fichiers-avec-Partages-et-Securite-NTFS.pdf",
-      "size_bytes": 242790,
-      "size_human": "237.1 KB",
-      "updated_at": "2026-10-17T11:32:08.264838Z"
+      "size_bytes": 249273,
+      "size_human": "243.4 KB",
+      "updated_at": "2026-10-17T12:43:54.223479Z"
     },
     {
       "id": "windows__Mise-en-Place-dun-Volume-a-Tolerance-de-Panne-RAID.pdf",
@@ -922,9 +944,9 @@
       "file_name": "Mise-en-Place-dun-Volume-a-Tolerance-de-Panne-RAID.pdf",
       "relative_path": "windows/Mise-en-Place-dun-Volume-a-Tolerance-de-Panne-RAID.pdf",
       "url": "assets/docs/windows/Mise-en-Place-dun-Volume-a-Tolerance-de-Panne-RAID.pdf",
-      "size_bytes": 248101,
-      "size_human": "242.3 KB",
-      "updated_at": "2026-10-17T11:32:16.494872Z"
+      "size_bytes": 256218,
+      "size_human": "250.2 KB",
+      "updated_at": "2026-10-17T12:44:01.606654Z"
     }
   ]
 }
