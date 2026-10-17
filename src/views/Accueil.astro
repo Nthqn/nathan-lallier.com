@@ -104,7 +104,6 @@ const jsonLd = {
     </section>
 
     <section class="section" aria-labelledby="projets-titre">
-      <span class="deco deco-nuage" style="right:30%;top:-50px;width:220px;height:150px" aria-hidden="true"></span>
       <div class="section-head">
         <h2 id="projets-titre" class="title-lg">{T.projetsTitre[0]} <span class="highlight">{T.projetsTitre[1]}</span></h2>
         <a href={route('projets', lang)} class="link-more">{T.tousProjets}</a>
@@ -114,8 +113,7 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="section bande" aria-labelledby="procedures-titre">
-      <span class="deco deco-circuit" style="left:-150px;top:-40px;width:240px;height:240px" aria-hidden="true"></span>
+    <section class="section" aria-labelledby="procedures-titre">
       <div class="section-head">
         <h2 id="procedures-titre" class="title-lg">{T.procTitre[0]} <span class="highlight">{T.procTitre[1]}</span></h2>
         <a href="/procedures" class="link-more" hreflang={lang === 'en' ? 'fr' : undefined}>{T.toutesProcs(procedures.length)}</a>

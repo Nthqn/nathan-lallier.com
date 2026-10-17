@@ -20,6 +20,16 @@ const { title, description = descriptionSite(lang), image = '/icon-512.png', typ
 const fullTitle = title === SITE.nom ? `${SITE.nom} | ${poste(lang)}` : `${title} | ${SITE.nom}`;
 const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/'), Astro.site);
 const alt = alternates(Astro.url.pathname);
+
+// Illustrations de fond : même série sur toutes les pages, décalée selon l'adresse pour varier d'une page à l'autre
+const MOTIFS = ['serveur', 'nuage', 'bouclier', 'terminal', 'globe', 'circuit', 'engrenage', 'reseau'];
+const decalage = [...Astro.url.pathname].reduce((n, c) => n + c.charCodeAt(0), 0);
+const decor = [6, 19, 32, 45, 58, 71, 84].map((top, i) => ({
+  motif: MOTIFS[(i + decalage) % MOTIFS.length],
+  top,
+  taille: [210, 170, 240, 190, 220, 180, 200][i],
+  rotation: [-8, 6, -4, 10, -6, 4, -10][i],
+}));
 const imageUrl = new URL(image, Astro.site);
 ---
 <!doctype html>
@@ -68,6 +78,9 @@ const imageUrl = new URL(image, Astro.site);
     <a href="#contenu" class="skip-link">{t.skip}</a>
     <Header lang={lang} alt={alt} />
     <main id="contenu" tabindex="-1">
+      <div class="decor" aria-hidden="true">
+        {decor.map((d) => <span style={`--m:url('/deco/${d.motif}.svg');top:${d.top}%;--t:${d.taille}px;--r:${d.rotation}deg`}></span>)}
+      </div>
       <slot />
     </main>
     <Footer lang={lang} />

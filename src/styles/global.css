@@ -418,22 +418,19 @@ main { position: relative; isolation: isolate; overflow-x: clip; }
 .projects-grid > .project-card:nth-child(even) .cover-tags { color: var(--teal-text); }
 .legal .legal-card:nth-child(even) .legal-num { background: var(--teal-text); }
 
-/* Fond turquoise en fondu derrière une section sur deux, avec un motif sur le côté */
-.bande { position: relative; }
-.bande::before {
-  content: ''; position: absolute; z-index: -2; pointer-events: none;
-  top: -120px; bottom: -120px; left: 50%; width: 100vw; transform: translateX(-50%);
-  /* Fondu progressif en haut et en bas : la couleur arrive sans bord net */
-  background: linear-gradient(to bottom, transparent, var(--teal-band) 28%, var(--teal-band) 72%, transparent);
-}
-.bande::after {
-  content: ''; position: absolute; z-index: -1; pointer-events: none; right: -40px; bottom: -30px; width: 230px; height: 230px;
-  background: var(--deco); -webkit-mask: url('/deco/circuit.svg') center / contain no-repeat; mask: url('/deco/circuit.svg') center / contain no-repeat;
-}
-
 /* Carte en bleu nuit, réutilisable sur chaque page */
 .carte-nuit { background: var(--navy); color: var(--on-navy); box-shadow: none; }
 .carte-nuit dt { color: var(--on-navy-muted) !important; }
 .carte-nuit dd { color: var(--on-navy); }
 .carte-nuit > div, .carte-nuit dl > div { border-color: rgba(255, 255, 255, 0.12) !important; }
-@media (max-width: 760px) { .bande::after { display: none; } }
+
+/* Calque d'illustrations réparties sur toute la hauteur de la page, en alternant les côtés */
+.decor { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.decor span {
+  position: absolute; width: var(--t, 200px); aspect-ratio: 1; background: var(--deco);
+  -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat;
+  transform: rotate(var(--r, 0deg));
+}
+.decor span:nth-child(odd) { left: max(-70px, calc(50% - 720px)); }
+.decor span:nth-child(even) { right: max(-70px, calc(50% - 720px)); }
+@media (max-width: 760px) { .decor { display: none; } }
