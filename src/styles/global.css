@@ -314,7 +314,7 @@ html.dark-mode .theme-toggle .icon-moon { display: none; }
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; }
 .project-card { overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
 .project-cover {
-  position: relative; height: 160px; padding: 18px 20px 10px; display: grid; place-items: center; overflow: hidden;
+  position: relative; height: 64px; padding: 0 20px; display: flex; align-items: center; overflow: hidden;
   background: radial-gradient(var(--deco) 1.2px, transparent 1.3px) 0 0/16px 16px, var(--teal-soft);
 }
 .project-cover img { width: 100%; height: 100%; object-fit: cover; }
@@ -395,6 +395,7 @@ html.dark-mode .theme-toggle .icon-moon { display: none; }
 /* ===== Deux couleurs : turquoise sur fond blanc, orange sur fond crème ===== */
 /* Surfaces blanches : cartes, en-tête, pied de page */
 .card .highlight, .site-header .brand span, .site-footer .highlight { color: var(--teal-display); }
+.project-card .highlight { color: var(--accent); }
 .card .eyebrow, .card .link-more, .list-action, .site-footer a:hover { color: var(--teal-text); }
 .card .tag { color: var(--teal-text); background: var(--teal-soft); }
 .list-icon { background: var(--teal-soft); }

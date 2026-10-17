@@ -25,12 +25,12 @@ export const poste = (lang: 'fr' | 'en') => (lang === 'en' ? SITE.posteEn : SITE
 export const description = (lang: 'fr' | 'en') => (lang === 'en' ? SITE.descriptionEn : SITE.description);
 
 // Plateformes du catalogue, dans l'ordre d'affichage des filtres
-export const PLATEFORMES: Record<string, { label: string; icon: string }> = {
+export const PLATEFORMES: Record<string, { label: string; labelEn?: string; icon: string }> = {
   azure: { label: 'Azure', icon: 'azure' },
   linux: { label: 'Linux', icon: 'linux' },
   windows: { label: 'Windows', icon: 'windows' },
   cisco: { label: 'Cisco', icon: 'cisco' },
-  'pare-feu': { label: 'Pare-feu', icon: 'pare-feu' },
+  'pare-feu': { label: 'Pare-feu', labelEn: 'Firewall', icon: 'pare-feu' },
 };
 
 // Piliers de la convention de nommage (deuxième code de la référence)

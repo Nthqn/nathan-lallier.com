@@ -36,8 +36,6 @@ const projets = defineCollection({
     annee: z.number(),
     ordre: z.number().default(0),
     depot: z.string().optional(),
-    // Dessin de la carte quand il n'y a pas de couverture : multisite, migration, reseau
-    illustration: z.string().optional(),
     technologies: z.array(z.string()).default([]),
     faits: z.array(z.object({ label: z.string(), valeur: z.string() })).default([]),
     besoin: z.string().optional(),

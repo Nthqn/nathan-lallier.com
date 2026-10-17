@@ -92,7 +92,7 @@ const jsonLd = {
         <div class="portrait-anneau" aria-hidden="true"></div>
         <Image src={photo} alt="Nathan LALLIER" widths={[320, 520]} sizes="(max-width: 900px) 280px, 360px" class="portrait-photo" loading="eager" fetchpriority="high" />
         {Object.entries(PLATEFORMES).map(([key, p], i) => (
-          <span class={`portrait-badge portrait-badge-${i + 1}`}><PlatformIcon plateforme={key} size={20} />{p.label}</span>
+          <span class={`portrait-badge portrait-badge-${i + 1}`}><PlatformIcon plateforme={key} size={20} />{lang === 'en' ? p.labelEn ?? p.label : p.label}</span>
         ))}
       </div>
     </section>
@@ -120,7 +120,7 @@ const jsonLd = {
       </div>
       <div class="card list reveal">
         {dernieres.map((p) => (
-          <ProcedureRow procedure={p} lang={lang} detail={`${PLATEFORMES[p.plateforme]?.label} · ${T.revisee(formatDate(p.revisionDate, lang))}`} />
+          <ProcedureRow procedure={p} lang={lang} detail={`${lang === 'en' ? PLATEFORMES[p.plateforme]?.labelEn ?? PLATEFORMES[p.plateforme]?.label : PLATEFORMES[p.plateforme]?.label} · ${T.revisee(formatDate(p.revisionDate, lang))}`} />
         ))}
       </div>
     </section>
@@ -191,9 +191,11 @@ const jsonLd = {
   .portrait-badge-2 { bottom: 8%; right: 2%; }
   .portrait-badge-3 { top: 10%; left: -6%; }
   .portrait-badge-4 { bottom: 24%; left: -9%; }
+  .portrait-badge-5 { top: 47%; right: -12%; }
   @media (prefers-reduced-motion: no-preference) {
     .portrait-badge { animation: flotte 6s ease-in-out infinite; }
     .portrait-badge-2, .portrait-badge-4 { animation-delay: -3s; }
+    .portrait-badge-5 { animation-delay: -1.5s; }
     @keyframes flotte { 50% { transform: translateY(-6px); } }
   }
   .chiffres { display: grid; grid-template-columns: repeat(3, 1fr);  }
@@ -240,6 +242,6 @@ const jsonLd = {
     .chiffres > div + div { border-left: 0; border-top: 1px solid var(--border-color); }
     .portrait-badge { font-size: 0.78rem; }
     .portrait-badge-3, .portrait-badge-4 { left: -2%; }
-    .portrait-badge-1, .portrait-badge-2 { right: -2%; }
+    .portrait-badge-1, .portrait-badge-2, .portrait-badge-5 { right: -2%; }
   }
 </style>
