@@ -1,11 +1,12 @@
 ---
 titre: "Orion"
 titreAccent: "Consulting Group"
-resume: "Infrastructure d'entreprise sur deux sites, avec segmentation réseau, identité centralisée, supervision, sauvegarde et plan de reprise d'activité."
+resume: "Infrastructure d'entreprise sur deux sites, avec segmentation réseau, identité centralisée, supervision, gestion de parc et réplication entre les deux sites."
 statut: "termine"
 categorie: "Infrastructure multisite"
 annee: 2026
 ordre: 1
+depot: "Nthqn/orion-consulting-group"
 technologies: ["pfSense", "VPN IPsec", "VLAN 802.1Q", "AD DS", "DNS / DHCP", "DFS-R", "Nginx", "Zabbix", "GLPI + LDAPS", "GPO"]
 faits:
   - { label: "Périmètre", valeur: "9 machines virtuelles" }
@@ -14,7 +15,7 @@ faits:
   - { label: "Objectif", valeur: "Segmentation et continuité" }
 besoin: "Relier deux sites, cloisonner le réseau par métier et continuer à travailler si le site principal tombe."
 realisation: "Architecture et plan d'adressage, déploiement des 9 VM, sécurisation (segmentation, droits, politiques) et rédaction du DRT."
-resultat: "Infrastructure fonctionnelle, testée et reproductible, livrée avec un DRT de 50 pages (version 2.0) et un plan de reprise."
+resultat: "Infrastructure fonctionnelle, testée et reproductible, livrée avec un DRT de 50 pages (version 2.0)."
 documents:
   - { titre: "DRT complet", url: "/assets/docs/DRT-ORION-Consulting-Group.pdf", detail: "PDF · 7 Mo" }
   - { titre: "Tunnel IPsec", url: "/assets/docs/DRT-ORION-Consulting-Group.pdf#page=16", detail: "p. 16" }
@@ -22,7 +23,7 @@ documents:
 traduction:
   titre: "Orion"
   titreAccent: "Consulting Group"
-  resume: "Two-site corporate infrastructure with network segmentation, centralised identity, monitoring, backup and a disaster recovery plan."
+  resume: "Two-site corporate infrastructure with network segmentation, centralised identity, monitoring, asset management and replication between the two sites."
   categorie: "Multi-site infrastructure"
   faits:
     - { label: "Scope", valeur: "9 virtual machines" }
@@ -31,7 +32,7 @@ traduction:
     - { label: "Goal", valeur: "Segmentation and continuity" }
   besoin: "Connect two sites, segment the network by department and keep working if the main site goes down."
   realisation: "Architecture and IP addressing plan, deployment of the 9 VMs, hardening (segmentation, permissions, policies) and writing the technical report."
-  resultat: "A working, tested and reproducible infrastructure, delivered with a 50-page technical report (version 2.0) and a recovery plan."
+  resultat: "A working, tested and reproducible infrastructure, delivered with a 50-page technical report (version 2.0)."
 proceduresLiees:
   - "linux/segmentation-reseau-vlans-sur-pfsense"
   - "linux/deploiement-de-zabbix-conteneurise"
@@ -49,7 +50,7 @@ L'infrastructure s'organise en étoile autour de deux pare-feu pfSense. **ORION*
     <p class="archi-fw">ORION</p>
     <p class="archi-vm">MEISSA · Nginx en DMZ</p>
     <p class="archi-vm">RIGEL · AD DS, DNS, DHCP</p>
-    <p class="archi-vm">BELLATRIX · Zabbix</p>
+    <p class="archi-vm">BELLATRIX · GLPI, portail</p>
     <p class="archi-vm">PC-CLIENT-01</p>
   </div>
   <p class="archi-link">VPN IPsec</p>
@@ -57,7 +58,7 @@ L'infrastructure s'organise en étoile autour de deux pare-feu pfSense. **ORION*
     <p class="archi-label">Site 2 · LAN</p>
     <p class="archi-fw">LYRA</p>
     <p class="archi-vm">VEGA · AD DS, DFS-R</p>
-    <p class="archi-vm">SULAFAT · GLPI</p>
+    <p class="archi-vm">SULAFAT · Zabbix</p>
     <p class="archi-vm">PC-CLIENT-02</p>
   </div>
 </div>
