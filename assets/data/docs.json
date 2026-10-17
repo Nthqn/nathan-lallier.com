@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-17T12:44:06.767501Z",
-  "total_documents": 84,
+  "generated_at": "2026-10-17T14:00:38.438813Z",
+  "total_documents": 89,
   "categories": [
     {
       "id": "azure",
@@ -16,7 +16,7 @@
     },
     {
       "id": "linux",
-      "count": 22
+      "count": 27
     },
     {
       "id": "windows",
@@ -542,6 +542,17 @@
       "updated_at": "2026-10-17T12:39:15.924796Z"
     },
     {
+      "id": "linux__Centralisation-des-Journaux-avec-rsyslog.pdf",
+      "category": "linux",
+      "title": "Centralisation des Journaux avec rsyslog",
+      "file_name": "Centralisation-des-Journaux-avec-rsyslog.pdf",
+      "relative_path": "linux/Centralisation-des-Journaux-avec-rsyslog.pdf",
+      "url": "assets/docs/linux/Centralisation-des-Journaux-avec-rsyslog.pdf",
+      "size_bytes": 318089,
+      "size_human": "310.6 KB",
+      "updated_at": "2026-10-17T13:20:16.414879Z"
+    },
+    {
       "id": "linux__Configuration-du-Pare-feu-avec-UFW-et-nftables.pdf",
       "category": "linux",
       "title": "Configuration du Pare-feu avec UFW et nftables",
@@ -628,6 +639,50 @@
       "size_bytes": 293497,
       "size_human": "286.6 KB",
       "updated_at": "2026-10-17T12:40:22.019580Z"
+    },
+    {
+      "id": "linux__Gestion-des-Disques-avec-LVM-et-Montage-par-fstab.pdf",
+      "category": "linux",
+      "title": "Gestion des Disques avec LVM et Montage par fstab",
+      "file_name": "Gestion-des-Disques-avec-LVM-et-Montage-par-fstab.pdf",
+      "relative_path": "linux/Gestion-des-Disques-avec-LVM-et-Montage-par-fstab.pdf",
+      "url": "assets/docs/linux/Gestion-des-Disques-avec-LVM-et-Montage-par-fstab.pdf",
+      "size_bytes": 303059,
+      "size_human": "296.0 KB",
+      "updated_at": "2026-10-17T13:37:26.319809Z"
+    },
+    {
+      "id": "linux__Gestion-des-Paquets-APT-et-Mises-a-Jour-Automatiques.pdf",
+      "category": "linux",
+      "title": "Gestion des Paquets APT et Mises à Jour Automatiques",
+      "file_name": "Gestion-des-Paquets-APT-et-Mises-a-Jour-Automatiques.pdf",
+      "relative_path": "linux/Gestion-des-Paquets-APT-et-Mises-a-Jour-Automatiques.pdf",
+      "url": "assets/docs/linux/Gestion-des-Paquets-APT-et-Mises-a-Jour-Automatiques.pdf",
+      "size_bytes": 511567,
+      "size_human": "499.6 KB",
+      "updated_at": "2026-10-17T13:45:26.666928Z"
+    },
+    {
+      "id": "linux__Gestion-des-Permissions-ACL-et-Droits-Speciaux.pdf",
+      "category": "linux",
+      "title": "Gestion des Permissions, ACL et Droits Spéciaux",
+      "file_name": "Gestion-des-Permissions-ACL-et-Droits-Speciaux.pdf",
+      "relative_path": "linux/Gestion-des-Permissions-ACL-et-Droits-Speciaux.pdf",
+      "url": "assets/docs/linux/Gestion-des-Permissions-ACL-et-Droits-Speciaux.pdf",
+      "size_bytes": 274475,
+      "size_human": "268.0 KB",
+      "updated_at": "2026-10-17T13:51:57.122238Z"
+    },
+    {
+      "id": "linux__Gestion-des-Utilisateurs-Groupes-et-de-sudo.pdf",
+      "category": "linux",
+      "title": "Gestion des Utilisateurs, Groupes et de sudo",
+      "file_name": "Gestion-des-Utilisateurs-Groupes-et-de-sudo.pdf",
+      "relative_path": "linux/Gestion-des-Utilisateurs-Groupes-et-de-sudo.pdf",
+      "url": "assets/docs/linux/Gestion-des-Utilisateurs-Groupes-et-de-sudo.pdf",
+      "size_bytes": 300326,
+      "size_human": "293.3 KB",
+      "updated_at": "2026-10-17T13:59:52.609178Z"
     },
     {
       "id": "linux__Installation-de-Docker-et-Portainer-sur-Ubuntu.pdf",
