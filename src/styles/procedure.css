@@ -16,8 +16,8 @@
 .toc ol { list-style: none; counter-reset: toc; display: grid; gap: 4px; font-size: 0.9rem; }
 .toc li { counter-increment: toc; }
 .toc a { display: flex; gap: 8px; color: var(--text-secondary); padding: 3px 0; }
-.toc a::before { content: counter(toc); color: var(--accent-text); font-weight: 700; min-width: 1.2em; }
-.toc a:hover, .toc a[aria-current] { color: var(--accent-text); font-weight: 600; }
+.toc a::before { content: counter(toc); color: var(--teal-text); font-weight: 700; min-width: 1.2em; }
+.toc a:hover, .toc a[aria-current] { color: var(--teal-text); font-weight: 600; }
 .print-button { width: 100%; }
 .print-hint { font-size: 0.8rem; color: var(--text-muted); }
 
@@ -38,10 +38,10 @@
 }
 .prose h2::before { content: counter(h2) '.'; color: var(--accent); margin-right: 0.4em; }
 .prose h3 { font-size: 1.18rem; margin-top: 1.6em; counter-increment: h3; counter-reset: h4; }
-.prose h3::before { content: counter(h2) '.' counter(h3); color: var(--accent-text); margin-right: 0.5em; }
+.prose h3::before { content: counter(h2) '.' counter(h3); color: var(--teal-text); margin-right: 0.5em; }
 .prose h4 { font-size: 1.02rem; margin-top: 1.3em; color: var(--text-secondary); }
 .prose p, .prose li { color: var(--text-primary); }
-.prose a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+.prose a { color: var(--teal-text); text-decoration: underline; text-underline-offset: 3px; }
 .prose ul, .prose ol { padding-left: 1.4em; display: grid; gap: 0.35em; }
 .prose li::marker { color: var(--accent); }
 .prose li > ul, .prose li > ol { margin-top: 0.35em; }
@@ -70,7 +70,7 @@
 .prose th, .prose td { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; vertical-align: top; }
 .prose thead th { background: var(--text-primary); color: var(--bg-card); border-bottom: 2px solid var(--accent); }
 .prose tbody tr:nth-child(even) { background: var(--bg-soft); }
-.prose blockquote { border-left: 4px solid var(--accent); background: var(--bg-card); padding: 12px 18px; border-radius: 0 10px 10px 0; color: var(--text-secondary); }
+.prose blockquote { border-left: 4px solid var(--teal); background: var(--bg-card); padding: 12px 18px; border-radius: 0 10px 10px 0; color: var(--text-secondary); }
 .prose hr { border: 0; border-top: 1px solid var(--border-color); }
 
 /* Encadrés ::: note, probleme, solution, objectif, contexte */

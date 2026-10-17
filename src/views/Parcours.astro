@@ -124,7 +124,7 @@ const competences = [
         <h1 class="title-xl">{T.h1[0]} <span class="highlight">{T.h1[1]}</span></h1>
         <p class="lead">{T.lead}</p>
       </div>
-      <aside class="card en-bref" aria-label={T.enBref}>
+      <aside class="card carte-nuit en-bref" aria-label={T.enBref}>
         <dl>
           {T.bref.map(([dt, dd]) => <div><dt>{dt}</dt><dd>{dd}</dd></div>)}
         </dl>
@@ -174,7 +174,7 @@ const competences = [
       </ol>
     </section>
 
-    <section class="section" id="certifications" aria-labelledby="certifs-titre">
+    <section class="section bande" id="certifications" aria-labelledby="certifs-titre">
       <h2 id="certifs-titre" class="title-lg">{T.certifsTitre[0]} <span class="highlight">{T.certifsTitre[1]}</span></h2>
       <div class="card feuille-de-route reveal">
         <div class="obtenues">
@@ -193,7 +193,7 @@ const competences = [
         </div>
         <ol class="prochaines">
           {prochaines.map((c) => (
-            <li><span class="annee">{c.statut === 'en-cours' ? u.enCours : c.annee}</span><span><strong>{c.nom}</strong><small>{c.editeur}</small></span></li>
+            <li><span class="annee" style="color: var(--teal-text)">{c.statut === 'en-cours' ? u.enCours : c.annee}</span><span><strong>{c.nom}</strong><small>{c.editeur}</small></span></li>
           ))}
         </ol>
       </div>
