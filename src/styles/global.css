@@ -418,18 +418,18 @@ main { position: relative; isolation: isolate; overflow-x: clip; }
 .projects-grid > .project-card:nth-child(even) .cover-tags { color: var(--teal-text); }
 .legal .legal-card:nth-child(even) .legal-num { background: var(--teal-text); }
 
-/* Bande pleine largeur derrière une section sur deux, avec un motif sur le côté */
+/* Fond turquoise en fondu derrière une section sur deux, avec un motif sur le côté */
 .bande { position: relative; }
 .bande::before {
   content: ''; position: absolute; z-index: -2; pointer-events: none;
-  top: -44px; bottom: -44px; left: 50%; width: 100vw; transform: translateX(-50%);
-  background: var(--teal-band);
+  top: -120px; bottom: -120px; left: 50%; width: 100vw; transform: translateX(-50%);
+  /* Fondu progressif en haut et en bas : la couleur arrive sans bord net */
+  background: linear-gradient(to bottom, transparent, var(--teal-band) 28%, var(--teal-band) 72%, transparent);
 }
 .bande::after {
   content: ''; position: absolute; z-index: -1; pointer-events: none; right: -40px; bottom: -30px; width: 230px; height: 230px;
   background: var(--deco); -webkit-mask: url('/deco/circuit.svg') center / contain no-repeat; mask: url('/deco/circuit.svg') center / contain no-repeat;
 }
-.bande + .section, .bande + .card { margin-top: 32px; }
 
 /* Carte en bleu nuit, réutilisable sur chaque page */
 .carte-nuit { background: var(--navy); color: var(--on-navy); box-shadow: none; }
