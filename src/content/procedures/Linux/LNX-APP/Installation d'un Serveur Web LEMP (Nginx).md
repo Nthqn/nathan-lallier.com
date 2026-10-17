@@ -165,4 +165,4 @@ server {
 - [Installation d'un Serveur Web LAMP](/procedures/linux/installation-dun-serveur-web-lamp) *(Alternative avec Apache)*
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(N'ouvrir que HTTP et HTTPS)*
 - [Installation d'un Serveur Debian en Ligne de Commande (CLI)](/procedures/linux/installation-dun-serveur-debian-en-ligne-de-commande-cli) *(Installation du serveur de base)*
-- Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban) *(Administration sécurisée du serveur)*
+- [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Administration sécurisée du serveur)*

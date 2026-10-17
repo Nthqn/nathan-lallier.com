@@ -149,6 +149,6 @@ Votre serveur Debian est maintenant installé, mis à jour et prêt à être uti
 
 - [Installation d'un Serveur Ubuntu en Ligne de Commande (CLI)](/procedures/linux/installation-dun-serveur-ubuntu-en-ligne-de-commande-cli) *(Variante Ubuntu)*
 - [Configuration Réseau avec Netplan](/procedures/linux/configuration-reseau-avec-netplan) *(Configuration réseau, avec l'équivalent ifupdown de Debian)*
-- Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban) *(Sécurisation de l'accès distant)*
+- [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Sécurisation de l'accès distant)*
 - [Gestion des Paquets APT et Mises à Jour Automatiques](/procedures/linux/gestion-des-paquets-apt-et-mises-a-jour-automatiques) *(Mises à jour du système)*
 - [Gestion des Utilisateurs, Groupes et de sudo](/procedures/linux/gestion-des-utilisateurs-groupes-et-de-sudo) *(Comptes et droits d'administration)*

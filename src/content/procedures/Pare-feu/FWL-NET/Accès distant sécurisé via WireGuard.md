@@ -127,5 +127,5 @@ Pour que le tunnel soit utilisable, il reste à autoriser le port UDP 51820 sur 
 
 - [Installation et Configuration Initiale de pfSense](/procedures/pare-feu/installation-et-configuration-initiale-de-pfsense) *(Pare-feu pouvant héberger le VPN)*
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(Ouverture du port UDP du tunnel)*
-- Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban) *(Administration à travers le tunnel)*
+- [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Administration à travers le tunnel)*
 - Déploiement d'une VPN Gateway Site-to-Site *(Équivalent site à site dans Azure)*
