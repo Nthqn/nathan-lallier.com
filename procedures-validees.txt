@@ -1,6 +1,0 @@
-# Une procédure par ligne (titre exact ou référence). Elle sera publiée au prochain « npm run sync ».
-Installation et Configuration Initiale de pfSense
-Segmentation Réseau (VLANs) sur pfSense
-Accès distant sécurisé via WireGuard
-Filtrage DNS et IP avec pfBlockerNG
-Configuration d'un Proxy Squid sur OPNSense
