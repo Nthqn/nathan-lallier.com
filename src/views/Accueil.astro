@@ -70,6 +70,8 @@ const jsonLd = {
 <Base title={SITE.nom} type="profile" jsonLd={jsonLd}>
   <div class="container page">
     <section class="presentation" aria-labelledby="presentation-titre">
+      <span class="deco deco-points" style="left:-40px;top:-30px;width:260px;height:200px" aria-hidden="true"></span>
+      <span class="deco deco-reseau" style="right:-120px;top:-40px;width:560px;height:460px" aria-hidden="true"></span>
       <div class="presentation-texte">
         <h1 id="presentation-titre" class="presentation-titre">
           <span class="presentation-nom">{SITE.nom}</span>
@@ -102,6 +104,7 @@ const jsonLd = {
     </section>
 
     <section class="section" aria-labelledby="projets-titre">
+      <span class="deco deco-nuage" style="right:30%;top:-50px;width:220px;height:150px" aria-hidden="true"></span>
       <div class="section-head">
         <h2 id="projets-titre" class="title-lg">{T.projetsTitre[0]} <span class="highlight">{T.projetsTitre[1]}</span></h2>
         <a href={route('projets', lang)} class="link-more">{T.tousProjets}</a>
@@ -112,6 +115,7 @@ const jsonLd = {
     </section>
 
     <section class="section" aria-labelledby="procedures-titre">
+      <span class="deco deco-circuit" style="left:-150px;top:-40px;width:240px;height:240px" aria-hidden="true"></span>
       <div class="section-head">
         <h2 id="procedures-titre" class="title-lg">{T.procTitre[0]} <span class="highlight">{T.procTitre[1]}</span></h2>
         <a href="/procedures" class="link-more" hreflang={lang === 'en' ? 'fr' : undefined}>{T.toutesProcs(procedures.length)}</a>
@@ -172,7 +176,7 @@ const jsonLd = {
 </script>
 
 <style>
-  .presentation { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; padding-top: 8px; }
+  .presentation { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; padding-top: 8px; }
   .presentation-texte { display: grid; gap: 22px; }
   .presentation-titre { display: grid; gap: 10px; font-family: var(--font-display); font-weight: 400; line-height: 1.02; }
   .presentation-nom { color: var(--accent); font-size: clamp(2.6rem, 6vw, 4.4rem); }
@@ -194,11 +198,12 @@ const jsonLd = {
     .portrait-badge-2, .portrait-badge-4 { animation-delay: -3s; }
     @keyframes flotte { 50% { transform: translateY(-6px); } }
   }
-  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--navy); color: var(--on-navy); box-shadow: none; }
+  .chiffres strong, .chiffres :global(.highlight) { color: var(--accent); }
   .chiffres > div { padding: 26px 18px; text-align: center; display: grid; gap: 6px; }
-  .chiffres > div + div { border-left: 1px solid var(--border-color); }
+  .chiffres > div + div { border-left: 1px solid rgba(255, 255, 255, 0.1); }
   .chiffres strong { font-family: var(--font-display); font-weight: 400; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; }
-  .chiffres span:last-child { color: var(--text-secondary); font-size: 0.95rem; }
+  .chiffres span:last-child { color: var(--on-navy-muted); font-size: 0.95rem; }
   .certifs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 26px 20px; }
   .certifs-badges { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; }
   .certifs-badges :global(img) { width: 72px; height: 72px; object-fit: contain; }
@@ -233,7 +238,7 @@ const jsonLd = {
   }
   @media (max-width: 560px) {
     .chiffres { grid-template-columns: 1fr; }
-    .chiffres > div + div { border-left: 0; border-top: 1px solid var(--border-color); }
+    .chiffres > div + div { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
     .portrait-badge { font-size: 0.78rem; }
     .portrait-badge-3, .portrait-badge-4 { left: -2%; }
     .portrait-badge-1, .portrait-badge-2 { right: -2%; }

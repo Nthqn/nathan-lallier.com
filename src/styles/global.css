@@ -64,6 +64,13 @@
   --wip-bg: #fdf0dc;
   --wip-fg: #9a5b0c;
 
+  /* Bleu nuit repris du logo, pour les bandes sombres et le pied de page */
+  --navy: #14285a;
+  --on-navy: #e8edf7;
+  --on-navy-muted: #b9c3dc;
+  /* Teinte des illustrations de fond */
+  --deco: rgba(20, 40, 90, 0.10);
+
   --border-color: #ebe3d2;
   --shadow-card: 0 8px 30px rgba(60, 40, 10, 0.07);
   --shadow-card-hover: 0 18px 44px rgba(221, 153, 51, 0.16);
@@ -94,6 +101,9 @@ html.dark-mode {
   --ok-fg: #7fd6a4;
   --wip-bg: #3a2c14;
   --wip-fg: #f3c27a;
+
+  --navy: #0f1b3d;
+  --deco: rgba(232, 237, 247, 0.07);
 
   --border-color: #2a2f4e;
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.25);
@@ -164,7 +174,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-transform: uppercase; color: var(--accent-text);
 }
 
-.section { display: grid; gap: 24px; }
+.section { display: grid; gap: 24px; position: relative; }
 .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .link-more { font-weight: 600; font-size: 0.92rem; color: var(--accent-text); }
 .link-more:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -361,3 +371,29 @@ html.dark-mode .theme-toggle .icon-moon { display: none; }
 }
 .cookie-banner p { flex: 1 1 320px; }
 .cookie-banner a { color: var(--accent-text); text-decoration: underline; }
+
+/* Pied de page en bleu nuit, avec la vague du logo */
+.site-footer { background: var(--navy); color: var(--on-navy); position: relative; overflow: hidden; }
+.site-footer a, .site-footer button, .site-footer p, .site-footer strong { color: var(--on-navy); }
+.site-footer .footer-links a:hover, .site-footer .footer-links button:hover { color: var(--accent); }
+.site-footer .socials a { background: rgba(255, 255, 255, 0.08); }
+.site-footer::before {
+  content: ''; position: absolute; inset: 0 0 auto; height: 120px; pointer-events: none;
+  background: var(--accent); opacity: 0.22;
+  -webkit-mask: url('/deco/vague.svg') center / 100% 100% no-repeat; mask: url('/deco/vague.svg') center / 100% 100% no-repeat;
+}
+.site-footer .container { position: relative; }
+
+/* ===== Illustrations de fond, purement décoratives ===== */
+.deco { position: absolute; z-index: -1; pointer-events: none; background: var(--deco); -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }
+.deco-reseau { --m: url('/deco/reseau.svg'); }
+.deco-nuage { --m: url('/deco/nuage.svg'); }
+.deco-circuit { --m: url('/deco/circuit.svg'); }
+.deco-points { --m: url('/deco/points.svg'); -webkit-mask-size: 22px; mask-size: 22px; -webkit-mask-repeat: repeat; mask-repeat: repeat; }
+main { position: relative; isolation: isolate; overflow-x: clip; }
+.page-head { position: relative; }
+.page-head::after {
+  content: ''; position: absolute; z-index: -1; pointer-events: none; right: 0; top: -78px; width: 170px; height: 115px;
+  background: var(--deco); -webkit-mask: url('/deco/nuage.svg') center / contain no-repeat; mask: url('/deco/nuage.svg') center / contain no-repeat;
+}
+@media (max-width: 760px) { .deco, .page-head::after { display: none; } }
