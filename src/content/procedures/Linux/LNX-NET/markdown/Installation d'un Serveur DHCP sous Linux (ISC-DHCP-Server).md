@@ -134,4 +134,4 @@ subnet 192.168.2.0 netmask 255.255.255.0 {
 - [Installation et Configuration d'un Serveur DHCP](/procedures/windows/installation-et-configuration-dun-serveur-dhcp) *(Équivalent sous Windows Server)*
 - [DHCP Relay](/procedures/cisco/dhcp-relay) *(Relais depuis d'autres VLANs)*
 - [Déploiement Serveur DNS Local Bind9 (Conteneurisé)](/procedures/linux/deploiement-serveur-dns-local-bind9-conteneurise) *(DNS distribué aux clients)*
-- [Segmentation Réseau (VLANs) sur pfSense](/procedures/linux/segmentation-reseau-vlans-sur-pfsense) *(Réseaux à adresser)*
+- [Segmentation Réseau (VLANs) sur pfSense](/procedures/pare-feu/segmentation-reseau-vlans-sur-pfsense) *(Réseaux à adresser)*

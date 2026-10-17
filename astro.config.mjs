@@ -25,6 +25,15 @@ const doublonsDossier = {
   },
 };
 
+// Procédures pfSense et OPNsense passées du dossier Linux au dossier Pare-feu : les anciennes adresses redirigent.
+const PARE_FEU = [
+  'installation-et-configuration-initiale-de-pfsense',
+  'segmentation-reseau-vlans-sur-pfsense',
+  'acces-distant-securise-via-wireguard',
+  'filtrage-dns-et-ip-avec-pfblockerng',
+  'configuration-dun-proxy-squid-sur-opnsense',
+];
+
 export default defineConfig({
   site: 'https://nathan-lallier.com',
   // Pages générées en fichier .html (parcours.html) : les adresses actuelles restent identiques sur GitHub Pages
@@ -32,8 +41,9 @@ export default defineConfig({
   trailingSlash: 'never',
   redirects: {
     '/realisations': '/projets',
+    ...Object.fromEntries(PARE_FEU.map((s) => [`/procedures/linux/${s}`, `/procedures/pare-feu/${s}`])),
   },
-  integrations: [doublonsDossier, sitemap({ filter: (page) => !page.includes('/realisations') })],
+  integrations: [doublonsDossier, sitemap({ filter: (page) => !page.includes('/realisations') && !PARE_FEU.some((s) => page.includes(`/procedures/linux/${s}`)) })],
   markdown: {
     shikiConfig: { theme: 'github-dark-dimmed' },
   },

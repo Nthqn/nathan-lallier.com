@@ -3,7 +3,7 @@ modele: "procedure"
 titre: "Installation et Configuration Initiale de pfSense"
 type: "PROCEDURE"
 class: "05. Réseau"
-reference: "LNX-NET-INS"
+reference: "FWL-SYS-DEP"
 creation: "30/01/2026"
 revision: "16/10/2026"
 version: "1.1"
@@ -51,13 +51,13 @@ Contrairement à un routeur domestique (« Box ») qui est une « boîte noire �
 4. **Keymap :** Choisissez votre clavier ou laissez par défaut (les claviers FR posent parfois problème en console, l'US est recommandé pour l'installation, on changera après).
 5. **Partitionnement :** Choisissez **Auto (ZFS)**. C'est le système de fichiers le plus moderne et robuste.
 
-![Choix du partitionnement Auto (ZFS)](../../banque-images/LNX-NET/installation-et-configuration-initiale-de-pfsense/sequence-de-boot-et-installation-01.png)
+![Choix du partitionnement Auto (ZFS)](../../banque-images/FWL-SYS/installation-et-configuration-initiale-de-pfsense/sequence-de-boot-et-installation-01.png)
 
 <p class="figure-caption"><b>Figure 1</b> · Choix du partitionnement Auto (ZFS)</p>
 
 6. **Configuration ZFS :** Laissez tout par défaut (Stripe, No Redundancy pour une VM) et validez avec **Select**.
 
-![Configuration ZFS](../../banque-images/LNX-NET/installation-et-configuration-initiale-de-pfsense/sequence-de-boot-et-installation-02.png)
+![Configuration ZFS](../../banque-images/FWL-SYS/installation-et-configuration-initiale-de-pfsense/sequence-de-boot-et-installation-02.png)
 
 <p class="figure-caption"><b>Figure 2</b> · Configuration ZFS</p>
 
@@ -73,7 +73,7 @@ Contrairement à un routeur domestique (« Box ») qui est une « boîte noire �
 3. **LAN Interface Name :** Entrez le nom de la seconde carte (ex : `le1`).
 4. Confirmez avec **y**.
 
-![Assignation WAN et LAN](../../banque-images/LNX-NET/installation-et-configuration-initiale-de-pfsense/assignation-des-interfaces-01.png)
+![Assignation WAN et LAN](../../banque-images/FWL-SYS/installation-et-configuration-initiale-de-pfsense/assignation-des-interfaces-01.png)
 
 <p class="figure-caption"><b>Figure 3</b> · Assignation WAN et LAN</p>
 
@@ -81,7 +81,7 @@ Contrairement à un routeur domestique (« Box ») qui est une « boîte noire �
    - **WAN :** Doit avoir une IP (fournie par votre box, VMware ou VirtualBox).
    - **LAN :** A `192.168.1.1` par défaut.
 
-![Menu console avec les adresses IP](../../banque-images/LNX-NET/installation-et-configuration-initiale-de-pfsense/assignation-des-interfaces-02.png)
+![Menu console avec les adresses IP](../../banque-images/FWL-SYS/installation-et-configuration-initiale-de-pfsense/assignation-des-interfaces-02.png)
 
 <p class="figure-caption"><b>Figure 4</b> · Menu console avec les adresses IP</p>
 
@@ -91,7 +91,7 @@ Contrairement à un routeur domestique (« Box ») qui est une « boîte noire �
 2. Ouvrez le navigateur et allez sur `https://192.168.1.1` (ou l'IP définie).
 3. Acceptez le certificat de sécurité (avertissement « risque potentiel »).
 
-![Page de connexion pfSense](../../banque-images/LNX-NET/installation-et-configuration-initiale-de-pfsense/configuration-initiale-wizard-web-01.png)
+![Page de connexion pfSense](../../banque-images/FWL-SYS/installation-et-configuration-initiale-de-pfsense/configuration-initiale-wizard-web-01.png)
 
 <p class="figure-caption"><b>Figure 5</b> · Page de connexion pfSense</p>
 
@@ -107,7 +107,7 @@ Contrairement à un routeur domestique (« Box ») qui est une « boîte noire �
    - **Set Admin Password :** Changez le mot de passe `pfsense` immédiatement !
 6. Cliquez sur **Reload**.
 
-![Fin de l'assistant de configuration](../../banque-images/LNX-NET/installation-et-configuration-initiale-de-pfsense/configuration-initiale-wizard-web-02.png)
+![Fin de l'assistant de configuration](../../banque-images/FWL-SYS/installation-et-configuration-initiale-de-pfsense/configuration-initiale-wizard-web-02.png)
 
 <p class="figure-caption"><b>Figure 6</b> · Fin de l'assistant de configuration</p>
 
@@ -118,7 +118,7 @@ Sur le **Dashboard** (Tableau de bord), vérifiez la liste des interfaces.
 - **WAN** doit être vert (Up) avec une IP.
 - **LAN** doit être vert (Up).
 
-![Interfaces sur le tableau de bord](../../banque-images/LNX-NET/installation-et-configuration-initiale-de-pfsense/verifications-01.png)
+![Interfaces sur le tableau de bord](../../banque-images/FWL-SYS/installation-et-configuration-initiale-de-pfsense/verifications-01.png)
 
 <p class="figure-caption"><b>Figure 7</b> · Interfaces sur le tableau de bord</p>
 
@@ -149,7 +149,7 @@ Depuis votre PC client, essayez d'aller sur Internet (ex : google.fr).
 
 ## Procédures Liées
 
-- [Segmentation Réseau (VLANs) sur pfSense](/procedures/linux/segmentation-reseau-vlans-sur-pfsense) *(Segmentation en VLANs)*
-- [Filtrage DNS et IP avec pfBlockerNG](/procedures/linux/filtrage-dns-et-ip-avec-pfblockerng) *(Filtrage DNS et IP)*
-- [Accès distant sécurisé via WireGuard](/procedures/linux/acces-distant-securise-via-wireguard) *(Accès distant par VPN)*
-- [Configuration d'un Proxy Squid sur OPNSense](/procedures/linux/configuration-dun-proxy-squid-sur-opnsense) *(Proxy sur OPNSense, alternative à pfSense)*
+- [Segmentation Réseau (VLANs) sur pfSense](/procedures/pare-feu/segmentation-reseau-vlans-sur-pfsense) *(Segmentation en VLANs)*
+- [Filtrage DNS et IP avec pfBlockerNG](/procedures/pare-feu/filtrage-dns-et-ip-avec-pfblockerng) *(Filtrage DNS et IP)*
+- [Accès distant sécurisé via WireGuard](/procedures/pare-feu/acces-distant-securise-via-wireguard) *(Accès distant par VPN)*
+- [Configuration d'un Proxy Squid sur OPNSense](/procedures/pare-feu/configuration-dun-proxy-squid-sur-opnsense) *(Proxy sur OPNSense, alternative à pfSense)*

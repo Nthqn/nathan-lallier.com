@@ -274,5 +274,5 @@ dig @localhost glpi.campus.lan
 - [Installation de Docker et Portainer sur Ubuntu](/procedures/linux/installation-de-docker-et-portainer-sur-ubuntu) *(Socle Docker et Portainer)*
 - [Configuration d'un Serveur DNS Dédié](/procedures/windows/configuration-dun-serveur-dns-dedie) *(Équivalent sous Windows Server)*
 - [Installation d'un Serveur DHCP sous Linux (ISC-DHCP-Server)](/procedures/linux/installation-dun-serveur-dhcp-sous-linux-isc-dhcp-server) *(Distribution du DNS aux clients)*
-- [Filtrage DNS et IP avec pfBlockerNG](/procedures/linux/filtrage-dns-et-ip-avec-pfblockerng) *(Filtrage DNS en amont)*
+- [Filtrage DNS et IP avec pfBlockerNG](/procedures/pare-feu/filtrage-dns-et-ip-avec-pfblockerng) *(Filtrage DNS en amont)*
 - [Configuration d'Azure DNS](/procedures/azure/configuration-dazure-dns) *(Équivalent dans le cloud)*

@@ -3,7 +3,7 @@ modele: "procedure"
 titre: "Configuration d'un Proxy Squid sur OPNSense"
 type: "PROCEDURE"
 class: "05. Réseau"
-reference: "LNX-NET-CFG"
+reference: "FWL-NET-CFG"
 creation: "16/01/2026"
 revision: "16/10/2026"
 version: "1.1"
@@ -59,7 +59,7 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
    - Définissez la plage (ex : 192.168.1.100 à 192.168.1.200).
    - Cela permet aux clients d'obtenir automatiquement une IP pour communiquer avec le proxy.
 
-![Menu console d'OPNsense](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-des-interfaces-reseau-01.png)
+![Menu console d'OPNsense](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-des-interfaces-reseau-01.png)
 
 <p class="figure-caption"><b>Figure 1</b> · Menu console d'OPNsense</p>
 
@@ -71,13 +71,13 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
 2. Allez dans le menu **Système \> Logiciel (Firmware) \> Statut**.
 3. Cliquez sur **Vérifier les mises à jour**.
 
-![Vérification des mises à jour](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-a-jour-du-systeme-01.png)
+![Vérification des mises à jour](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-a-jour-du-systeme-01.png)
 
 <p class="figure-caption"><b>Figure 2</b> · Vérification des mises à jour</p>
 
 4. Si des paquets sont disponibles, cliquez sur **Mettre à jour**. Le pare-feu redémarrera si nécessaire.
 
-![Installation des mises à jour](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-a-jour-du-systeme-02.png)
+![Installation des mises à jour](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-a-jour-du-systeme-02.png)
 
 <p class="figure-caption"><b>Figure 3</b> · Installation des mises à jour</p>
 
@@ -89,7 +89,7 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
 2. Dans la barre de recherche, tapez `os-squid`.
 3. Cliquez sur le bouton (+) à droite pour lancer l'installation.
 
-![Installation du Plugin](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/installation-du-plugin-01.png)
+![Installation du Plugin](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/installation-du-plugin-01.png)
 
 <p class="figure-caption"><b>Figure 4</b> · Installation du Plugin</p>
 
@@ -106,14 +106,14 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
    - **Méthode :** Créer une autorité de certification interne.
    - **Durée de vie :** 3650 jours (10 ans).
 
-![Création de l'Autorité de Certification (PKI)](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/creation-de-l-autorite-de-certification-pki-01.png)
+![Création de l'Autorité de Certification (PKI)](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/creation-de-l-autorite-de-certification-pki-01.png)
 
 <p class="figure-caption"><b>Figure 5</b> · Création de l'Autorité de Certification (PKI)</p>
 
 4. Cliquez sur **Enregistrer**.
 5. Dans la liste, cliquez sur l'icône **Download** pour télécharger le certificat sur votre ordinateur.
 
-![Téléchargement du certificat de la CA](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/creation-de-l-autorite-de-certification-pki-02.png)
+![Téléchargement du certificat de la CA](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/creation-de-l-autorite-de-certification-pki-02.png)
 
 <p class="figure-caption"><b>Figure 6</b> · Téléchargement du certificat de la CA</p>
 
@@ -125,7 +125,7 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
 2. **Conversion :** Pour faciliter l'installation sous Windows, faites un clic droit sur le fichier, choisissez **Renommer** et changez l'extension `.pem` en `.crt`.
 3. Faites un **clic droit** sur le nouveau fichier `.crt` \> **Installer le certificat**.
 
-![Installation du Certificat CA sur Windows 11](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/installation-du-certificat-ca-sur-windows-11-01.png)
+![Installation du Certificat CA sur Windows 11](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/installation-du-certificat-ca-sur-windows-11-01.png)
 
 <p class="figure-caption"><b>Figure 7</b> · Installation du Certificat CA sur Windows 11</p>
 
@@ -135,7 +135,7 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
    - Cliquez sur **Parcourir...** et sélectionnez le dossier **Autorités de certification racines de confiance** (Trusted Root Certification Authorities).
    - Validez par **OK**, puis **Suivant** et **Terminer**.
 
-![Magasin Autorités de certification racines de confiance](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/installation-du-certificat-ca-sur-windows-11-02.png)
+![Magasin Autorités de certification racines de confiance](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/installation-du-certificat-ca-sur-windows-11-02.png)
 
 <p class="figure-caption"><b>Figure 8</b> · Magasin Autorités de certification racines de confiance</p>
 
@@ -154,7 +154,7 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
    - **Proxy Interfaces :** Sélectionnez **LAN**.
    - **Proxy Port :** Vérifiez que la valeur est 3128.
 
-![Interface et port du proxy](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-en-mode-manuel-01.png)
+![Interface et port du proxy](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-en-mode-manuel-01.png)
 
 <p class="figure-caption"><b>Figure 9</b> · Interface et port du proxy</p>
 
@@ -163,14 +163,14 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
    - Cherchez le champ **Allowed Subnets**.
    - Entrez le réseau LAN : `192.168.1.0/24`.
 
-![Sous-réseaux autorisés](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-en-mode-manuel-02.png)
+![Sous-réseaux autorisés](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-en-mode-manuel-02.png)
 
 <p class="figure-caption"><b>Figure 10</b> · Sous-réseaux autorisés</p>
 
 5. Cliquez sur **Appliquer**.
 6. **Sur le PC client :** configurez le navigateur pour utiliser le proxy `192.168.1.1:3128`.
 
-![Proxy manuel sur le poste client](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-en-mode-manuel-03.png)
+![Proxy manuel sur le poste client](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/configuration-en-mode-manuel-03.png)
 
 <p class="figure-caption"><b>Figure 11</b> · Proxy manuel sur le poste client</p>
 
@@ -186,7 +186,7 @@ L'installation s'effectue à partir de l'image ISO [officielle](https://opnsense
    - Cochez **Enable SSL Inspection**. Si une case **Enable HTTPS Proxy** est présente (selon la version), cochez-la également.
    - **CA to use :** Sélectionnez OPNsense-Proxy-CA.
 
-![Activation du Mode Transparent](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/activation-du-mode-transparent-01.png)
+![Activation du Mode Transparent](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/activation-du-mode-transparent-01.png)
 
 <p class="figure-caption"><b>Figure 12</b> · Activation du Mode Transparent</p>
 
@@ -209,7 +209,7 @@ Le lien « Add a new firewall rule » affiché sous l'option Enable Transparent 
 
 </div>
 
-![Règles de Redirection (NAT)](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/regles-de-redirection-nat-01.png)
+![Règles de Redirection (NAT)](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/regles-de-redirection-nat-01.png)
 
 <p class="figure-caption"><b>Figure 13</b> · Règles de Redirection (NAT)</p>
 
@@ -225,7 +225,7 @@ Le lien « Add a new firewall rule » affiché sous l'option Enable Transparent 
    - **Description :** Blocage_sites_inappropriés.
    - **Enabled :** Coché.
 
-![Mise en place de la Blacklist (Toulouse)](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-en-place-de-la-blacklist-toulouse-01.png)
+![Mise en place de la Blacklist (Toulouse)](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-en-place-de-la-blacklist-toulouse-01.png)
 
 <p class="figure-caption"><b>Figure 14</b> · Mise en place de la Blacklist (Toulouse)</p>
 
@@ -234,7 +234,7 @@ Le lien « Add a new firewall rule » affiché sous l'option Enable Transparent 
 5. Déroulez la section **Access Control Lists**.
 6. Dans le champ **Blacklist**, sélectionnez les catégories à bloquer.
 
-![Catégories bloquées](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-en-place-de-la-blacklist-toulouse-02.png)
+![Catégories bloquées](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/mise-en-place-de-la-blacklist-toulouse-02.png)
 
 <p class="figure-caption"><b>Figure 15</b> · Catégories bloquées</p>
 
@@ -245,20 +245,20 @@ Le lien « Add a new firewall rule » affiché sous l'option Enable Transparent 
 1. **Désactivation du Proxy Manuel :** Sur le poste client, **désactivez** le proxy manuel dans les paramètres Windows/Navigateur.
 2. **Test HTTP :** Allez sur un site non sécurisé (ex : `http://perdu.com`). Le site doit s'ouvrir.
 
-![Site HTTP accessible](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/tests-et-verifications-01.png)
+![Site HTTP accessible](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/tests-et-verifications-01.png)
 
 <p class="figure-caption"><b>Figure 16</b> · Site HTTP accessible</p>
 
 3. **Test de Blocage :** Tentez d'accéder à un site interdit par la Blacklist (ex : netflix.com).
    - **Validation :** une page d'erreur OPNsense « Access Denied » s'affiche.
 
-![Accès refusé par la blacklist](../../banque-images/LNX-NET/configuration-d-un-proxy-squid-sur-opnsense/tests-et-verifications-02.png)
+![Accès refusé par la blacklist](../../banque-images/FWL-NET/configuration-d-un-proxy-squid-sur-opnsense/tests-et-verifications-02.png)
 
 <p class="figure-caption"><b>Figure 17</b> · Accès refusé par la blacklist</p>
 
 ## Procédures Liées
 
-- [Filtrage DNS et IP avec pfBlockerNG](/procedures/linux/filtrage-dns-et-ip-avec-pfblockerng) *(Filtrage DNS et IP complémentaire)*
-- [Segmentation Réseau (VLANs) sur pfSense](/procedures/linux/segmentation-reseau-vlans-sur-pfsense) *(Segmentation des réseaux filtrés)*
-- [Installation et Configuration Initiale de pfSense](/procedures/linux/installation-et-configuration-initiale-de-pfsense) *(Pare-feu alternatif à OPNSense)*
+- [Filtrage DNS et IP avec pfBlockerNG](/procedures/pare-feu/filtrage-dns-et-ip-avec-pfblockerng) *(Filtrage DNS et IP complémentaire)*
+- [Segmentation Réseau (VLANs) sur pfSense](/procedures/pare-feu/segmentation-reseau-vlans-sur-pfsense) *(Segmentation des réseaux filtrés)*
+- [Installation et Configuration Initiale de pfSense](/procedures/pare-feu/installation-et-configuration-initiale-de-pfsense) *(Pare-feu alternatif à OPNSense)*
 - [Configuration d'un Serveur Passerelle Internet](/procedures/windows/configuration-dun-serveur-passerelle-internet) *(Accès Internet de base sous Windows)*

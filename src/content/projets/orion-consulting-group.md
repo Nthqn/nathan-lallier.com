@@ -34,7 +34,7 @@ traduction:
   realisation: "Architecture and IP addressing plan, deployment of the 9 VMs, hardening (segmentation, permissions, policies) and writing the technical report."
   resultat: "A working, tested and reproducible infrastructure, delivered with a 50-page technical report (version 2.0)."
 proceduresLiees:
-  - "linux/segmentation-reseau-vlans-sur-pfsense"
+  - "pare-feu/segmentation-reseau-vlans-sur-pfsense"
   - "linux/deploiement-de-zabbix-conteneurise"
   - "windows/installation-dun-controleur-de-domaine-active-directory"
   - "linux/installation-de-glpi"

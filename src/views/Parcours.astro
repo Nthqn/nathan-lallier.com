@@ -50,7 +50,7 @@ const T = {
     competencesTitre: ['Mes compétences,', "preuves à l'appui"],
     colonnes: ['Domaine', 'Certification', 'Procédures', 'Projets et labs'],
     aucune: 'aucune', aVenir: 'à venir',
-    domaines: { azure: 'Azure', linux: 'Linux et pare-feu', windows: 'Windows Server', cisco: 'Réseau Cisco' } as Record<string, string>,
+    domaines: { azure: 'Azure', linux: 'Linux', windows: 'Windows Server', cisco: 'Réseau Cisco', 'pare-feu': 'Pare-feu' } as Record<string, string>,
     cisco: 'CCNA 1 à 3',
     projet: (n: number) => `${n} projet${n > 1 ? 's' : ''}`,
     lab: (n: number) => `${n} lab${n > 1 ? 's' : ''}`,
@@ -89,7 +89,7 @@ const T = {
     competencesTitre: ['My skills,', 'with evidence'],
     colonnes: ['Area', 'Certification', 'Procedures', 'Projects and labs'],
     aucune: 'none', aVenir: 'coming soon',
-    domaines: { azure: 'Azure', linux: 'Linux and firewalls', windows: 'Windows Server', cisco: 'Cisco networking' } as Record<string, string>,
+    domaines: { azure: 'Azure', linux: 'Linux', windows: 'Windows Server', cisco: 'Cisco networking', 'pare-feu': 'Firewalls' } as Record<string, string>,
     cisco: 'CCNA 1 to 3',
     projet: (n: number) => `${n} project${n > 1 ? 's' : ''}`,
     lab: (n: number) => `${n} lab${n > 1 ? 's' : ''}`,
@@ -107,9 +107,10 @@ const prochaines = CERTIFICATIONS.filter((c) => c.statut !== 'obtenue');
 // Compétences : chaque domaine relié à ses preuves (certification, procédures, projets, labs)
 const competences = [
   { plateforme: 'azure', domaine: 'Azure', certification: 'AZ-900, AZ-104', projets: ['veridis-life-sciences'], sujets: ['azure', 'terraform', 'bicep'] },
-  { plateforme: 'linux', domaine: 'Linux et pare-feu', certification: '', projets: ['orion-consulting-group'], sujets: ['linux', 'bash', 'docker', 'pfsense'] },
+  { plateforme: 'linux', domaine: 'Linux', certification: '', projets: ['orion-consulting-group'], sujets: ['linux', 'bash', 'docker'] },
   { plateforme: 'windows', domaine: 'Windows Server', certification: '', projets: ['orion-consulting-group'], sujets: ['windows', 'powershell', 'active-directory'] },
   { plateforme: 'cisco', domaine: 'Réseau Cisco', certification: T.cisco, projets: [], sujets: ['cisco', 'network', 'gns3'] },
+  { plateforme: 'pare-feu', domaine: 'Pare-feu', certification: '', projets: ['orion-consulting-group'], sujets: ['pfsense', 'opnsense', 'firewall'] },
 ].map((c) => {
   const nbProjets = projets.filter((p) => c.projets.includes(p.id)).length;
   const nbLabs = labs.filter((l) => ((l.data as { sujets?: string[] }).sujets ?? []).some((s) => c.sujets.includes(s))).length;

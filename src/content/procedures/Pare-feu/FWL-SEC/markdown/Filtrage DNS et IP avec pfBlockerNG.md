@@ -3,7 +3,7 @@ modele: "procedure"
 titre: "Filtrage DNS et IP avec pfBlockerNG"
 type: "PROCEDURE"
 class: "05. Réseau"
-reference: "LNX-SEC-SEC"
+reference: "FWL-SEC-CFG"
 creation: "30/01/2026"
 revision: "16/10/2026"
 version: "1.1"
@@ -45,14 +45,14 @@ Les pare-feux classiques filtrent par ports (80, 443). Mais aujourd'hui, les men
 3. Dans la barre de recherche, tapez « pfBlockerNG ».
 4. Localisez **pfBlockerNG-devel** (la version la plus complète). Sur les versions récentes de pfSense, seul le paquet **pfBlockerNG** peut être proposé : installez-le, il intègre les mêmes fonctions.
 
-![Paquet pfBlockerNG-devel](../../banque-images/LNX-SEC/filtrage-dns-et-ip-avec-pfblockerng/gestionnaire-de-paquets-01.png)
+![Paquet pfBlockerNG-devel](../../banque-images/FWL-SEC/filtrage-dns-et-ip-avec-pfblockerng/gestionnaire-de-paquets-01.png)
 
 <p class="figure-caption"><b>Figure 1</b> · Paquet pfBlockerNG-devel</p>
 
 5. Cliquez sur **Install** puis **Confirm**.
 6. Attendez que la barre de progression verte se termine (« Success »).
 
-![Installation réussie](../../banque-images/LNX-SEC/filtrage-dns-et-ip-avec-pfblockerng/gestionnaire-de-paquets-02.png)
+![Installation réussie](../../banque-images/FWL-SEC/filtrage-dns-et-ip-avec-pfblockerng/gestionnaire-de-paquets-02.png)
 
 <p class="figure-caption"><b>Figure 2</b> · Installation réussie</p>
 
@@ -62,14 +62,14 @@ L'installation lance un assistant. S'il ne se lance pas, allez dans **Firewall \
 
 1. Cliquez sur **Next** pour démarrer.
 
-![Démarrage de l'assistant](../../banque-images/LNX-SEC/filtrage-dns-et-ip-avec-pfblockerng/assistant-de-configuration-01.png)
+![Démarrage de l'assistant](../../banque-images/FWL-SEC/filtrage-dns-et-ip-avec-pfblockerng/assistant-de-configuration-01.png)
 
 <p class="figure-caption"><b>Figure 3</b> · Démarrage de l'assistant</p>
 
 2. **Inbound Interface :** Sélectionnez **WAN** (on bloque ce qui *entre*).
 3. **Outbound Interface :** Sélectionnez **LAN** et vos VLANs si vous en avez, ex : USERS (on bloque ce qui *sort* vers des sites interdits).
 
-![Interfaces inbound et outbound](../../banque-images/LNX-SEC/filtrage-dns-et-ip-avec-pfblockerng/assistant-de-configuration-02.png)
+![Interfaces inbound et outbound](../../banque-images/FWL-SEC/filtrage-dns-et-ip-avec-pfblockerng/assistant-de-configuration-02.png)
 
 <p class="figure-caption"><b>Figure 4</b> · Interfaces inbound et outbound</p>
 
@@ -88,7 +88,7 @@ Une fois l'assistant terminé, nous allons affiner le blocage géographique.
 4. Dans la liste des pays, sélectionnez ceux que vous voulez bloquer (ex : Chine, Russie, Corée du Nord, etc.).
 5. **List Action :** Réglez sur **Deny Inbound** (bloquer ce qui entre).
 
-![Blocage GeoIP en Deny Inbound](../../banque-images/LNX-SEC/filtrage-dns-et-ip-avec-pfblockerng/filtrage-geoip-pays-01.png)
+![Blocage GeoIP en Deny Inbound](../../banque-images/FWL-SEC/filtrage-dns-et-ip-avec-pfblockerng/filtrage-geoip-pays-01.png)
 
 <p class="figure-caption"><b>Figure 5</b> · Blocage GeoIP en Deny Inbound</p>
 
@@ -109,7 +109,7 @@ Pour appliquer les changements immédiatement :
 3. Cochez **All**.
 4. Cliquez sur **Run**.
 
-![Rechargement complet des listes](../../banque-images/LNX-SEC/filtrage-dns-et-ip-avec-pfblockerng/force-update-01.png)
+![Rechargement complet des listes](../../banque-images/FWL-SEC/filtrage-dns-et-ip-avec-pfblockerng/force-update-01.png)
 
 <p class="figure-caption"><b>Figure 6</b> · Rechargement complet des listes</p>
 
@@ -131,7 +131,7 @@ Si vous obtenez une vraie IP publique, le filtrage ne fonctionne pas encore : vi
 2. Cliquez sur **+** en haut à droite pour ajouter un widget.
 3. Choisissez **pfBlockerNG**.
 
-![Widget pfBlockerNG](../../banque-images/LNX-SEC/filtrage-dns-et-ip-avec-pfblockerng/tests-et-validations-01.png)
+![Widget pfBlockerNG](../../banque-images/FWL-SEC/filtrage-dns-et-ip-avec-pfblockerng/tests-et-validations-01.png)
 
 <p class="figure-caption"><b>Figure 7</b> · Widget pfBlockerNG</p>
 
@@ -158,7 +158,7 @@ Si vous obtenez une vraie IP publique, le filtrage ne fonctionne pas encore : vi
 
 ## Procédures Liées
 
-- [Installation et Configuration Initiale de pfSense](/procedures/linux/installation-et-configuration-initiale-de-pfsense) *(Prérequis pfSense)*
+- [Installation et Configuration Initiale de pfSense](/procedures/pare-feu/installation-et-configuration-initiale-de-pfsense) *(Prérequis pfSense)*
 - [Déploiement Serveur DNS Local Bind9 (Conteneurisé)](/procedures/linux/deploiement-serveur-dns-local-bind9-conteneurise) *(Résolution DNS interne)*
-- [Configuration d'un Proxy Squid sur OPNSense](/procedures/linux/configuration-dun-proxy-squid-sur-opnsense) *(Filtrage web par proxy)*
-- [Segmentation Réseau (VLANs) sur pfSense](/procedures/linux/segmentation-reseau-vlans-sur-pfsense) *(Filtrage par segment réseau)*
+- [Configuration d'un Proxy Squid sur OPNSense](/procedures/pare-feu/configuration-dun-proxy-squid-sur-opnsense) *(Filtrage web par proxy)*
+- [Segmentation Réseau (VLANs) sur pfSense](/procedures/pare-feu/segmentation-reseau-vlans-sur-pfsense) *(Filtrage par segment réseau)*

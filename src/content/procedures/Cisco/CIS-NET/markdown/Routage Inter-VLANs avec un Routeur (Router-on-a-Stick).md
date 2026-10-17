@@ -195,4 +195,4 @@ Voici la checklist à suivre méthodiquement pour trouver la cause du problème.
 - [Configuration Initiale et Sécurisation d'un Switch Cisco](/procedures/cisco/configuration-initiale-et-securisation-dun-switch-cisco) *(Trunk et VLANs côté switch)*
 - [DHCP pour Multiples VLANs](/procedures/cisco/dhcp-pour-multiples-vlans) *(Adressage DHCP de chaque VLAN)*
 - [ACLs (Standard et Étendues)](/procedures/cisco/acls-standard-et-etendues) *(Filtrage entre VLANs)*
-- [Segmentation Réseau (VLANs) sur pfSense](/procedures/linux/segmentation-reseau-vlans-sur-pfsense) *(Alternative avec un pare-feu pfSense)*
+- [Segmentation Réseau (VLANs) sur pfSense](/procedures/pare-feu/segmentation-reseau-vlans-sur-pfsense) *(Alternative avec un pare-feu pfSense)*

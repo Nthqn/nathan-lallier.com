@@ -30,6 +30,7 @@ export const PLATEFORMES: Record<string, { label: string; icon: string }> = {
   linux: { label: 'Linux', icon: 'linux' },
   windows: { label: 'Windows', icon: 'windows' },
   cisco: { label: 'Cisco', icon: 'cisco' },
+  'pare-feu': { label: 'Pare-feu', icon: 'pare-feu' },
 };
 
 // Piliers de la convention de nommage (deuxième code de la référence)

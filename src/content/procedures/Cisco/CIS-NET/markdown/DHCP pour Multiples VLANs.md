@@ -116,4 +116,4 @@ Toutes les commandes se tapent sur le routeur (R1), en mode de configuration glo
 - [DHCP sur un Routeur Cisco](/procedures/cisco/dhcp-sur-un-routeur-cisco) *(Configuration DHCP de base)*
 - [Routage Inter-VLANs avec un Routeur (Router-on-a-Stick)](/procedures/cisco/routage-inter-vlans-avec-un-routeur-router-on-a-stick) *(Sous-interfaces passerelles de chaque VLAN)*
 - [DHCP Relay](/procedures/cisco/dhcp-relay) *(Alternative avec un serveur DHCP central)*
-- [Segmentation Réseau (VLANs) sur pfSense](/procedures/linux/segmentation-reseau-vlans-sur-pfsense) *(Même segmentation sur pfSense)*
+- [Segmentation Réseau (VLANs) sur pfSense](/procedures/pare-feu/segmentation-reseau-vlans-sur-pfsense) *(Même segmentation sur pfSense)*

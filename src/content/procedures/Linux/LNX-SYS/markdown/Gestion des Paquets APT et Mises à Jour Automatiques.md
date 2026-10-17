@@ -356,4 +356,4 @@ Ubuntu Pro active ESM-Infra et ESM-Apps, qui prolongent les correctifs de sécur
 - [Installation de Docker et Portainer sur Ubuntu](/procedures/linux/installation-de-docker-et-portainer-sur-ubuntu) *(Exemple de dépôt tiers signé)*
 - Planification des Tâches avec cron et les Timers systemd *(Timers apt-daily et fenêtres de maintenance)*
 - Gestion des Services avec systemd et journald *(Redémarrage des services après mise à jour)*
-- [Configuration d'un Proxy Squid sur OPNSense](/procedures/linux/configuration-dun-proxy-squid-sur-opnsense) *(Accès sortant aux dépôts par proxy)*
+- [Configuration d'un Proxy Squid sur OPNSense](/procedures/pare-feu/configuration-dun-proxy-squid-sur-opnsense) *(Accès sortant aux dépôts par proxy)*

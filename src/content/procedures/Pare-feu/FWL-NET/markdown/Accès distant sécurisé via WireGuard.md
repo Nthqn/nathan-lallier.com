@@ -3,7 +3,7 @@ modele: "procedure"
 titre: "Accès distant sécurisé via WireGuard"
 type: "PROCEDURE"
 class: "05. Réseau"
-reference: "LNX-NET-SEC"
+reference: "FWL-NET-SEC"
 creation: "30/01/2026"
 revision: "16/10/2026"
 version: "1.1"
@@ -47,13 +47,13 @@ WireGuard n'est pas activé par défaut dans le noyau de certaines versions de p
 3. Recherchez « WireGuard ».
 4. Installez le paquet **pfSense-pkg-WireGuard**.
 
-![Paquet WireGuard dans le Package Manager](../../banque-images/LNX-NET/acces-distant-securise-via-wireguard/installation-du-paquet-01.png)
+![Paquet WireGuard dans le Package Manager](../../banque-images/FWL-NET/acces-distant-securise-via-wireguard/installation-du-paquet-01.png)
 
 <p class="figure-caption"><b>Figure 1</b> · Paquet WireGuard dans le Package Manager</p>
 
 5. Attendez la confirmation de l'installation (« Success »).
 
-![Installation réussie](../../banque-images/LNX-NET/acces-distant-securise-via-wireguard/installation-du-paquet-02.png)
+![Installation réussie](../../banque-images/FWL-NET/acces-distant-securise-via-wireguard/installation-du-paquet-02.png)
 
 <p class="figure-caption"><b>Figure 2</b> · Installation réussie</p>
 
@@ -68,7 +68,7 @@ WireGuard n'est pas activé par défaut dans le noyau de certaines versions de p
 5. **Listen Port :** `51820` (port standard).
 6. **Interface Keys :** Cliquez sur **Generate**. La *Private Key* reste secrète, la *Public Key* sera utilisée par les clients.
 
-![Paramètres du tunnel WireGuard](../../banque-images/LNX-NET/acces-distant-securise-via-wireguard/creation-de-l-interface-tunnel-01.png)
+![Paramètres du tunnel WireGuard](../../banque-images/FWL-NET/acces-distant-securise-via-wireguard/creation-de-l-interface-tunnel-01.png)
 
 <p class="figure-caption"><b>Figure 3</b> · Paramètres du tunnel WireGuard</p>
 
@@ -82,7 +82,7 @@ Pour appliquer des règles de pare-feu, le tunnel doit être déclaré comme une
 1. Allez dans **Interfaces \> Assignments**.
 2. Dans le menu déroulant « Available network ports », sélectionnez le tunnel créé (ex : `tun_wg0`).
 
-![Ajout du tunnel dans les assignations](../../banque-images/LNX-NET/acces-distant-securise-via-wireguard/assignation-et-activation-de-l-interface-logique-01.png)
+![Ajout du tunnel dans les assignations](../../banque-images/FWL-NET/acces-distant-securise-via-wireguard/assignation-et-activation-de-l-interface-logique-01.png)
 
 <p class="figure-caption"><b>Figure 4</b> · Ajout du tunnel dans les assignations</p>
 
@@ -93,7 +93,7 @@ Pour appliquer des règles de pare-feu, le tunnel doit être déclaré comme une
    - **IPv4 Configuration Type :** `Static IPv4`.
    - **IPv4 Address :** Renseignez la même IP que celle du tunnel (ex : `10.200.0.1` / `24`).
 
-![Configuration de l'interface WG_VPN](../../banque-images/LNX-NET/acces-distant-securise-via-wireguard/assignation-et-activation-de-l-interface-logique-02.png)
+![Configuration de l'interface WG_VPN](../../banque-images/FWL-NET/acces-distant-securise-via-wireguard/assignation-et-activation-de-l-interface-logique-02.png)
 
 <p class="figure-caption"><b>Figure 5</b> · Configuration de l'interface WG_VPN</p>
 
@@ -108,7 +108,7 @@ Pour appliquer des règles de pare-feu, le tunnel doit être déclaré comme une
 3. **Tunnel :** Sélectionnez le tunnel créé (`tun_wg0`).
 4. **Description :** Nom de l'utilisateur ou de l'appareil (ex : `PC_User01`).
 
-![Déclaration d'un peer](../../banque-images/LNX-NET/acces-distant-securise-via-wireguard/configuration-dun-client-peer-01.png)
+![Déclaration d'un peer](../../banque-images/FWL-NET/acces-distant-securise-via-wireguard/configuration-dun-client-peer-01.png)
 
 <p class="figure-caption"><b>Figure 6</b> · Déclaration d'un peer</p>
 
@@ -125,7 +125,7 @@ Pour que le tunnel soit utilisable, il reste à autoriser le port UDP 51820 sur 
 
 ## Procédures Liées
 
-- [Installation et Configuration Initiale de pfSense](/procedures/linux/installation-et-configuration-initiale-de-pfsense) *(Pare-feu pouvant héberger le VPN)*
+- [Installation et Configuration Initiale de pfSense](/procedures/pare-feu/installation-et-configuration-initiale-de-pfsense) *(Pare-feu pouvant héberger le VPN)*
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(Ouverture du port UDP du tunnel)*
 - Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban) *(Administration à travers le tunnel)*
 - Déploiement d'une VPN Gateway Site-to-Site *(Équivalent site à site dans Azure)*

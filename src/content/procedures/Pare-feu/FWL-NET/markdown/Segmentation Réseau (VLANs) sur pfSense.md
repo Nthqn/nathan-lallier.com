@@ -3,7 +3,7 @@ modele: "procedure"
 titre: "Segmentation Réseau (VLANs) sur pfSense"
 type: "PROCEDURE"
 class: "05. Réseau"
-reference: "LNX-NET-SEC"
+reference: "FWL-NET-CFG"
 creation: "30/01/2026"
 revision: "16/10/2026"
 version: "1.1"
@@ -56,7 +56,7 @@ Pour cet exemple générique, nous créerons 3 zones standards :
 2. Cliquez sur l'onglet **VLANs**.
 3. Cliquez sur **Add** (en bas à droite).
 
-![Onglet VLANs](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/creation-des-vlans-01.png)
+![Onglet VLANs](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/creation-des-vlans-01.png)
 
 <p class="figure-caption"><b>Figure 1</b> · Onglet VLANs</p>
 
@@ -67,7 +67,7 @@ Pour cet exemple générique, nous créerons 3 zones standards :
    - **Description :** `VLAN_USERS`.
 5. Répétez l'opération pour le VLAN 20 (VLAN_SERVERS) et le VLAN 99 (VLAN_MGMT).
 
-![Liste des VLANs créés](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/creation-des-vlans-02.png)
+![Liste des VLANs créés](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/creation-des-vlans-02.png)
 
 <p class="figure-caption"><b>Figure 2</b> · Liste des VLANs créés</p>
 
@@ -78,14 +78,14 @@ Pour cet exemple générique, nous créerons 3 zones standards :
 1. Allez dans **Interfaces \> Assignments** (onglet « Interface Assignments »).
 2. Dans la liste déroulante « Available network ports », choisissez « VLAN 10 on … ».
 
-![Sélection du VLAN 10](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/assignation-des-interfaces-logiques-01.png)
+![Sélection du VLAN 10](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/assignation-des-interfaces-logiques-01.png)
 
 <p class="figure-caption"><b>Figure 3</b> · Sélection du VLAN 10</p>
 
 3. Cliquez sur **Add**. Une nouvelle interface (ex : OPT1) apparaît dans la liste.
 4. Répétez pour le VLAN 20 et VLAN 99.
 
-![Interfaces OPT créées](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/assignation-des-interfaces-logiques-02.png)
+![Interfaces OPT créées](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/assignation-des-interfaces-logiques-02.png)
 
 <p class="figure-caption"><b>Figure 4</b> · Interfaces OPT créées</p>
 
@@ -102,13 +102,13 @@ Exemple pour le VLAN 10 (à répéter pour chaque VLAN) :
 3. **Description :** Renommez-la en `USERS` (plus clair que OPT1).
 4. **IPv4 Configuration Type :** Static IPv4.
 
-![Activation de l'interface USERS](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-01.png)
+![Activation de l'interface USERS](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-01.png)
 
 <p class="figure-caption"><b>Figure 5</b> · Activation de l'interface USERS</p>
 
 5. **IPv4 Address :** Définissez l'IP de passerelle (ex : `192.168.10.1` / `24`).
 
-![Adresse IPv4 de l'interface](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-02.png)
+![Adresse IPv4 de l'interface](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-02.png)
 
 <p class="figure-caption"><b>Figure 6</b> · Adresse IPv4 de l'interface</p>
 
@@ -120,13 +120,13 @@ Exemple pour le VLAN 10 (à répéter pour chaque VLAN) :
 2. Cliquez sur l'onglet **USERS**.
 3. Cochez **Enable DHCP server on interface USERS**.
 
-![Activation du serveur DHCP](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-03.png)
+![Activation du serveur DHCP](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-03.png)
 
 <p class="figure-caption"><b>Figure 7</b> · Activation du serveur DHCP</p>
 
 4. Définissez la plage (Range) : `192.168.10.100` à `192.168.10.200`.
 
-![Plage DHCP du VLAN 10](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-04.png)
+![Plage DHCP du VLAN 10](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/configuration-des-ip-et-services-04.png)
 
 <p class="figure-caption"><b>Figure 8</b> · Plage DHCP du VLAN 10</p>
 
@@ -146,7 +146,7 @@ Exemple pour le VLAN 10 (à répéter pour chaque VLAN) :
    - **Destination :** Any.
    - **Description :** `Allow USERS to Any`.
 
-![Règle Allow USERS to Any](../../banque-images/LNX-NET/segmentation-reseau-vlans-sur-pfsense/configuration-du-pare-feu-regles-de-base-01.png)
+![Règle Allow USERS to Any](../../banque-images/FWL-NET/segmentation-reseau-vlans-sur-pfsense/configuration-du-pare-feu-regles-de-base-01.png)
 
 <p class="figure-caption"><b>Figure 9</b> · Règle Allow USERS to Any</p>
 
@@ -196,7 +196,7 @@ Dans un environnement sécurisé, on remplacera cette règle « Any » par des r
 
 ## Procédures Liées
 
-- [Installation et Configuration Initiale de pfSense](/procedures/linux/installation-et-configuration-initiale-de-pfsense) *(Configuration initiale du pare-feu)*
+- [Installation et Configuration Initiale de pfSense](/procedures/pare-feu/installation-et-configuration-initiale-de-pfsense) *(Configuration initiale du pare-feu)*
 - [Routage Inter-VLANs avec un Routeur (Router-on-a-Stick)](/procedures/cisco/routage-inter-vlans-avec-un-routeur-router-on-a-stick) *(Alternative avec un routeur Cisco)*
 - [Configuration Initiale et Sécurisation d'un Switch Cisco](/procedures/cisco/configuration-initiale-et-securisation-dun-switch-cisco) *(Trunk et VLANs côté switch)*
 - [DHCP pour Multiples VLANs](/procedures/cisco/dhcp-pour-multiples-vlans) *(Adressage DHCP par VLAN)*

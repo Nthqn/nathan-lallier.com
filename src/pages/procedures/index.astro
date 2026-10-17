@@ -21,7 +21,7 @@ if (autres.length) groupes.push({ code: 'AUTRE', label: 'Divers', items: autres 
 const motsCles = (p: (typeof procedures)[number]) =>
   ((p.rendered?.metadata?.headings as { text: string }[] | undefined) ?? []).map((h) => h.text).join(' ').toLowerCase();
 ---
-<Base title="Procédures" description={`${procedures.length} procédures techniques Azure, Linux, Windows Server et Cisco rédigées par Nathan LALLIER, à lire en ligne ou à enregistrer en PDF.`}>
+<Base title="Procédures" description={`${procedures.length} procédures techniques Azure, Linux, Windows Server, Cisco et pare-feu rédigées par Nathan LALLIER, à lire en ligne ou à enregistrer en PDF.`}>
   <div class="container page catalogue">
     <header class="page-head">
       <h1 class="title-xl">Mes <span class="highlight">procédures</span></h1>
