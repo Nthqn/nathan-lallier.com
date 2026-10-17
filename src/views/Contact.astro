@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icons.astro';
+import { SITE } from '../data/site';
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = {
+  fr: {
+    titre: 'Contact', description: 'Contacter Nathan LALLIER, apprenti ingénieur cloud : formulaire, email et LinkedIn.',
+    h1: ['Me', 'contacter'],
+    lead: 'Pour une question, un projet, une alternance ou une opportunité, écrivez-moi avec le formulaire ci-dessous.',
+    envoyerTitre: 'Envoyer un message', obligatoires: 'Champs obligatoires',
+    nom: 'Nom', prenom: 'Prénom', email: 'Email', sujet: 'Sujet', message: 'Message',
+    rgpd: "J'accepte que les informations saisies soient utilisées pour répondre à ma demande de contact.",
+    bouton: 'Envoyer le message', autres: ['Autres', 'moyens'], delai: ['Réponse sous', '24 à 48 h'],
+    msg: {
+      attendre: "Merci de patienter quelques secondes avant d'envoyer.",
+      captcha: "Merci de valider le captcha avant d'envoyer.",
+      envoi: 'Envoi en cours…',
+      ok: 'Message envoyé. Je vous réponds sous 24 à 48 h.',
+      erreur: "Le message n'a pas pu être envoyé. Réessayez, ou écrivez-moi directement par email.",
+    },
+  },
+  en: {
+    titre: 'Contact', description: 'Get in touch with Nathan LALLIER, cloud engineering apprentice: contact form, email and LinkedIn.',
+    h1: ['Get in', 'touch'],
+    lead: 'For a question, a project, a work-study position or an opportunity, write to me using the form below.',
+    envoyerTitre: 'Send a message', obligatoires: 'Required fields',
+    nom: 'Last name', prenom: 'First name', email: 'Email', sujet: 'Subject', message: 'Message',
+    rgpd: 'I agree that the information I enter may be used to reply to my enquiry.',
+    bouton: 'Send message', autres: ['Other', 'channels'], delai: ['I usually reply within', '24 to 48 hours'],
+    msg: {
+      attendre: 'Please wait a few seconds before sending.',
+      captcha: 'Please complete the captcha before sending.',
+      envoi: 'Sending…',
+      ok: 'Message sent. I will get back to you within 24 to 48 hours.',
+      erreur: 'Your message could not be sent. Please try again, or email me directly.',
+    },
+  },
+}[lang];
+---
+<Base title={T.titre} description={T.description}>
+  <div class="container page contact">
+    <header class="page-head">
+      <h1 class="title-xl">{T.h1[0]} <span class="highlight">{T.h1[1]}</span></h1>
+      <p class="lead">{T.lead}</p>
+    </header>
+
+    <div class="contact-layout">
+      <form class="card formulaire" action="https://formspree.io/f/mykwvywd" method="POST" data-needs-consent novalidate
+        data-msg-attendre={T.msg.attendre} data-msg-captcha={T.msg.captcha} data-msg-envoi={T.msg.envoi}
+        data-msg-ok={T.msg.ok} data-msg-erreur={T.msg.erreur} data-msg-bouton={T.bouton}>
+        <h2 class="title-md">{T.envoyerTitre}</h2>
+        <p class="obligatoire"><span aria-hidden="true">*</span> {T.obligatoires}</p>
+        <div class="ligne">
+          <div class="champ">
+            <label for="nom">{T.nom} <span aria-hidden="true">*</span></label>
+            <input id="nom" name="nom" type="text" autocomplete="family-name" required />
+          </div>
+          <div class="champ">
+            <label for="prenom">{T.prenom}</label>
+            <input id="prenom" name="prenom" type="text" autocomplete="given-name" />
+          </div>
+        </div>
+        <div class="champ">
+          <label for="email">{T.email} <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+        </div>
+        <div class="champ">
+          <label for="sujet">{T.sujet} <span aria-hidden="true">*</span></label>
+          <input id="sujet" name="sujet" type="text" maxlength="120" required />
+        </div>
+        <div class="champ">
+          <label for="message">{T.message} <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="6" maxlength="2000" required></textarea>
+        </div>
+        <div class="case">
+          <input id="rgpd" name="rgpd" type="checkbox" required />
+          <label for="rgpd">{T.rgpd} <span aria-hidden="true">*</span></label>
+        </div>
+        <input type="text" name="_gotcha" class="pot-de-miel" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="g-recaptcha" data-hl={lang} data-sitekey="6LcMQ1gsAAAAAFYwd9FUF9i8z1-Sd18_RVSFONaO"></div>
+        <button type="submit" class="btn btn-primary envoyer">{T.bouton}</button>
+        <p class="retour" role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="card coordonnees">
+        <h2 class="title-md">{T.autres[0]} <span class="highlight">{T.autres[1]}</span></h2>
+        <a href={`mailto:${SITE.email}`} class="moyen"><Icon name="mail" /><span><strong>Email</strong>{SITE.email}</span></a>
+        <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" class="moyen"><Icon name="linkedin" /><span><strong>LinkedIn</strong>nathan-lallier</span></a>
+        <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="moyen"><Icon name="github" /><span><strong>GitHub</strong>Nthqn</span></a>
+        <p class="delai">{T.delai[0]} <strong>{T.delai[1]}</strong>.</p>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .contact { gap: 32px; }
+  .contact-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
+  .formulaire { padding: 30px; display: grid; gap: 18px; }
+  .obligatoire { font-size: 0.85rem; color: var(--text-secondary); }
+  .obligatoire span, label span { color: var(--accent-text); }
+  .ligne { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .champ { display: grid; gap: 6px; }
+  .champ label { font-weight: 600; font-size: 0.92rem; }
+  .champ input, .champ textarea {
+    font: inherit; color: var(--text-primary); background: var(--bg-body); border: 2px solid var(--border-color);
+    border-radius: 12px; padding: 11px 14px; transition: border-color 0.2s ease; width: 100%;
+  }
+  .champ textarea { resize: vertical; min-height: 140px; }
+  .champ input:focus, .champ textarea:focus { outline: none; border-color: var(--accent); }
+  .champ input:user-invalid, .champ textarea:user-invalid { border-color: #d0593c; }
+  .case { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: var(--text-secondary); }
+  .case input { margin-top: 4px; accent-color: var(--accent); width: 18px; height: 18px; flex-shrink: 0; }
+  .pot-de-miel { position: absolute; left: -9999px; width: 1px; height: 1px; }
+  .envoyer { justify-self: start; }
+  .envoyer[disabled] { opacity: 0.6; cursor: wait; }
+  .retour { font-weight: 600; font-size: 0.95rem; }
+  .retour.ok { color: var(--ok-fg); }
+  .retour.erreur { color: #c0462a; }
+  .coordonnees { padding: 26px; display: grid; gap: 14px; }
+  .moyen { display: flex; gap: 14px; align-items: center; padding: 10px; border-radius: 12px; transition: background 0.2s ease; }
+  .moyen:hover { background: var(--bg-soft); }
+  .moyen :global(svg) { width: 22px; height: 22px; fill: var(--accent); flex-shrink: 0; }
+  .moyen span { display: grid; font-size: 0.9rem; color: var(--text-secondary); overflow-wrap: anywhere; }
+  .moyen strong { color: var(--text-primary); }
+  .delai { font-size: 0.9rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); padding-top: 14px; }
+  @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .ligne { grid-template-columns: 1fr; } .formulaire { padding: 22px; } }
+</style>
+
+<script>
+  import { getConsent } from '../scripts/site';
+
+  const form = document.querySelector<HTMLFormElement>('form.formulaire')!;
+  const status = form.querySelector<HTMLElement>('.retour')!;
+  const submit = form.querySelector<HTMLButtonElement>('.envoyer')!;
+  const loadedAt = Date.now();
+  const msg = form.dataset;
+  type Grecaptcha = { getResponse(): string; reset(): void };
+  const captcha = () => (window as unknown as { grecaptcha?: Grecaptcha }).grecaptcha;
+
+  // reCAPTCHA n'est chargé qu'après acceptation des cookies
+  function loadRecaptcha() {
+    if (document.querySelector('script[src*="recaptcha/api.js"]')) return;
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?hl=${document.documentElement.lang}`;
+    script.async = true;
+    document.head.append(script);
+  }
+  if (getConsent() === 'accepted') loadRecaptcha();
+  document.addEventListener('consent-change', (e) => { if ((e as CustomEvent).detail === 'accepted') loadRecaptcha(); });
+
+  const say = (message: string, kind: 'ok' | 'erreur') => { status.textContent = message; status.className = `retour ${kind}`; };
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (Date.now() - loadedAt < 3000) { say(msg.msgAttendre!, 'erreur'); return; }
+    if ((form.elements.namedItem('_gotcha') as HTMLInputElement).value) return;
+    if (getConsent() === 'accepted' && captcha() && captcha()!.getResponse().length === 0) {
+      say(msg.msgCaptcha!, 'erreur');
+      return;
+    }
+    submit.disabled = true;
+    submit.textContent = msg.msgEnvoi!;
+    try {
+      const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error(String(response.status));
+      say(msg.msgOk!, 'ok');
+      form.reset();
+      captcha()?.reset();
+    } catch {
+      say(msg.msgErreur!, 'erreur');
+    } finally {
+      submit.disabled = false;
+      submit.textContent = msg.msgBouton!;
+    }
+  });
+</script>

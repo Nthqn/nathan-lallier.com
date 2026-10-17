@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Lab } from '../lib/github-loader';
+import { langColor, relativeDate } from '../lib/format';
+import { labUrl, ui, type Lang } from '../i18n';
+
+interface Props { lab: CollectionEntry<'labs'>; lang?: Lang }
+const { lang = 'fr' } = Astro.props;
+const lab = Astro.props.lab.data as unknown as Lab;
+---
+<a href={labUrl(Astro.props.lab.id, lang)} class="card card-link lab-card reveal">
+  <span class="lab-name">{lab.nom}</span>
+  <p>{lab.description || ui(lang).labSansDescription}</p>
+  <div class="lab-foot">
+    {lab.langage ? <span><i class="lang-dot" style={`background:${langColor(lab.langage)}`}></i>{lab.langage}</span> : <span></span>}
+    <span>{relativeDate(lab.misAJour, lang)}</span>
+  </div>
+</a>

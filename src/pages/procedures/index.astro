@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProcedureRow from '../../components/ProcedureRow.astro';
+import PlatformIcon from '../../components/PlatformIcon.astro';
+import { PILIERS, PLATEFORMES } from '../../data/site';
+import { getProcedures } from '../../lib/procedures';
+
+const procedures = await getProcedures();
+const plateformes = Object.entries(PLATEFORMES)
+  .map(([key, p]) => ({ key, ...p, count: procedures.filter((x) => x.plateforme === key).length }))
+  .filter((p) => p.count > 0);
+
+// Regroupement par pilier (deuxième code de la référence), dans l'ordre de la convention
+const groupes = Object.entries(PILIERS)
+  .map(([code, label]) => ({ code, label, items: procedures.filter((p) => p.pilier === code) }))
+  .filter((g) => g.items.length > 0);
+const autres = procedures.filter((p) => !PILIERS[p.pilier]);
+if (autres.length) groupes.push({ code: 'AUTRE', label: 'Divers', items: autres });
+
+// Les intertitres de chaque procédure enrichissent la recherche
+const motsCles = (p: (typeof procedures)[number]) =>
+  ((p.rendered?.metadata?.headings as { text: string }[] | undefined) ?? []).map((h) => h.text).join(' ').toLowerCase();
+---
+<Base title="Procédures" description={`${procedures.length} procédures techniques Azure, Linux, Windows Server et Cisco rédigées par Nathan LALLIER, à lire en ligne ou à enregistrer en PDF.`}>
+  <div class="container page catalogue">
+    <header class="page-head">
+      <h1 class="title-xl">Mes <span class="highlight">procédures</span></h1>
+      <p class="lead">Documentation technique rédigée pendant ma formation et mon alternance. Chaque procédure se lit en ligne et s'enregistre en PDF avec sa mise en page d'origine.</p>
+    </header>
+
+    <div class="outils">
+      <label class="recherche">
+        <span class="visually-hidden">Rechercher une procédure</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z" /></svg>
+        <input id="recherche-procedure" type="search" placeholder="Rechercher une procédure, une techno, une référence…" autocomplete="off" />
+      </label>
+      <div class="filters" role="group" aria-label="Filtrer par plateforme">
+        <button type="button" class="filter" data-filtre="toutes" aria-pressed="true">Toutes <span class="count">{procedures.length}</span></button>
+        {plateformes.map((p) => (
+          <button type="button" class="filter" data-filtre={p.key} aria-pressed="false"><PlatformIcon plateforme={p.key} size={18} />{p.label} <span class="count">{p.count}</span></button>
+        ))}
+      </div>
+      <p class="resultat" aria-live="polite"><span id="nb-resultats">{procedures.length}</span> procédure(s)</p>
+    </div>
+
+    <div class="groupes">
+      {groupes.map((g) => (
+        <section class="groupe" data-groupe={g.code} aria-labelledby={`g-${g.code}`}>
+          <h2 id={`g-${g.code}`} class="groupe-titre">{g.label} <span class="groupe-nb">{g.items.length}</span></h2>
+          <div class="card list">
+            {g.items.map((p) => <ProcedureRow procedure={p} detail={`${PLATEFORMES[p.plateforme]?.label} · ${p.data.reference}`} />)}
+          </div>
+        </section>
+      ))}
+      <p class="card vide" hidden>Aucune procédure ne correspond à cette recherche.</p>
+    </div>
+  </div>
+  {procedures.map((p) => <template data-mots={p.url}>{motsCles(p)}</template>)}
+</Base>
+
+<style>
+  .catalogue { gap: 32px; }
+  .outils { display: grid; gap: 16px; position: sticky; top: 79px; z-index: 5; background: var(--bg-body); padding-block: 12px; }
+  .recherche { display: flex; align-items: center; gap: 10px; max-width: 600px; background: var(--bg-card); border-radius: 999px; padding: 4px 8px 4px 20px; box-shadow: var(--shadow-card); border: 2px solid transparent; }
+  .recherche:focus-within { border-color: var(--accent); }
+  .recherche svg { width: 20px; height: 20px; fill: var(--text-muted); flex-shrink: 0; }
+  .recherche input { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; color: var(--text-primary); padding: 10px 0; outline: none; }
+  .resultat { font-size: 0.85rem; color: var(--text-secondary); }
+  .groupes { display: grid; gap: 32px; }
+  .groupe { display: grid; gap: 12px; }
+  .groupe-titre { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); display: flex; gap: 8px; align-items: center; }
+  .groupe-nb { font-size: 0.72rem; background: var(--bg-soft); color: var(--tag-fg); padding: 1px 8px; border-radius: 999px; }
+  .vide { padding: 28px; text-align: center; color: var(--text-secondary); }
+  @media (max-width: 900px) { .outils { position: static; } }
+</style>
+
+<script>
+  const rows = [...document.querySelectorAll<HTMLAnchorElement>('.groupe .list-row')];
+  const mots = new Map([...document.querySelectorAll<HTMLTemplateElement>('template[data-mots]')]
+    .map((t) => [t.dataset.mots!, t.content.textContent ?? '']));
+  const normalise = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const index = new Map(rows.map((r) => [r, normalise(`${r.dataset.search} ${mots.get(r.getAttribute('href')!) ?? ''}`)]));
+  const input = document.getElementById('recherche-procedure') as HTMLInputElement;
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filtre]')];
+  const counter = document.getElementById('nb-resultats')!;
+  const empty = document.querySelector<HTMLElement>('.vide')!;
+  let plateforme = 'toutes';
+
+  function applique() {
+    const termes = normalise(input.value).split(/\s+/).filter(Boolean);
+    let visibles = 0;
+    for (const row of rows) {
+      const ok = (plateforme === 'toutes' || row.dataset.platform === plateforme)
+        && termes.every((t) => index.get(row)!.includes(t));
+      row.hidden = !ok;
+      if (ok) visibles++;
+    }
+    document.querySelectorAll<HTMLElement>('.groupe').forEach((g) => {
+      const n = g.querySelectorAll('.list-row:not([hidden])').length;
+      g.hidden = n === 0;
+      const badge = g.querySelector('.groupe-nb');
+      if (badge) badge.textContent = String(n);
+    });
+    counter.textContent = String(visibles);
+    empty.hidden = visibles > 0;
+  }
+
+  function choisit(valeur: string, majUrl = true) {
+    plateforme = buttons.some((b) => b.dataset.filtre === valeur) ? valeur : 'toutes';
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filtre === plateforme)));
+    if (majUrl) {
+      const url = new URL(location.href);
+      plateforme === 'toutes' ? url.searchParams.delete('plateforme') : url.searchParams.set('plateforme', plateforme);
+      history.replaceState(null, '', url);
+    }
+    applique();
+  }
+
+  buttons.forEach((b) => b.addEventListener('click', () => choisit(b.dataset.filtre!)));
+  input.addEventListener('input', applique);
+  choisit(new URLSearchParams(location.search).get('plateforme') ?? 'toutes', false);
+</script>

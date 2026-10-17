@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://nathan-lallier.com/sitemap.xml

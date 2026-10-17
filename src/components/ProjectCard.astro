@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import { projetVue, type Projet } from '../lib/projets';
+import { projetUrl, ui, type Lang } from '../i18n';
+
+interface Props { projet: Projet; lang?: Lang; headingLevel?: 'h2' | 'h3' }
+const { projet, lang = 'fr', headingLevel: H = 'h3' } = Astro.props;
+const p = projetVue(projet, lang);
+const t = ui(lang);
+---
+<a href={projetUrl(projet.id, lang)} class="card card-link project-card reveal">
+  <div class="project-cover" aria-hidden="true">
+    {p.couverture ? <Image src={p.couverture} alt="" width={640} /> : (
+      <div class="cover-text">
+        <span class="cover-word">{p.categorie}</span>
+        <span class="cover-tags">{p.technologies.slice(0, 3).join(' · ')}</span>
+      </div>
+    )}
+  </div>
+  <div class="project-body">
+    <div class="project-meta">
+      <span class={`status status-${p.statut}`}>{p.statut === 'termine' ? t.termine : t.enCours}</span>
+      <span class="eyebrow">{t.projetComplet} · {p.annee}</span>
+    </div>
+    <H>{p.titre}{p.titreAccent && <> <span class="highlight">{p.titreAccent}</span></>}</H>
+    <p>{p.resume}</p>
+    <div class="tags">{p.technologies.slice(0, 4).map((t) => <span class="tag">{t}</span>)}</div>
+  </div>
+</a>
+<style>
+  .cover-text { display: grid; gap: 6px; text-align: center; padding: 0 20px; }
+  .cover-word { font-family: var(--font-display); font-size: 1.9rem; color: var(--accent); line-height: 1.1; }
+  .cover-tags { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-text); }
+</style>

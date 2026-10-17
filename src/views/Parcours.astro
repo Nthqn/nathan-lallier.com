@@ -1,0 +1,283 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icons.astro';
+import PlatformIcon from '../components/PlatformIcon.astro';
+import semin from '../assets/img/semin.webp';
+import mewo from '../assets/img/mewo.png';
+import cesi from '../assets/img/cesi.png';
+import { CERTIFICATIONS, SITE, poste } from '../data/site';
+import { route, ui, type Lang } from '../i18n';
+import { getProcedures } from '../lib/procedures';
+import { badges } from '../lib/badges';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const u = ui(lang);
+const T = {
+  fr: {
+    titre: 'Parcours',
+    description: 'Parcours de Nathan LALLIER : BTS SIO à MEWO, cycle ingénieur au CESI, alternance chez SEMIN et certifications Microsoft et Cisco.',
+    h1: ['Mon', 'parcours'],
+    lead: 'Apprenti ingénieur cloud dans un groupe industriel, je travaille sur une infrastructure de production multisite. Curieux de nature, je cherche toujours à comprendre le « comment » et le « pourquoi » derrière chaque architecture.',
+    enBref: 'En bref',
+    bref: [
+      ['Poste', `${SITE.poste}, Groupe SEMIN`],
+      ['Formation', 'Cycle ingénieur informatique, CESI Nancy'],
+      ['Spécialités', 'Azure, Microsoft 365, réseau et sécurité'],
+      ['Région', 'Grand Est'],
+      ['Langues', 'Français, anglais bilingue, mandarin en apprentissage'],
+    ],
+    chemin: ['Mon', 'chemin'],
+    formation: 'Formation', entreprise: 'Entreprise', enCours: 'en cours',
+    p1: ['Sept. 2024', 'sept. 2026'], p2: ['Oct. 2026', 'sept. 2029'], objectif: 'Objectif',
+    bts: 'MEWO, Metz · diplôme obtenu en juillet 2026',
+    tech: 'Technicien informatique en alternance',
+    seminLieu: 'Groupe SEMIN · Kédange-sur-Canner (Moselle)',
+    missions: [
+      ['Support utilisateur.', 'Support N1/N2, Navision, Salesforce et Office, environnements Citrix.'],
+      ['Systèmes et messagerie.', "Serveurs d'infrastructure, Exchange Online, parc Microsoft 365, sauvegardes Commvault."],
+      ['Cloud et sécurité.', 'Identités Entra ID, déploiement Intune et Autopilot, migration PST vers Purview, téléphonie Teams.'],
+    ],
+    cesiTitre: 'Cycle ingénieur informatique',
+    cesi: 'CESI, Nancy · FISA, accrédité CTI et EUR-ACE · spécialisations Cloud et Cybersécurité',
+    semin: 'Groupe SEMIN · groupe industriel fondé en 1838, plus de 500 collaborateurs',
+    architecte: 'Architecte Cloud',
+    architecteTexte: "Concevoir des infrastructures résilientes et sécurisées, intégrant les services émergents comme l'IA en production. À terme, une carrière internationale, notamment en Asie-Pacifique.",
+    certifsTitre: ['Mes', 'certifications'], obtenues: 'Obtenues', verifier: 'Vérifier',
+    certifsNote: 'Chaque badge renvoie vers sa vérification sur Microsoft Learn ou Credly.',
+    competencesTitre: ['Mes compétences,', "preuves à l'appui"],
+    colonnes: ['Domaine', 'Certification', 'Procédures', 'Projets et labs'],
+    aucune: 'aucune', aVenir: 'à venir',
+    domaines: { azure: 'Azure', linux: 'Linux et pare-feu', windows: 'Windows Server et AD', cisco: 'Réseau Cisco' } as Record<string, string>,
+    cisco: 'CCNA 1 à 3',
+    projet: (n: number) => `${n} projet${n > 1 ? 's' : ''}`,
+    lab: (n: number) => `${n} lab${n > 1 ? 's' : ''}`,
+  },
+  en: {
+    titre: 'Background',
+    description: 'Background of Nathan LALLIER: BTS SIO at MEWO, engineering degree at CESI, work-study at SEMIN, Microsoft and Cisco certifications.',
+    h1: ['My', 'background'],
+    lead: 'As a cloud engineering apprentice in an industrial group, I work on a multi-site production infrastructure. Curious by nature, I always want to understand the how and the why behind every architecture.',
+    enBref: 'At a glance',
+    bref: [
+      ['Role', `${SITE.posteEn}, SEMIN Group`],
+      ['Education', 'Computer science engineering degree, CESI Nancy'],
+      ['Focus', 'Azure, Microsoft 365, networking and security'],
+      ['Location', 'Grand Est, France'],
+      ['Languages', 'French, English (bilingual), learning Mandarin'],
+    ],
+    chemin: ['My', 'path'],
+    formation: 'Education', entreprise: 'Work', enCours: 'current',
+    p1: ['Sept. 2024', 'Sept. 2026'], p2: ['Oct. 2026', 'Sept. 2029'], objectif: 'Goal',
+    bts: 'MEWO, Metz · two-year IT degree (BTS SIO), graduated July 2026',
+    tech: 'IT technician, work-study',
+    seminLieu: 'SEMIN Group · Kédange-sur-Canner (Moselle, France)',
+    missions: [
+      ['User support.', 'Level 1 and 2 support, Navision, Salesforce and Office, Citrix environments.'],
+      ['Systems and email.', 'Infrastructure servers, Exchange Online, Microsoft 365 fleet, Commvault backups.'],
+      ['Cloud and security.', 'Entra ID identities, Intune and Autopilot rollout, PST migration to Purview, Teams Phone.'],
+    ],
+    cesiTitre: 'Computer science engineering degree',
+    cesi: "CESI, Nancy · work-study master's-level programme, CTI and EUR-ACE accredited · Cloud and Cybersecurity tracks",
+    semin: 'SEMIN Group · industrial group founded in 1838, over 500 employees',
+    architecte: 'Cloud Architect',
+    architecteTexte: 'Designing resilient, secure infrastructure that brings emerging services such as AI into production. In the long run, an international career, particularly in Asia-Pacific.',
+    certifsTitre: ['My', 'certifications'], obtenues: 'Earned', verifier: 'Verify',
+    certifsNote: 'Each badge links to its verification on Microsoft Learn or Credly.',
+    competencesTitre: ['My skills,', 'with evidence'],
+    colonnes: ['Area', 'Certification', 'Procedures', 'Projects and labs'],
+    aucune: 'none', aVenir: 'coming soon',
+    domaines: { azure: 'Azure', linux: 'Linux and firewalls', windows: 'Windows Server and AD', cisco: 'Cisco networking' } as Record<string, string>,
+    cisco: 'CCNA 1 to 3',
+    projet: (n: number) => `${n} project${n > 1 ? 's' : ''}`,
+    lab: (n: number) => `${n} lab${n > 1 ? 's' : ''}`,
+  },
+}[lang];
+
+const procedures = await getProcedures();
+const parPlateforme = (key: string) => procedures.filter((p) => p.plateforme === key).length;
+const projets = await getCollection('projets');
+const labs = await getCollection('labs');
+
+const obtenues = CERTIFICATIONS.filter((c) => c.statut === 'obtenue');
+const prochaines = CERTIFICATIONS.filter((c) => c.statut !== 'obtenue');
+
+// Compétences : chaque domaine relié à ses preuves (certification, procédures, projets, labs)
+const competences = [
+  { plateforme: 'azure', domaine: 'Azure', certification: 'AZ-900, AZ-104', projets: ['veridis-life-sciences'], sujets: ['azure', 'terraform', 'bicep'] },
+  { plateforme: 'linux', domaine: 'Linux et pare-feu', certification: '', projets: ['orion-consulting-group'], sujets: ['linux', 'bash', 'docker', 'pfsense'] },
+  { plateforme: 'windows', domaine: 'Windows Server et AD', certification: '', projets: ['orion-consulting-group'], sujets: ['windows', 'powershell', 'active-directory'] },
+  { plateforme: 'cisco', domaine: 'Réseau Cisco', certification: T.cisco, projets: [], sujets: ['cisco', 'network', 'gns3'] },
+].map((c) => {
+  const nbProjets = projets.filter((p) => c.projets.includes(p.id)).length;
+  const nbLabs = labs.filter((l) => ((l.data as { sujets?: string[] }).sujets ?? []).some((s) => c.sujets.includes(s))).length;
+  const preuves = [nbProjets && T.projet(nbProjets), nbLabs && T.lab(nbLabs)].filter(Boolean);
+  return { ...c, domaine: T.domaines[c.plateforme], procedures: parPlateforme(c.plateforme), preuves: preuves.join(', ') || T.aVenir };
+});
+---
+<Base title={T.titre} description={T.description}>
+  <div class="container page">
+    <header class="parcours-intro">
+      <div class="page-head">
+        <h1 class="title-xl">{T.h1[0]} <span class="highlight">{T.h1[1]}</span></h1>
+        <p class="lead">{T.lead}</p>
+      </div>
+      <aside class="card en-bref" aria-label={T.enBref}>
+        <dl>
+          {T.bref.map(([dt, dd]) => <div><dt>{dt}</dt><dd>{dd}</dd></div>)}
+        </dl>
+        <a href={SITE.cv} class="btn btn-primary" download><Icon name="download" />{u.cvLong}</a>
+      </aside>
+    </header>
+
+    <section class="section" aria-labelledby="chemin">
+      <h2 id="chemin" class="title-lg">{T.chemin[0]} <span class="highlight">{T.chemin[1]}</span></h2>
+      <ol class="frise">
+        <li>
+          <p class="frise-date"><time datetime="2024-09">{T.p1[0]}</time> <span>{T.p1[1]}</span></p>
+          <div class="frise-paire">
+            <div class="card etape reveal">
+              <p class="eyebrow">{T.formation}</p>
+              <div class="etape-tete"><Image src={mewo} alt="MEWO Campus Métiers" width={96} class="logo-ecole" /><div><h3>BTS SIO</h3><p class="muted">{T.bts}</p></div></div>
+            </div>
+            <div class="card etape reveal">
+              <p class="eyebrow">{T.entreprise}</p>
+              <div class="etape-tete"><Image src={semin} alt="Groupe SEMIN" width={52} height={52} class="logo-entreprise" /><div><h3>{T.tech}</h3><p class="muted">{T.seminLieu}</p></div></div>
+              <ul class="missions">
+                {T.missions.map(([titre, texte]) => <li><strong>{titre}</strong> {texte}</li>)}
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="en-cours">
+          <p class="frise-date"><time datetime="2026-10">{T.p2[0]}</time> <span>{T.p2[1]}</span></p>
+          <div class="frise-paire">
+            <div class="card etape reveal">
+              <p class="eyebrow">{T.formation} · {T.enCours}</p>
+              <div class="etape-tete"><Image src={cesi} alt="CESI École d'ingénieurs" width={96} class="logo-ecole" /><div><h3>{T.cesiTitre}</h3><p class="muted">{T.cesi}</p></div></div>
+            </div>
+            <div class="card etape reveal">
+              <p class="eyebrow">{T.entreprise} · {T.enCours}</p>
+              <div class="etape-tete"><Image src={semin} alt="Groupe SEMIN" width={52} height={52} class="logo-entreprise" /><div><h3>{poste(lang)}</h3><p class="muted">{T.semin}</p></div></div>
+            </div>
+          </div>
+        </li>
+        <li class="objectif">
+          <p class="frise-date">{T.objectif}</p>
+          <div class="card etape reveal">
+            <h3>{T.architecte}</h3>
+            <p class="muted">{T.architecteTexte}</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="certifications" aria-labelledby="certifs-titre">
+      <h2 id="certifs-titre" class="title-lg">{T.certifsTitre[0]} <span class="highlight">{T.certifsTitre[1]}</span></h2>
+      <div class="card feuille-de-route reveal">
+        <div class="obtenues">
+          <p class="eyebrow">{T.obtenues}</p>
+          <ul class="badges">
+            {obtenues.map((c) => (
+              <li>
+                <a href={c.verification} target="_blank" rel="noopener noreferrer" title={`${T.verifier} ${c.nom}`}>
+                  <Image src={badges[c.badge]} alt="" width={84} height={84} />
+                  <span><strong>{c.nom}</strong>{c.editeur}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class="muted petit">{T.certifsNote}</p>
+        </div>
+        <ol class="prochaines">
+          {prochaines.map((c) => (
+            <li><span class="annee">{c.statut === 'en-cours' ? u.enCours : c.annee}</span><span><strong>{c.nom}</strong><small>{c.editeur}</small></span></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="competences">
+      <h2 id="competences" class="title-lg">{T.competencesTitre[0]} <span class="highlight">{T.competencesTitre[1]}</span></h2>
+      <div class="card tableau reveal">
+        <table>
+          <thead><tr>{T.colonnes.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+          <tbody>
+            {competences.map((c) => (
+              <tr>
+                <th scope="row"><span class="domaine"><PlatformIcon plateforme={c.plateforme} size={20} />{c.domaine}</span></th>
+                <td>{c.certification || <span class="muted">{T.aucune}</span>}</td>
+                <td><a href={`/procedures?plateforme=${c.plateforme}`} class="nombre" hreflang={lang === 'en' ? 'fr' : undefined}>{c.procedures}</a></td>
+                <td>{c.preuves}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .parcours-intro { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 40px; align-items: center; }
+  .en-bref { padding: 24px 26px; display: grid; gap: 18px; }
+  .en-bref dl { display: grid; gap: 10px; }
+  .en-bref dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+  .en-bref dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding-top: 3px; }
+  .en-bref dd { font-weight: 600; font-size: 0.95rem; }
+  @media (max-width: 860px) { .parcours-intro { grid-template-columns: 1fr; } }
+  .frise { list-style: none; display: grid; gap: 22px; }
+  .frise > li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 30px; position: relative; }
+  .frise > li::before { content: ''; position: absolute; left: 145px; top: 26px; bottom: -22px; width: 2px; background: #e6d3b1; }
+  .frise > li:last-child::before { display: none; }
+  .frise > li::after { content: ''; position: absolute; left: 139px; top: 18px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--bg-body); }
+  .frise > li.objectif::after { background: var(--bg-body); border: 2px dashed var(--accent); }
+  .frise-date { font-size: 0.88rem; font-weight: 700; color: var(--accent-text); text-align: right; padding-top: 10px; display: grid; }
+  .frise-date span { font-weight: 600; opacity: 0.8; }
+  .frise-paire { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .etape { padding: 20px 22px; display: grid; gap: 12px; }
+  .etape h3 { font-size: 1.08rem; line-height: 1.35; }
+  .etape .muted { font-size: 0.92rem; }
+  .etape-tete { display: flex; gap: 16px; align-items: center; }
+  .etape-tete > div { min-width: 0; }
+  .etape :global(.logo-entreprise) { width: 52px; height: 52px; border-radius: 10px; flex-shrink: 0; }
+  .etape :global(.logo-ecole) { width: 84px; height: auto; flex-shrink: 0; }
+  html:global(.dark-mode) .etape :global(.logo-ecole) { background: #fff; border-radius: 8px; padding: 6px; }
+  .missions { list-style: none; display: grid; gap: 8px; border-top: 1px solid var(--border-color); padding-top: 12px; font-size: 0.92rem; color: var(--text-secondary); }
+  .missions strong { color: var(--text-primary); }
+  .feuille-de-route { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+  .obtenues { padding: 24px 26px; display: grid; gap: 16px; align-content: start; }
+  .badges { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .badges a { display: flex; align-items: center; gap: 10px; border-radius: 12px; padding: 6px; transition: background 0.2s ease; }
+  .badges a:hover { background: var(--bg-soft); }
+  .badges :global(img) { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
+  .badges span { display: grid; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.35; }
+  .badges strong { color: var(--text-primary); font-size: 0.88rem; }
+  .petit { font-size: 0.82rem; }
+  .prochaines { list-style: none; border-left: 1px solid var(--border-color); padding: 14px 26px; display: grid; align-content: center; }
+  .prochaines li { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px 0; }
+  .prochaines li + li { border-top: 1px dashed var(--border-color); }
+  .prochaines span:last-child { display: grid; }
+  .prochaines strong { font-size: 0.95rem; font-weight: 600; }
+  .prochaines small { color: var(--text-secondary); font-size: 0.8rem; }
+  .annee { font-size: 0.82rem; font-weight: 700; color: var(--accent-text); }
+  .tableau { overflow-x: auto; }
+  .tableau table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.95rem; }
+  .tableau th, .tableau td { padding: 14px 22px; text-align: left; }
+  .tableau thead th { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+  .tableau tbody tr { border-top: 1px solid var(--border-color); }
+  .domaine { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+  .nombre { font-family: var(--font-display); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .nombre:hover { color: var(--accent); }
+  @media (max-width: 860px) {
+    .frise > li { grid-template-columns: 1fr; gap: 8px; }
+    .frise > li::before, .frise > li::after { display: none; }
+    .frise-date { text-align: left; padding: 0; display: flex; gap: 6px; }
+    .frise-date span::before { content: 'à '; }
+    :global(html[lang='en']) .frise-date span::before { content: 'to '; }
+    .frise-paire, .feuille-de-route { grid-template-columns: 1fr; }
+    .prochaines { border-left: 0; border-top: 1px solid var(--border-color); }
+  }
+</style>

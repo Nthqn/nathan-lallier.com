@@ -1,0 +1,145 @@
+---
+import { render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import PlatformIcon from '../../../components/PlatformIcon.astro';
+import Icon from '../../../components/Icons.astro';
+import logo from '../../../assets/img/logo.webp';
+import { PLATEFORMES, SITE } from '../../../data/site';
+import { getProcedures, formatDateFr, readingMinutes, type Procedure } from '../../../lib/procedures';
+import '../../../styles/procedure.css';
+
+export async function getStaticPaths() {
+  const procedures = await getProcedures();
+  return procedures.map((procedure) => ({
+    params: { plateforme: procedure.plateforme, slug: procedure.slug },
+    props: { procedure },
+  }));
+}
+
+const { procedure } = Astro.props as { procedure: Procedure };
+const { Content, headings } = await render(procedure);
+const d = procedure.data;
+const plateforme = PLATEFORMES[procedure.plateforme]?.label ?? procedure.plateforme;
+const sommaire = headings.filter((h) => h.depth === 2);
+const minutes = readingMinutes(procedure.body);
+const typeLabel = d.type.toUpperCase() === 'PROCEDURE' ? 'Procédure' : d.type;
+
+// Textes des en-têtes et pieds de page imprimés (marges @page), échappés pour une chaîne CSS
+const css = (value: string) => `"${value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+const printCss = `@page { @top-left { content: ${css(d.titre)}; } @top-right { content: ${css(`${typeLabel.toUpperCase()} · ${d.reference}`)}; } @bottom-left { content: ${css(d.auteur)}; } } @page :first { @top-left { content: ''; } @top-right { content: ''; } }`;
+
+const description = `Procédure ${plateforme} : ${d.titre}. Documentation technique pas à pas rédigée par ${SITE.nom}.`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: d.titre,
+  author: { '@type': 'Person', name: d.auteur, url: SITE.url },
+  dateModified: procedure.revisionDate?.toISOString().slice(0, 10),
+  inLanguage: 'fr',
+  about: plateforme,
+};
+---
+<Base title={d.titre} description={description} type="article" jsonLd={jsonLd}>
+  <style is:inline set:html={printCss}></style>
+  <div class="container page procedure-page">
+    <header class="page-head screen-only">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="/procedures">Procédures</a><span aria-hidden="true">›</span>
+        <a href={`/procedures?plateforme=${procedure.plateforme}`}>{plateforme}</a><span aria-hidden="true">›</span>
+        <span aria-current="page">{procedure.pilierLabel}</span>
+      </nav>
+      <h1 class="title-xl procedure-title">{d.titre}</h1>
+      <ul class="procedure-meta">
+        <li><PlatformIcon plateforme={procedure.plateforme} size={18} />{plateforme} · {procedure.pilierLabel}</li>
+        <li>{d.reference} · version {d.version}</li>
+        <li>Révisée le {formatDateFr(procedure.revisionDate)}</li>
+        <li>{minutes} min de lecture</li>
+      </ul>
+    </header>
+
+    <!-- Cartouche de première page, visible uniquement à l'impression -->
+    <div class="cartouche print-only">
+      <Image src={logo} alt="" width={152} height={152} loading="eager" />
+      <div>
+        <p class="cartouche-surtitre">{typeLabel.toUpperCase()}</p>
+        <p class="cartouche-titre">{d.titre}</p>
+        <p class="cartouche-soustitre">{d.class}</p>
+      </div>
+      <dl class="cartouche-meta">
+        <dt>Référence</dt><dd>{d.reference}</dd>
+        <dt>Version</dt><dd>{d.version}</dd>
+        <dt>Création</dt><dd>{d.creation}</dd>
+        <dt>Révision</dt><dd>{d.revision}</dd>
+      </dl>
+    </div>
+
+    <div class="procedure-layout">
+      <article class="prose procedure-body">
+        <nav class="toc-print print-only" aria-hidden="true">
+          <p class="toc-print-title">Table des matières</p>
+          <ol>{sommaire.map((h) => <li>{h.text}</li>)}</ol>
+        </nav>
+        <Content />
+      </article>
+      <aside class="procedure-aside screen-only">
+        <nav class="card toc" aria-label="Sommaire">
+          <p class="toc-title">Sommaire</p>
+          <ol>{sommaire.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </nav>
+        <button type="button" class="btn btn-secondary print-button" data-imprimer>
+          <Icon name="print" />Enregistrer en PDF
+        </button>
+        <p class="print-hint">Choisissez « Enregistrer au format PDF » dans la fenêtre d'impression. La mise en page reprend le cartouche de la procédure.</p>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<script>
+  // Surligne dans le sommaire la section en cours de lecture
+  const links = new Map<string, HTMLAnchorElement>();
+  document.querySelectorAll<HTMLAnchorElement>('.toc a').forEach((a) => links.set(a.hash.slice(1), a));
+  const sections = [...links.keys()].map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        links.get(entry.target.id)?.setAttribute('aria-current', 'true');
+      }
+    }, { rootMargin: '0px 0px -75% 0px' });
+    sections.forEach((s) => observer.observe(s));
+  }
+
+  // Impression : les images chargées à la demande doivent toutes être présentes avant d'imprimer
+  async function prepareImpression() {
+    const images = [...document.images];
+    images.forEach((img) => { img.loading = 'eager'; });
+    await Promise.all(images.map((img) => img.complete ? Promise.resolve() : img.decode().catch(() => undefined)));
+  }
+  document.querySelector('[data-imprimer]')?.addEventListener('click', async () => {
+    await prepareImpression();
+    window.print();
+  });
+  // Raccourci Ctrl+P : on lance au moins le chargement des images
+  window.addEventListener('beforeprint', () => { document.querySelectorAll('img').forEach((img) => { img.loading = 'eager'; }); });
+
+  // Bouton de copie sur chaque bloc de code
+  document.querySelectorAll('.procedure-body pre').forEach((pre) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'copy-button';
+    button.textContent = 'Copier';
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(pre.querySelector('code')?.innerText ?? pre.textContent ?? '');
+        button.textContent = 'Copié';
+      } catch {
+        button.textContent = 'Échec';
+      }
+      setTimeout(() => (button.textContent = 'Copier'), 1800);
+    });
+    pre.append(button);
+  });
+</script>

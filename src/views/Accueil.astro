@@ -1,0 +1,241 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icons.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ProcedureRow from '../components/ProcedureRow.astro';
+import PlatformIcon from '../components/PlatformIcon.astro';
+import photo from '../assets/img/photo.webp';
+import { CERTIFICATIONS, PLATEFORMES, SITE, moisExperience, poste } from '../data/site';
+import { getProcedures } from '../lib/procedures';
+import { getProjets } from '../lib/projets';
+import { formatDate, route, ui, type Lang } from '../i18n';
+import { badges } from '../lib/badges';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const u = ui(lang);
+const T = {
+  fr: {
+    lead: "Je conçois et j'administre des <strong class=\"accent-strong\">infrastructures cloud sécurisées</strong> en environnement industriel chez SEMIN. Azure, Entra ID, Intune et Microsoft 365 au quotidien, en cycle ingénieur au CESI jusqu'en 2029.",
+    voirProjets: 'Voir mes projets', parcours: 'Mon parcours',
+    chiffres: 'En chiffres', mois: "mois d'expérience en production", certifs: 'certifications obtenues', procs: 'procédures publiées',
+    projetsTitre: ['Projets', 'à la une'], tousProjets: 'Tous les projets et labs →',
+    procTitre: ['Dernières', 'procédures'], toutesProcs: (n: number) => `Les ${n} procédures →`,
+    revisee: (d: string) => `révisée le ${d}`,
+    verifier: 'Vérifier', verifierLabel: (n: string) => `${n}, vérifier la certification (nouvel onglet)`,
+    enCours: 'en cours', toutesCertifs: 'Toutes mes certifications →',
+  },
+  en: {
+    lead: 'I design and run <strong class="accent-strong">secure cloud infrastructure</strong> in an industrial environment at SEMIN. Azure, Entra ID, Intune and Microsoft 365 every day, alongside an engineering degree at CESI until 2029.',
+    voirProjets: 'See my projects', parcours: 'My background',
+    chiffres: 'At a glance', mois: 'months of hands-on production experience', certifs: 'certifications earned', procs: 'published procedures',
+    projetsTitre: ['Featured', 'projects'], tousProjets: 'All projects and labs →',
+    procTitre: ['Latest', 'procedures'], toutesProcs: (n: number) => `All ${n} procedures, in French →`,
+    revisee: (d: string) => `revised ${d}`,
+    verifier: 'Verify', verifierLabel: (n: string) => `${n}, verify this certification (new tab)`,
+    enCours: 'in progress', toutesCertifs: 'All my certifications →',
+  },
+}[lang];
+
+const procedures = await getProcedures();
+const dernieres = [...procedures]
+  .sort((a, b) => (b.revisionDate?.getTime() ?? 0) - (a.revisionDate?.getTime() ?? 0))
+  .slice(0, 4);
+const projets = (await getProjets()).slice(0, 2);
+const obtenues = CERTIFICATIONS.filter((c) => c.statut === 'obtenue');
+const enCours = CERTIFICATIONS.find((c) => c.statut === 'en-cours');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.nom,
+  url: SITE.url,
+  image: `${SITE.url}/icon-512.png`,
+  jobTitle: poste(lang),
+  worksFor: { '@type': 'Organization', name: 'Groupe SEMIN' },
+  alumniOf: [
+    { '@type': 'EducationalOrganization', name: 'MEWO Campus Métiers' },
+    { '@type': 'EducationalOrganization', name: 'CESI École d\'ingénieurs' },
+  ],
+  hasCredential: obtenues.map((c) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: `${c.editeur} ${c.nom}`,
+    credentialCategory: 'certification',
+    recognizedBy: { '@type': 'Organization', name: c.editeur },
+  })),
+  sameAs: [SITE.linkedin, SITE.github],
+};
+---
+<Base title={SITE.nom} type="profile" jsonLd={jsonLd}>
+  <div class="container page">
+    <section class="presentation" aria-labelledby="presentation-titre">
+      <div class="presentation-texte">
+        <h1 id="presentation-titre" class="presentation-titre">
+          <span class="presentation-nom">{SITE.nom}</span>
+          <span class="presentation-poste">{poste(lang)}</span>
+        </h1>
+        <p class="lead" set:html={T.lead} />
+        <div class="actions">
+          <a href={route('projets', lang)} class="btn btn-primary">{T.voirProjets}</a>
+          <a href={route('parcours', lang)} class="btn btn-secondary">{T.parcours}</a>
+        </div>
+        <div class="socials">
+          <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a>
+          <a href={SITE.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Icon name="github" /></a>
+          <a href={`mailto:${SITE.email}`} aria-label={u.email}><Icon name="mail" /></a>
+        </div>
+      </div>
+      <div class="portrait">
+        <div class="portrait-anneau" aria-hidden="true"></div>
+        <Image src={photo} alt="Nathan LALLIER" widths={[320, 520]} sizes="(max-width: 900px) 280px, 360px" class="portrait-photo" loading="eager" fetchpriority="high" />
+        {Object.entries(PLATEFORMES).map(([key, p], i) => (
+          <span class={`portrait-badge portrait-badge-${i + 1}`}><PlatformIcon plateforme={key} size={20} />{p.label}</span>
+        ))}
+      </div>
+    </section>
+
+    <section class="card chiffres reveal" aria-label={T.chiffres}>
+      <div><strong>{moisExperience()}<span class="highlight">+</span></strong><span>{T.mois}</span></div>
+      <div><strong>{obtenues.length}</strong><span>{T.certifs}</span></div>
+      <div><strong>{procedures.length}</strong><span>{T.procs}</span></div>
+    </section>
+
+    <section class="section" aria-labelledby="projets-titre">
+      <div class="section-head">
+        <h2 id="projets-titre" class="title-lg">{T.projetsTitre[0]} <span class="highlight">{T.projetsTitre[1]}</span></h2>
+        <a href={route('projets', lang)} class="link-more">{T.tousProjets}</a>
+      </div>
+      <div class="projects-grid">
+        {projets.map((projet) => <ProjectCard projet={projet} lang={lang} />)}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="procedures-titre">
+      <div class="section-head">
+        <h2 id="procedures-titre" class="title-lg">{T.procTitre[0]} <span class="highlight">{T.procTitre[1]}</span></h2>
+        <a href="/procedures" class="link-more" hreflang={lang === 'en' ? 'fr' : undefined}>{T.toutesProcs(procedures.length)}</a>
+      </div>
+      <div class="card list reveal">
+        {dernieres.map((p) => (
+          <ProcedureRow procedure={p} lang={lang} detail={`${PLATEFORMES[p.plateforme]?.label} · ${T.revisee(formatDate(p.revisionDate, lang))}`} />
+        ))}
+      </div>
+    </section>
+
+    <section class="card certifs reveal" aria-label="Certifications">
+      <div class="certifs-badges">
+        {obtenues.map((c) => (
+          <a class="certif" href={c.verification} target="_blank" rel="noopener" aria-label={T.verifierLabel(`${c.editeur} ${c.nom}`)}>
+            <Image src={badges[c.badge]} alt="" width={72} height={72} />
+            <span class="certif-bulle" aria-hidden="true">
+              <span class="certif-editeur">{c.editeur}</span>
+              <strong>{c.nom}</strong>
+              <span class="certif-verif">{T.verifier} ↗</span>
+            </span>
+          </a>
+        ))}
+        {enCours && <Image src={badges[enCours.badge]} alt={`${enCours.nom}, ${T.enCours}`} width={72} height={72} class="badge-en-cours" />}
+      </div>
+      <p>{enCours && <>{enCours.nom} {T.enCours} · </>}<a href={`${route('parcours', lang)}#certifications`} class="link-more">{T.toutesCertifs}</a></p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  // Loupe façon Dock sur les badges de certification (souris uniquement)
+  const dock = document.querySelector<HTMLElement>('.certifs-badges');
+  const souris = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const calme = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (dock && souris.matches && !calme.matches) {
+    const items = [...dock.querySelectorAll<HTMLElement>('.certif')];
+    const PORTEE = 160, MAX = 0.6;
+    let raf = 0;
+    dock.addEventListener('pointermove', (e) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        dock.classList.add('dock-actif');
+        for (const el of items) {
+          const r = el.getBoundingClientRect();
+          const d = Math.abs(e.clientX - (r.left + r.width / 2));
+          const k = Math.max(0, 1 - d / PORTEE);
+          el.style.setProperty('--s', (1 + MAX * Math.cos((1 - k) * Math.PI / 2) ** 2 * (k > 0 ? 1 : 0)).toFixed(3));
+        }
+      });
+    });
+    dock.addEventListener('pointerleave', () => {
+      cancelAnimationFrame(raf);
+      dock.classList.remove('dock-actif');
+      for (const el of items) el.style.removeProperty('--s');
+    });
+  }
+</script>
+
+<style>
+  .presentation { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; padding-top: 8px; }
+  .presentation-texte { display: grid; gap: 22px; }
+  .presentation-titre { display: grid; gap: 10px; font-family: var(--font-display); font-weight: 400; line-height: 1.02; }
+  .presentation-nom { color: var(--accent); font-size: clamp(2.6rem, 6vw, 4.4rem); }
+  .presentation-poste { font-size: clamp(2rem, 4.2vw, 3.1rem); text-wrap: balance; }
+  .accent-strong { color: var(--accent-text); font-weight: 600; }
+  .portrait { position: relative; justify-self: center; width: min(100%, 380px); aspect-ratio: 1; }
+  .portrait-anneau { position: absolute; inset: 0; border-radius: 50%; border: 2px dashed #e8c78f; }
+  .portrait :global(.portrait-photo) { position: absolute; inset: 8%; width: 84%; height: 84%; object-fit: cover; object-position: 50% 30%; border-radius: 50%; }
+  .portrait-badge {
+    position: absolute; display: flex; align-items: center; gap: 7px; background: var(--bg-card);
+    padding: 7px 14px 7px 9px; border-radius: 999px; font-weight: 600; font-size: 0.88rem; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+  }
+  .portrait-badge-1 { top: 10%; right: -6%; }
+  .portrait-badge-2 { bottom: 8%; right: 2%; }
+  .portrait-badge-3 { top: 10%; left: -6%; }
+  .portrait-badge-4 { bottom: 24%; left: -9%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .portrait-badge { animation: flotte 6s ease-in-out infinite; }
+    .portrait-badge-2, .portrait-badge-4 { animation-delay: -3s; }
+    @keyframes flotte { 50% { transform: translateY(-6px); } }
+  }
+  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .chiffres > div { padding: 26px 18px; text-align: center; display: grid; gap: 6px; }
+  .chiffres > div + div { border-left: 1px solid var(--border-color); }
+  .chiffres strong { font-family: var(--font-display); font-weight: 400; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; }
+  .chiffres span:last-child { color: var(--text-secondary); font-size: 0.95rem; }
+  .certifs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 26px 20px; }
+  .certifs-badges { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; }
+  .certifs-badges :global(img) { width: 72px; height: 72px; object-fit: contain; }
+  /* Effet loupe façon Dock : --s est piloté en JS selon la distance au curseur */
+  .certif { --s: 1; position: relative; display: block; border-radius: 12px; outline-offset: 4px; margin-inline: calc(36px * (var(--s) - 1)); }
+  .certif :global(img) { transform: scale(var(--s)); transform-origin: 50% 100%; filter: drop-shadow(0 calc(6px * (var(--s) - 1)) calc(14px * (var(--s) - 1)) rgb(0 0 0 / 0.18)); }
+  .certifs-badges.dock-actif .certif, .certifs-badges.dock-actif .certif :global(img) { transition: margin 0.12s ease-out, transform 0.12s ease-out; }
+  .certifs-badges .certif, .certifs-badges .certif :global(img) { transition: margin 0.3s ease, transform 0.3s ease; }
+  .certif:focus-visible { --s: 1.35; }
+  .certif-bulle {
+    position: absolute; left: 50%; bottom: calc(100% + 72px * (var(--s) - 1) + 12px); z-index: 5;
+    display: grid; gap: 2px; width: max-content; max-width: 220px; padding: 10px 14px;
+    background: var(--bg-card); color: var(--text-primary);
+    border: 1px solid var(--border-color); border-radius: var(--radius-small); box-shadow: var(--shadow-card-hover);
+    font-size: 0.85rem; line-height: 1.35; text-align: center;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translate(-50%, 6px); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  }
+  .certif-bulle::after {
+    content: ''; position: absolute; top: 100%; left: 50%; width: 10px; height: 10px;
+    background: inherit; border: inherit; border-width: 0 1px 1px 0; transform: translate(-50%, -5px) rotate(45deg);
+  }
+  .certif:hover .certif-bulle, .certif:focus-visible .certif-bulle { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .certif-editeur { color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .certif-verif { color: var(--accent-text); font-weight: 600; font-size: 0.8rem; margin-top: 2px; }
+  @media (prefers-reduced-motion: reduce) { .certif, .certif :global(img), .certif-bulle { transition: none !important; } }
+  .certifs-badges :global(.badge-en-cours) { opacity: 0.45; filter: grayscale(1); }
+  .certifs p { color: var(--text-secondary); font-size: 0.92rem; }
+  @media (max-width: 900px) {
+    .presentation { grid-template-columns: 1fr; }
+    .portrait { width: min(100%, 300px); order: -1; }
+  }
+  @media (max-width: 560px) {
+    .chiffres { grid-template-columns: 1fr; }
+    .chiffres > div + div { border-left: 0; border-top: 1px solid var(--border-color); }
+    .portrait-badge { font-size: 0.78rem; }
+    .portrait-badge-3, .portrait-badge-4 { left: -2%; }
+    .portrait-badge-1, .portrait-badge-2 { right: -2%; }
+  }
+</style>

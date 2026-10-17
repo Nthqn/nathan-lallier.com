@@ -1,0 +1,15 @@
+---
+import PlatformIcon from './PlatformIcon.astro';
+import { PLATEFORMES } from '../data/site';
+import type { Procedure } from '../lib/procedures';
+import { ui, type Lang } from '../i18n';
+
+interface Props { procedure: Procedure; detail?: string; lang?: Lang }
+const { procedure: p, detail, lang = 'fr' } = Astro.props;
+---
+<a class="list-row" href={p.url} hreflang={lang === 'en' ? 'fr' : undefined} data-platform={p.plateforme} data-pilier={p.pilier}
+   data-search={`${p.data.titre} ${p.data.reference} ${p.pilierLabel} ${PLATEFORMES[p.plateforme]?.label ?? ''}`.toLowerCase()}>
+  <span class="list-icon"><PlatformIcon plateforme={p.plateforme} /></span>
+  <span class="list-title">{p.data.titre}<small>{detail ?? `${PLATEFORMES[p.plateforme]?.label} · ${p.pilierLabel}`}</small></span>
+  <span class="list-action">{ui(lang).lire}</span>
+</a>

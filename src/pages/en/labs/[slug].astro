@@ -1,0 +1,10 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Lab from '../../../views/Lab.astro';
+
+export async function getStaticPaths() {
+  return (await getCollection('labs')).map((lab) => ({ params: { slug: lab.id }, props: { lab } }));
+}
+const { lab } = Astro.props as { lab: CollectionEntry<'labs'> };
+---
+<Lab lab={lab} lang="en" />

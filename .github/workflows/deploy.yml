@@ -1,0 +1,45 @@
+name: Publication sur GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Vérification de la construction sur chaque pull request, sans publication
+  pull_request:
+  # Reconstruction chaque nuit pour mettre à jour les labs lus sur GitHub
+  schedule:
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v7
+      - name: Installation, construction et envoi du site
+        uses: withastro/action@v6
+        with:
+          node-version: 24
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publication sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
