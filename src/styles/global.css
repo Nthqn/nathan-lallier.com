@@ -314,7 +314,8 @@ html.dark-mode .theme-toggle .icon-moon { display: none; }
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; }
 .project-card { overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
 .project-cover {
-  height: 170px; background: var(--bg-soft); display: grid; place-items: center; overflow: hidden;
+  position: relative; height: 160px; padding: 18px 20px 10px; display: grid; place-items: center; overflow: hidden;
+  background: radial-gradient(var(--deco) 1.2px, transparent 1.3px) 0 0/16px 16px, var(--teal-soft);
 }
 .project-cover img { width: 100%; height: 100%; object-fit: cover; }
 .project-body { padding: 22px 24px 24px; display: grid; gap: 10px; align-content: start; }
@@ -401,9 +402,6 @@ html.dark-mode .theme-toggle .icon-moon { display: none; }
 .nav a::after { background: var(--teal); }
 .filter[aria-pressed='true'] { border-color: var(--teal); }
 .filter[aria-pressed='true'] .count { background: var(--teal-text); color: #fff; }
-.projects-grid > .project-card:nth-child(even) .project-cover { background: var(--teal-soft); }
-.projects-grid > .project-card:nth-child(even) .cover-word,
-.projects-grid > .project-card:nth-child(even) .cover-tags { color: var(--teal-text); }
 .legal .legal-card:nth-child(even) .legal-num { background: var(--teal-text); }
 
 /* Illustrations ponctuelles placées dans une section */

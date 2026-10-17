@@ -2,6 +2,7 @@
 titre: "Orion"
 titreAccent: "Consulting Group"
 resume: "Infrastructure d'entreprise sur deux sites, avec segmentation réseau, identité centralisée, supervision, gestion de parc et réplication entre les deux sites."
+illustration: "multisite"
 statut: "termine"
 categorie: "Infrastructure multisite"
 annee: 2026

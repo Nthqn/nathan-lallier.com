@@ -2,6 +2,7 @@
 titre: "VERIDIS"
 titreAccent: "Life Sciences"
 resume: "Migration progressive des briques critiques vers Azure, sans rupture de service, avec une architecture hybride maîtrisée."
+illustration: "migration"
 statut: "en-cours"
 categorie: "Migration cloud"
 annee: 2026

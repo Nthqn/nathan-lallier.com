@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import ProjectIllustration from './ProjectIllustration.astro';
 import { projetVue, type Projet } from '../lib/projets';
 import { projetUrl, ui, type Lang } from '../i18n';
 
@@ -10,12 +11,8 @@ const t = ui(lang);
 ---
 <a href={projetUrl(projet.id, lang)} class="card card-link project-card reveal">
   <div class="project-cover" aria-hidden="true">
-    {p.couverture ? <Image src={p.couverture} alt="" width={640} /> : (
-      <div class="cover-text">
-        <span class="cover-word">{p.categorie}</span>
-        <span class="cover-tags">{p.technologies.slice(0, 3).join(' · ')}</span>
-      </div>
-    )}
+    {p.couverture ? <Image src={p.couverture} alt="" width={640} /> : <ProjectIllustration motif={p.illustration} lang={lang} />}
+    <span class="cover-label">{p.categorie}</span>
   </div>
   <div class="project-body">
     <div class="project-meta">
@@ -28,7 +25,5 @@ const t = ui(lang);
   </div>
 </a>
 <style>
-  .cover-text { display: grid; gap: 6px; text-align: center; padding: 0 20px; }
-  .cover-word { font-family: var(--font-display); font-size: 1.9rem; color: var(--accent); line-height: 1.1; }
-  .cover-tags { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-text); }
+  .cover-label { position: absolute; top: 14px; left: 16px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-text); background: var(--bg-card); padding: 4px 10px; border-radius: 999px; }
 </style>
