@@ -3,7 +3,7 @@
 // vers src/content/procedures, puis liste celles qui restent à valider.
 //
 // Publication : toute procédure rangée dans PLATEFORME/PILIER/ est publiée.
-// Les brouillons restent dans _A_VERIFIER, qui n'est jamais publié et sert de liste à valider.
+// Les brouillons restent dans _A_FAIRE, qui n'est jamais publié et sert de liste à valider.
 //
 // Usage : npm run sync [-- "C:\chemin\vers\Procèdures"]
 
@@ -19,7 +19,7 @@ const SOURCE = path.resolve(
 );
 const DEST = path.join(ROOT, 'src', 'content', 'procedures');
 const PENDING_FILE = path.join(ROOT, 'procedures-a-valider.md');
-const DRAFTS_DIR = '_A_VERIFIER';
+const DRAFTS_DIR = '_A_FAIRE';
 const IGNORED_DIRS = new Set([DRAFTS_DIR, 'word', 'banque-images', 'Packet Tracer']);
 
 export function slugify(value) {
@@ -53,7 +53,7 @@ function listMarkdown(dir) {
   return found;
 }
 
-// Brouillons : tous les .md de _A_VERIFIER, quelle que soit leur profondeur
+// Brouillons : tous les .md de _A_FAIRE, quelle que soit leur profondeur
 function listDrafts(dir) {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
