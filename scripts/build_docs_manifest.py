@@ -1,18 +1,32 @@
 #!/usr/bin/env python3
-"""Build a JSON manifest from PDF files under assets/docs."""
+"""Sync procedure PDFs into assets/docs, then build a JSON manifest from them.
+
+Source layout (procedures library):
+    <source>/<Plateforme>/<PLT-PIL>/<Titre>.pdf
+    <source>/<Plateforme>/<PLT-PIL>/markdown/<Titre>.md   (frontmatter: titre)
+
+Each PDF is copied to assets/docs/<plateforme>/<Titre-slugifie>.pdf.
+"""
 
 from __future__ import annotations
 
 import argparse
 import json
 import re
+import shutil
 import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 
 
-CODE_PREFIX_RE = re.compile(r"^(?:AZR|CIS|LNX)-[A-Z]{2,5}-[A-Z]{2,5}[- ]+")
+DEFAULT_SOURCE_DIR = Path.home() / "Proton Drive" / "Ciaiuu" / "My files" / "Procèdures"
+TITLES_FILE_NAME = ".titles.json"
+
+CODE_PREFIX_RE = re.compile(r"^[A-Z0-9]{2,5}-[A-Z]{2,5}-[A-Z]{2,5}[- ]+")
+FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---", re.DOTALL)
+FRONTMATTER_FIELD_RE = re.compile(r'^(\w+):\s*"?(.*?)"?\s*$', re.MULTILINE)
+SLUG_INVALID_RE = re.compile(r"[^A-Za-z0-9]+")
 HYPHENS_RE = re.compile(r"[-_]+")
 SPACES_RE = re.compile(r"\s+")
 DUNE_RE = re.compile(r"\bdune\b")
@@ -40,6 +54,88 @@ def humanize_title(filename_stem: str) -> str:
     return cleaned if cleaned else raw
 
 
+def slugify_title(title: str) -> str:
+    """Turn a French title into an ASCII file-name slug (accents and punctuation removed)."""
+    ascii_text = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode("ascii")
+    ascii_text = ascii_text.replace("'", "").replace("’", "").replace("&", " ")
+    return SLUG_INVALID_RE.sub("-", ascii_text).strip("-")
+
+
+def read_frontmatter(markdown_path: Path) -> dict[str, str]:
+    """Return the simple key/value pairs of a markdown YAML frontmatter."""
+    match = FRONTMATTER_RE.match(markdown_path.read_text(encoding="utf-8-sig"))
+    if not match:
+        return {}
+    return {key: value for key, value in FRONTMATTER_FIELD_RE.findall(match.group(1))}
+
+
+def sync_procedures(source_root: Path, docs_root: Path, prune: bool) -> dict[str, str]:
+    """Copy and rename procedure PDFs into docs_root; return {relative_path: title}."""
+    titles: dict[str, str] = {}
+    managed_categories: set[str] = set()
+    copied = skipped = 0
+
+    pdf_files = sorted(
+        (path for path in source_root.rglob("*.pdf") if path.parent.name not in ("markdown", "word")),
+        key=lambda path: path.as_posix().lower(),
+    )
+
+    for pdf_path in pdf_files:
+        rel_parts = pdf_path.relative_to(source_root).parts
+        if len(rel_parts) < 2:
+            print(f"  [ignoré] hors dossier plateforme : {pdf_path.name}")
+            continue
+
+        category = rel_parts[0].lower()
+        markdown_path = pdf_path.parent / "markdown" / f"{pdf_path.stem}.md"
+        meta = read_frontmatter(markdown_path) if markdown_path.exists() else {}
+        title = unicodedata.normalize("NFC", meta.get("titre", "").strip() or pdf_path.stem)
+
+        target_name = f"{slugify_title(title)}.pdf"
+        relative_path = f"{category}/{target_name}"
+        if relative_path in titles:
+            print(f"  [ignoré] doublon de nom cible {relative_path} : {pdf_path}")
+            continue
+
+        target_path = docs_root / category / target_name
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        if target_path.exists() and target_path.read_bytes() == pdf_path.read_bytes():
+            skipped += 1
+        else:
+            shutil.copy2(pdf_path, target_path)
+            copied += 1
+            print(f"  [copié] {relative_path}")
+
+        titles[relative_path] = title
+        managed_categories.add(category)
+
+    removed = 0
+    if prune:
+        for category in sorted(managed_categories):
+            for existing in sorted((docs_root / category).glob("*.pdf")):
+                if f"{category}/{existing.name}" not in titles:
+                    existing.unlink()
+                    removed += 1
+                    print(f"  [supprimé] {category}/{existing.name}")
+
+    print(f"Synchronisation : {copied} copiés, {skipped} inchangés, {removed} supprimés.")
+    return titles
+
+
+def load_titles(docs_root: Path) -> dict[str, str]:
+    titles_path = docs_root / TITLES_FILE_NAME
+    if titles_path.exists():
+        return json.loads(titles_path.read_text(encoding="utf-8"))
+    return {}
+
+
+def save_titles(docs_root: Path, titles: dict[str, str]) -> None:
+    (docs_root / TITLES_FILE_NAME).write_text(
+        json.dumps(dict(sorted(titles.items())), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def format_bytes(size_bytes: int) -> str:
     """Format bytes with binary units for display."""
     if size_bytes < 1024:
@@ -65,8 +161,9 @@ def detect_category(docs_root: Path, pdf_path: Path) -> str:
     return rel_parts[0] if len(rel_parts) > 1 else "general"
 
 
-def build_manifest(docs_root: Path, url_root: str) -> dict:
+def build_manifest(docs_root: Path, url_root: str, titles: dict[str, str] | None = None) -> dict:
     """Collect PDFs and return a deterministic manifest payload."""
+    titles = titles or {}
     pdf_files = sorted(docs_root.rglob("*.pdf"), key=lambda path: path.as_posix().lower())
     category_counts: dict[str, int] = {}
     documents: list[dict] = []
@@ -81,7 +178,7 @@ def build_manifest(docs_root: Path, url_root: str) -> dict:
             {
                 "id": relative_path.replace("/", "__"),
                 "category": category,
-                "title": humanize_title(pdf_path.stem),
+                "title": titles.get(relative_path) or humanize_title(pdf_path.stem),
                 "file_name": pdf_path.name,
                 "relative_path": relative_path,
                 "url": to_web_url(path_parts + relative_path.split("/")),
@@ -109,7 +206,22 @@ def build_manifest(docs_root: Path, url_root: str) -> dict:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Generate docs manifest JSON from assets/docs PDFs."
+        description="Sync procedure PDFs into assets/docs and generate the docs manifest JSON."
+    )
+    parser.add_argument(
+        "--source-dir",
+        default=str(DEFAULT_SOURCE_DIR),
+        help="Procedures library to copy PDFs from (only *.pdf are taken).",
+    )
+    parser.add_argument(
+        "--no-sync",
+        action="store_true",
+        help="Skip copying from the source directory, only rebuild the manifest.",
+    )
+    parser.add_argument(
+        "--no-prune",
+        action="store_true",
+        help="Keep PDFs in synced category folders that no longer exist in the source.",
     )
     parser.add_argument(
         "--docs-dir",
@@ -144,7 +256,16 @@ def main() -> int:
     if not docs_root.exists():
         raise SystemExit(f"Docs directory not found: {docs_root}")
 
-    manifest = build_manifest(docs_root, args.url_root)
+    titles = load_titles(docs_root)
+    source_root = Path(args.source_dir).expanduser().resolve()
+    if not args.no_sync and source_root.exists():
+        print(f"Synchronisation depuis {source_root}")
+        titles = sync_procedures(source_root, docs_root, prune=not args.no_prune)
+        save_titles(docs_root, titles)
+    elif not args.no_sync:
+        print(f"Dossier source introuvable, synchronisation ignorée : {source_root}")
+
+    manifest = build_manifest(docs_root, args.url_root, titles)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     indent = None if args.indent <= 0 else args.indent
