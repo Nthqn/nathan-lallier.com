@@ -196,12 +196,13 @@ const jsonLd = {
     .portrait-badge-2, .portrait-badge-4 { animation-delay: -3s; }
     @keyframes flotte { 50% { transform: translateY(-6px); } }
   }
-  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--navy); color: var(--on-navy); box-shadow: none; }
-  .chiffres strong, .chiffres :global(.highlight) { color: var(--accent); }
+  .chiffres { display: grid; grid-template-columns: repeat(3, 1fr);  }
+  .chiffres strong { color: var(--teal-display); }
+  .chiffres :global(.highlight) { color: var(--accent); }
   .chiffres > div { padding: 26px 18px; text-align: center; display: grid; gap: 6px; }
-  .chiffres > div + div { border-left: 1px solid rgba(255, 255, 255, 0.1); }
+  .chiffres > div + div { border-left: 1px solid var(--border-color); }
   .chiffres strong { font-family: var(--font-display); font-weight: 400; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; }
-  .chiffres span:last-child { color: var(--on-navy-muted); font-size: 0.95rem; }
+  .chiffres span:last-child { color: var(--text-secondary); font-size: 0.95rem; }
   .certifs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 26px 20px; }
   .certifs-badges { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; }
   .certifs-badges :global(img) { width: 72px; height: 72px; object-fit: contain; }
@@ -236,7 +237,7 @@ const jsonLd = {
   }
   @media (max-width: 560px) {
     .chiffres { grid-template-columns: 1fr; }
-    .chiffres > div + div { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    .chiffres > div + div { border-left: 0; border-top: 1px solid var(--border-color); }
     .portrait-badge { font-size: 0.78rem; }
     .portrait-badge-3, .portrait-badge-4 { left: -2%; }
     .portrait-badge-1, .portrait-badge-2 { right: -2%; }

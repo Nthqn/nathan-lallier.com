@@ -86,7 +86,7 @@ const T = {
         <p class="retour" role="status" aria-live="polite"></p>
       </form>
 
-      <aside class="card carte-nuit coordonnees">
+      <aside class="card coordonnees">
         <h2 class="title-md">{T.autres[0]} <span class="highlight">{T.autres[1]}</span></h2>
         <a href={`mailto:${SITE.email}`} class="moyen"><Icon name="mail" /><span><strong>Email</strong>{SITE.email}</span></a>
         <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" class="moyen"><Icon name="linkedin" /><span><strong>LinkedIn</strong>nathan-lallier</span></a>
@@ -123,12 +123,11 @@ const T = {
   .retour.erreur { color: #c0462a; }
   .coordonnees { padding: 26px; display: grid; gap: 14px; }
   .moyen { display: flex; gap: 14px; align-items: center; padding: 10px; border-radius: 12px; transition: background 0.2s ease; }
-  .moyen:hover { background: rgba(255, 255, 255, 0.07); }
-  .moyen :global(svg) { width: 22px; height: 22px; fill: var(--accent); flex-shrink: 0; }
-  .moyen span { display: grid; font-size: 0.9rem; color: var(--on-navy-muted); overflow-wrap: anywhere; }
-  .moyen strong { color: var(--on-navy); }
-  .coordonnees h2 { color: var(--on-navy); }
-  .delai { font-size: 0.9rem; color: var(--on-navy-muted); border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 14px; }
+  .moyen:hover { background: var(--bg-soft); }
+  .moyen :global(svg) { width: 22px; height: 22px; fill: var(--teal-text); flex-shrink: 0; }
+  .moyen span { display: grid; font-size: 0.9rem; color: var(--text-secondary); overflow-wrap: anywhere; }
+  .moyen strong { color: var(--text-primary); }
+  .delai { font-size: 0.9rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); padding-top: 14px; }
   @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
   @media (max-width: 560px) { .ligne { grid-template-columns: 1fr; } .formulaire { padding: 22px; } }
 </style>

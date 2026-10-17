@@ -72,7 +72,8 @@
   --teal: #22b5c4;
   --teal-text: #0b6f7e;
   --teal-soft: #e0f2f4;
-  --teal-band: #e6f3f2;
+  /* Turquoise plus vif pour les grands titres, lisible en gros caractères */
+  --teal-display: #138c9b;
   /* Teinte des illustrations de fond */
   --deco: rgba(20, 40, 90, 0.10);
 
@@ -111,7 +112,7 @@ html.dark-mode {
   --teal: var(--accent);
   --teal-text: var(--accent-text);
   --teal-soft: var(--bg-soft);
-  --teal-band: rgba(255, 255, 255, 0.025);
+  --teal-display: var(--accent);
   --deco: rgba(232, 237, 247, 0.07);
 
   --border-color: #2a2f4e;
@@ -381,36 +382,23 @@ html.dark-mode .theme-toggle .icon-moon { display: none; }
 .cookie-banner p { flex: 1 1 320px; }
 .cookie-banner a { color: var(--accent-text); text-decoration: underline; }
 
-/* Pied de page en bleu nuit, avec la vague du logo */
-.site-footer { background: var(--navy); color: var(--on-navy); position: relative; overflow: hidden; }
-.site-footer a, .site-footer button, .site-footer p, .site-footer strong { color: var(--on-navy); }
-.site-footer .footer-links a:hover, .site-footer .footer-links button:hover { color: var(--accent); }
-.site-footer .socials a { background: rgba(255, 255, 255, 0.08); }
+/* Vague du logo en haut du pied de page */
+.site-footer { position: relative; overflow: hidden; }
 .site-footer::before {
-  content: ''; position: absolute; inset: 0 0 auto; height: 120px; pointer-events: none;
-  background: var(--accent); opacity: 0.22;
+  content: ''; position: absolute; inset: 0 0 auto; height: 110px; pointer-events: none;
+  background: var(--teal); opacity: 0.14;
   -webkit-mask: url('/deco/vague.svg') center / 100% 100% no-repeat; mask: url('/deco/vague.svg') center / 100% 100% no-repeat;
 }
 .site-footer .container { position: relative; }
 
-/* ===== Illustrations de fond, purement décoratives ===== */
-.deco { position: absolute; z-index: -1; pointer-events: none; background: var(--deco); -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }
-.deco-reseau { --m: url('/deco/reseau.svg'); }
-.deco-nuage { --m: url('/deco/nuage.svg'); }
-.deco-circuit { --m: url('/deco/circuit.svg'); }
-.deco-points { --m: url('/deco/points.svg'); -webkit-mask-size: 22px; mask-size: 22px; -webkit-mask-repeat: repeat; mask-repeat: repeat; }
-main { position: relative; isolation: isolate; overflow-x: clip; }
-.page-head { position: relative; }
-.page-head::after {
-  content: ''; position: absolute; z-index: -1; pointer-events: none; right: 0; top: -78px; width: 170px; height: 115px;
-  background: var(--deco); -webkit-mask: url('/deco/nuage.svg') center / contain no-repeat; mask: url('/deco/nuage.svg') center / contain no-repeat;
-}
-@media (max-width: 760px) { .deco, .page-head::after { display: none; } }
-
-/* ===== Turquoise et rythme, sur toutes les pages ===== */
-.eyebrow, .link-more, .list-action { color: var(--teal-text); }
+/* ===== Deux couleurs : turquoise sur fond blanc, orange sur fond crème ===== */
+/* Surfaces blanches : cartes, en-tête, pied de page */
+.card .highlight, .site-header .brand span, .site-footer .highlight { color: var(--teal-display); }
+.card .eyebrow, .card .link-more, .list-action, .site-footer a:hover { color: var(--teal-text); }
+.card .tag { color: var(--teal-text); background: var(--teal-soft); }
 .list-icon { background: var(--teal-soft); }
-.breadcrumb a:hover, .breadcrumb [aria-current] { color: var(--teal-text); }
+.nav a[aria-current='page'] { color: var(--teal-text); }
+.nav a::after { background: var(--teal); }
 .filter[aria-pressed='true'] { border-color: var(--teal); }
 .filter[aria-pressed='true'] .count { background: var(--teal-text); color: #fff; }
 .projects-grid > .project-card:nth-child(even) .project-cover { background: var(--teal-soft); }
@@ -418,11 +406,16 @@ main { position: relative; isolation: isolate; overflow-x: clip; }
 .projects-grid > .project-card:nth-child(even) .cover-tags { color: var(--teal-text); }
 .legal .legal-card:nth-child(even) .legal-num { background: var(--teal-text); }
 
-/* Carte en bleu nuit, réutilisable sur chaque page */
-.carte-nuit { background: var(--navy); color: var(--on-navy); box-shadow: none; }
-.carte-nuit dt { color: var(--on-navy-muted) !important; }
-.carte-nuit dd { color: var(--on-navy); }
-.carte-nuit > div, .carte-nuit dl > div { border-color: rgba(255, 255, 255, 0.12) !important; }
+/* Illustrations ponctuelles placées dans une section */
+.deco { position: absolute; z-index: -1; pointer-events: none; background: var(--deco); -webkit-mask: var(--m) center/contain no-repeat; mask: var(--m) center/contain no-repeat; }
+.deco-reseau { --m: url('/deco/reseau.svg'); }
+.deco-nuage { --m: url('/deco/nuage.svg'); }
+.deco-circuit { --m: url('/deco/circuit.svg'); }
+.deco-points { --m: url('/deco/points.svg'); -webkit-mask-size: 22px; mask-size: 22px; -webkit-mask-repeat: repeat; mask-repeat: repeat; }
+main { position: relative; isolation: isolate; overflow-x: clip; }
+.page-head { position: relative; }
+.page-head::after { content: ''; position: absolute; z-index: -1; pointer-events: none; right: 0; top: -78px; width: 170px; height: 115px; background: var(--deco); -webkit-mask: url('/deco/nuage.svg') center/contain no-repeat; mask: url('/deco/nuage.svg') center/contain no-repeat; }
+@media (max-width: 760px) { .deco, .page-head::after { display: none; } }
 
 /* Calque d'illustrations réparties sur toute la hauteur de la page, en alternant les côtés */
 .decor { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
