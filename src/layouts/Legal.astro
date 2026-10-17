@@ -1,0 +1,42 @@
+---
+import Base from './Base.astro';
+interface Props { title: string; description: string }
+const { title, description } = Astro.props;
+---
+<Base title={title} description={description}>
+  <div class="container page legal">
+    <header class="page-head">
+      <h1 class="title-xl"><slot name="titre" /></h1>
+    </header>
+    <div class="legal-cards">
+      <slot />
+    </div>
+  </div>
+</Base>
+<style>
+  .legal { gap: 32px; }
+  .legal-cards { display: grid; gap: 18px; max-width: 900px; }
+  .legal :global(.legal-card) { padding: 26px 30px; display: grid; gap: 14px; }
+  .legal :global(.legal-card h2) { font-size: 1.15rem; display: flex; align-items: center; gap: 14px; }
+  .legal :global(.legal-num) {
+    width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center;
+    background: var(--accent); color: var(--on-accent); font-size: 0.9rem;
+  }
+  .legal :global(.legal-content) { display: grid; gap: 12px; color: var(--text-secondary); }
+  .legal :global(.legal-content a) { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+  .legal :global(.legal-content strong) { color: var(--text-primary); }
+  .legal :global(.legal-content ul) { padding-left: 1.3em; display: grid; gap: 4px; }
+  .legal :global(.legal-content li::marker) { color: var(--accent); }
+  .legal :global(.info-row) { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 4px 16px; padding: 8px 0; border-top: 1px solid var(--border-color); }
+  .legal :global(.info-label) { font-weight: 600; color: var(--text-primary); }
+  .legal :global(.info-badge), .legal :global(.conformity-badge), .legal :global(.contact-badge) {
+    display: inline-flex; gap: 8px; align-items: center; justify-self: start;
+    background: var(--bg-soft); color: var(--tag-fg); font-weight: 600; font-size: 0.88rem; padding: 6px 14px; border-radius: 999px;
+  }
+  .legal :global(.features-grid) { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+  .legal :global(.feature-item) { background: var(--bg-soft); border-radius: 12px; padding: 12px 14px; }
+  .legal :global(.data-table) { width: 100%; border-collapse: collapse; font-size: 0.92rem; display: block; overflow-x: auto; }
+  .legal :global(.data-table th), .legal :global(.data-table td) { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; vertical-align: top; }
+  .legal :global(.data-table th) { background: var(--bg-soft); color: var(--text-primary); }
+  @media (max-width: 640px) { .legal :global(.info-row) { grid-template-columns: 1fr; } .legal :global(.legal-card) { padding: 22px; } }
+</style>

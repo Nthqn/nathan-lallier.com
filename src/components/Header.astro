@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/img/logo.webp';
+import Icon from './Icons.astro';
+import { NAV, SITE } from '../data/site';
+import { route, ui, type Lang } from '../i18n';
+
+interface Props { lang: Lang; alt: Record<Lang, string> | null }
+const { lang, alt } = Astro.props;
+const t = ui(lang);
+const autre = t.langue.autre;
+const lienLangue = alt?.[autre] ?? route('accueil', autre);
+
+const current = Astro.url.pathname.replace(/\.html$/, '');
+const isActive = (href: string) => current === href || current.startsWith(href + '/');
+---
+<header class="site-header">
+  <div class="container">
+    <a href={route('accueil', lang)} class="brand" aria-label={t.accueilLabel}>
+      <Image src={logo} alt="" width={44} height={44} loading="eager" />
+      <p>{SITE.prenom} <span>{SITE.famille}</span></p>
+    </a>
+    <nav class="nav" id="site-nav" aria-label={t.navLabel}>
+      {NAV.map((key) => (
+        <a href={route(key, lang)} aria-current={isActive(route(key, lang)) ? 'page' : undefined}>
+          {t.nav[key]}{lang === 'en' && key === 'procedures' && <span class="nav-fr" title="In French">FR</span>}
+        </a>
+      ))}
+      <a href={route('contact', lang)} aria-current={isActive(route('contact', lang)) ? 'page' : undefined}>{t.nav.contact}</a>
+      <a href={SITE.cv} class="nav-cv" download>{t.cvLong}</a>
+    </nav>
+    <div class="header-actions">
+      <a href={lienLangue} class="lang-switch" hreflang={autre} lang={autre} aria-label={t.langue.label}>{t.langue.court}</a>
+      <a href={SITE.cv} class="btn btn-secondary btn-small" download><Icon name="download" />{t.cvCourt}</a>
+      <button type="button" class="icon-btn theme-toggle" aria-label={t.theme}>
+        <Icon name="moon" class="icon-moon" /><Icon name="sun" class="icon-sun" />
+      </button>
+      <button type="button" class="icon-btn menu-toggle" aria-label={t.menuOuvrir} aria-expanded="false" aria-controls="site-nav"
+        data-label-ouvrir={t.menuOuvrir} data-label-fermer={t.menuFermer}>
+        <Icon name="menu" />
+      </button>
+    </div>
+  </div>
+</header>

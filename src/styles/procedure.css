@@ -1,0 +1,165 @@
+/* =================================================================
+   Page de procédure : lecture à l'écran, puis impression avec la charte des PDF Word
+   ================================================================= */
+
+.print-only { display: none; }
+
+.procedure-page { gap: 36px; }
+.procedure-title { font-size: clamp(2rem, 4.4vw, 3rem); }
+.procedure-meta { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 0.9rem; color: var(--text-secondary); }
+.procedure-meta li { display: flex; align-items: center; gap: 6px; }
+
+.procedure-layout { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 48px; align-items: start; }
+.procedure-aside { position: sticky; top: 100px; display: grid; gap: 14px; }
+.toc { padding: 20px; }
+.toc-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.toc ol { list-style: none; counter-reset: toc; display: grid; gap: 4px; font-size: 0.9rem; }
+.toc li { counter-increment: toc; }
+.toc a { display: flex; gap: 8px; color: var(--text-secondary); padding: 3px 0; }
+.toc a::before { content: counter(toc); color: var(--teal-text); font-weight: 700; min-width: 1.2em; }
+.toc a:hover, .toc a[aria-current] { color: var(--teal-text); font-weight: 600; }
+.print-button { width: 100%; }
+.print-hint { font-size: 0.8rem; color: var(--text-muted); }
+
+@media (max-width: 980px) {
+  .procedure-layout { grid-template-columns: 1fr; }
+  .procedure-aside { position: static; order: -1; }
+  .procedure-aside .toc { display: none; }
+  .print-hint { display: none; }
+}
+
+/* ===== Contenu Markdown ===== */
+.prose { max-width: 74ch; counter-reset: h2; font-size: 1rem; }
+.prose > * + * { margin-top: 1em; }
+.prose h2 {
+  font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; line-height: 1.15;
+  margin-top: 2em; padding-bottom: 6px; border-bottom: 2px solid var(--border-color);
+  counter-increment: h2; counter-reset: h3;
+}
+.prose h2::before { content: counter(h2) '.'; color: var(--accent); margin-right: 0.4em; }
+.prose h3 { font-size: 1.18rem; margin-top: 1.6em; counter-increment: h3; counter-reset: h4; }
+.prose h3::before { content: counter(h2) '.' counter(h3); color: var(--teal-text); margin-right: 0.5em; }
+.prose h4 { font-size: 1.02rem; margin-top: 1.3em; color: var(--text-secondary); }
+.prose p, .prose li { color: var(--text-primary); }
+.prose a { color: var(--teal-text); text-decoration: underline; text-underline-offset: 3px; }
+.prose ul, .prose ol { padding-left: 1.4em; display: grid; gap: 0.35em; }
+.prose li::marker { color: var(--accent); }
+.prose li > ul, .prose li > ol { margin-top: 0.35em; }
+.prose strong { font-weight: 700; }
+.prose img { border-radius: 10px; border: 1px solid var(--border-color); margin-inline: auto; background: #fff; }
+.prose p:has(> img) { text-align: center; }
+.prose .figure-caption { margin-top: 0.4em; text-align: center; font-size: 0.85rem; font-style: italic; color: var(--text-secondary); }
+.prose .figure-caption b { font-style: normal; }
+.prose :not(pre) > code {
+  font-family: var(--font-mono); font-size: 0.88em; background: var(--bg-soft); color: var(--tag-fg);
+  padding: 1px 6px; border-radius: 5px; overflow-wrap: anywhere;
+}
+.prose pre {
+  position: relative; font-family: var(--font-mono); font-size: 0.86rem; line-height: 1.65;
+  padding: 18px 20px; border-radius: 12px; overflow-x: auto;
+  background: var(--bg-code) !important;
+}
+.prose pre code { font-family: inherit; }
+.copy-button {
+  position: absolute; top: 8px; right: 8px; font-size: 0.75rem; font-weight: 600;
+  background: rgba(255, 255, 255, 0.1); color: #f3e9d6; border-radius: 6px; padding: 3px 9px;
+  opacity: 0; transition: opacity 0.2s ease;
+}
+.prose pre:hover .copy-button, .copy-button:focus-visible { opacity: 1; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.92rem; display: block; overflow-x: auto; }
+.prose th, .prose td { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; vertical-align: top; }
+.prose thead th { background: var(--text-primary); color: var(--bg-card); border-bottom: 2px solid var(--accent); }
+.prose tbody tr:nth-child(even) { background: var(--bg-soft); }
+.prose blockquote { border-left: 4px solid var(--teal); background: var(--bg-card); padding: 12px 18px; border-radius: 0 10px 10px 0; color: var(--text-secondary); }
+.prose hr { border: 0; border-top: 1px solid var(--border-color); }
+
+/* Encadrés ::: note, probleme, solution, objectif, contexte */
+.callout { border-left: 4px solid; border-radius: 0 12px 12px 0; padding: 14px 18px; background: var(--bg-card); }
+.callout > * + * { margin-top: 0.6em; }
+.callout-note { border-color: #5b9bd5; }
+.callout-probleme { border-color: #e06666; }
+.callout-solution { border-color: #6aa84f; }
+.callout-objectif { border-color: #9b7fd1; }
+.callout-contexte { border-color: var(--accent); }
+
+/* =================================================================
+   Impression : reprend modele_procedure.docx (md2docx)
+   ================================================================= */
+@page {
+  size: A4;
+  margin: 18mm 17mm 20mm;
+  @top-left { font: 7.5pt Aptos, 'Segoe UI', Calibri, sans-serif; font-weight: 700; color: #1a1a1a; vertical-align: bottom; padding-bottom: 3mm; }
+  @top-right { font: 7.5pt Aptos, 'Segoe UI', Calibri, sans-serif; color: #6b6b6b; vertical-align: bottom; padding-bottom: 3mm; }
+  @bottom-left { font: 7.5pt Aptos, 'Segoe UI', Calibri, sans-serif; color: #6b6b6b; vertical-align: top; padding-top: 3mm; }
+  @bottom-right { content: 'Page ' counter(page) ' / ' counter(pages); font: 7.5pt Aptos, 'Segoe UI', Calibri, sans-serif; color: #6b6b6b; vertical-align: top; padding-top: 3mm; }
+}
+
+@media print {
+  :root {
+    --pr-accent: #1c7fa6; --pr-clair: #a9d4e4; --pr-fond: #eef7fa; --pr-lien: #14607f;
+    --pr-texte: #1a1a1a; --pr-gris: #6b6b6b; --pr-filet: #d9d9d9;
+  }
+  html, body { background: #fff !important; color: var(--pr-texte); }
+  body { font-family: Aptos, 'Segoe UI', Calibri, sans-serif; font-size: 10.5pt; line-height: 1.45; display: block; }
+  .site-header, .site-footer, .skip-link, .cookie-banner, .screen-only { display: none !important; }
+  .print-only { display: block; }
+  .container, .page { padding: 0 !important; max-width: none; display: block; }
+  .procedure-layout { display: block; }
+
+  .cartouche {
+    display: grid; grid-template-columns: 76px 1fr auto; gap: 0 18px; align-items: center;
+    border-bottom: 3px solid var(--pr-accent); padding-bottom: 10px; margin-bottom: 22px;
+  }
+  .cartouche img { width: 76px; height: 76px; }
+  .cartouche-surtitre { color: var(--pr-accent); font-weight: 700; font-size: 8pt; letter-spacing: 1px; }
+  .cartouche-titre { font-size: 15pt; font-weight: 700; line-height: 1.25; margin: 2px 0; }
+  .cartouche-soustitre { color: var(--pr-gris); font-size: 8.5pt; }
+  .cartouche-meta { border-left: 1px solid var(--pr-filet); padding-left: 14px; display: grid; grid-template-columns: auto auto; gap: 0 8px; font-size: 8.5pt; line-height: 1.7; align-items: baseline; }
+  .cartouche-meta dt { color: #8c8c8c; font-size: 7pt; text-transform: uppercase; letter-spacing: 0.5px; text-align: right; }
+  .cartouche-meta dd { font-weight: 700; }
+
+  .toc-print { margin-bottom: 18px; }
+  .toc-print-title { font-size: 15pt; font-weight: 700; padding-bottom: 4px; border-bottom: 2.25px solid var(--pr-accent); margin-bottom: 8px; }
+  .toc-print ol { padding-left: 0; list-style: none; counter-reset: tp; display: block; }
+  .toc-print li { counter-increment: tp; font-weight: 700; font-size: 10pt; padding: 3px 0; border-bottom: 1px dotted var(--pr-filet); }
+  .toc-print li::before { content: counter(tp); color: var(--pr-accent); display: inline-block; min-width: 2em; }
+
+  .prose { max-width: none; font-size: 10.5pt; }
+  .prose > * + * { margin-top: 6px; }
+  .prose p { text-align: justify; }
+  .prose p, .prose li { color: var(--pr-texte); }
+  .prose a { color: var(--pr-lien); }
+  .prose h2 {
+    font-family: Aptos, 'Segoe UI', Calibri, sans-serif; font-weight: 700; font-size: 16pt; color: var(--pr-texte);
+    margin-top: 22px; padding-bottom: 4px; border-bottom: 2.25px solid var(--pr-accent);
+    break-after: avoid;
+  }
+  .prose h2::before { content: counter(h2); color: var(--pr-accent); display: inline-block; min-width: 1.6em; margin: 0; }
+  .prose h3 { font-size: 13pt; color: #2b2b2b; margin-top: 14px; break-after: avoid; }
+  .prose h3::before { content: counter(h2) '.' counter(h3); color: var(--pr-accent); display: inline-block; min-width: 2.6em; margin: 0; }
+  .prose h4 { font-size: 11.5pt; color: #404040; }
+  .prose li::marker { color: var(--pr-accent); }
+  .prose img { max-height: 115mm; width: auto; border: 0; border-radius: 0; break-inside: avoid; }
+  .prose p:has(> img) { break-inside: avoid; }
+  .prose .figure-caption { font-size: 9pt; color: #595959; text-align: center; break-before: avoid; }
+  .prose :not(pre) > code { background: #f2f2f2; color: #2b2b2b; font-family: Consolas, monospace; font-size: 9.5pt; border-radius: 0; padding: 0 3px; }
+  .prose pre {
+    background: #f2f2f2 !important; border: 1px solid var(--pr-filet); border-radius: 0;
+    padding: 6px 10px; font-family: Consolas, monospace; font-size: 9pt; white-space: pre-wrap; overflow: visible;
+    break-inside: auto; orphans: 3; widows: 3;
+  }
+  .prose pre, .prose pre span { color: #1a1a1a !important; }
+  .copy-button { display: none; }
+  .prose table { display: table; font-size: 9.5pt; }
+  .prose th, .prose td { border: 1px solid var(--pr-filet); padding: 3px 7px; }
+  .prose thead th { background: #2b2b2b; color: #fff; border-bottom: 2px solid var(--pr-accent); }
+  .prose tbody tr:nth-child(even) { background: #f7f7f7; }
+  .callout { border: 1px solid; border-left-width: 4px; border-radius: 0; margin: 8px 18px; padding: 6px 12px; }
+  .callout-note { border-color: #5b9bd5; background: #e8f1fa; color: #1f4e79; }
+  .callout-probleme { border-color: #e06666; background: #fdecec; color: #9c1c1c; }
+  .callout-solution { border-color: #6aa84f; background: #eaf5e4; color: #2d5f1e; }
+  .callout-objectif { border-color: #9b7fd1; background: #f1ecfa; color: #5b2c83; }
+  .callout-contexte { border-color: #f28c28; background: #fff3e6; color: #8a4b0f; }
+  .callout p, .callout li { color: inherit; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

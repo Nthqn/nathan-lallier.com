@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import LabCard from '../components/LabCard.astro';
+import Icon from '../components/Icons.astro';
+import { SITE } from '../data/site';
+import { getProjets } from '../lib/projets';
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = {
+  fr: {
+    titre: 'Projets et labs',
+    description: "Projets d'infrastructure documentés de bout en bout et labs techniques de Nathan LALLIER, avec leur code sur GitHub.",
+    h1: ['Mes', 'projets'],
+    lead: 'Des projets complets documentés de bout en bout, et des labs plus courts (scripts, maquettes, configurations). Le code de chacun est public sur GitHub.',
+    complets: ['Projets', 'complets'], labs: ['Mes', 'labs'], github: 'Mon GitHub →',
+    vide: 'Les premiers labs arrivent bientôt. En attendant, mes dépôts sont sur GitHub.', voirGithub: 'Voir mon GitHub',
+  },
+  en: {
+    titre: 'Projects and labs',
+    description: 'End-to-end documented infrastructure projects and hands-on labs by Nathan LALLIER, with their code on GitHub.',
+    h1: ['My', 'projects'],
+    lead: 'Full projects documented end to end, plus shorter labs (scripts, test setups, configurations). The code for each one is public on GitHub.',
+    complets: ['Full', 'projects'], labs: ['My', 'labs'], github: 'My GitHub →',
+    vide: 'The first labs are on their way. In the meantime, my repositories are on GitHub.', voirGithub: 'Visit my GitHub',
+  },
+}[lang];
+
+const projets = await getProjets();
+const labs = (await getCollection('labs')).sort((a, b) =>
+  String((b.data as { misAJour: string }).misAJour).localeCompare(String((a.data as { misAJour: string }).misAJour)));
+---
+<Base title={T.titre} description={T.description}>
+  <div class="container page">
+    <header class="page-head">
+      <h1 class="title-xl">{T.h1[0]} <span class="highlight">{T.h1[1]}</span></h1>
+      <p class="lead">{T.lead}</p>
+    </header>
+
+    <section class="section" aria-labelledby="complets">
+      <h2 id="complets" class="title-lg">{T.complets[0]} <span class="highlight">{T.complets[1]}</span></h2>
+      <div class="projects-grid">
+        {projets.map((projet) => <ProjectCard projet={projet} lang={lang} />)}
+      </div>
+    </section>
+
+    <section class="section" id="labs" aria-labelledby="labs-titre">
+      <div class="section-head">
+        <h2 id="labs-titre" class="title-lg">{T.labs[0]} <span class="highlight">{T.labs[1]}</span></h2>
+        <a href={SITE.github} class="link-more" target="_blank" rel="noopener noreferrer">{T.github}</a>
+      </div>
+      {labs.length > 0 ? (
+        <div class="labs-grid">{labs.map((lab) => <LabCard lab={lab} lang={lang} />)}</div>
+      ) : (
+        <div class="card empty-state">
+          <Icon name="github" class="empty-icon" />
+          <p>{T.vide}</p>
+          <a href={SITE.github} class="btn btn-secondary btn-small" target="_blank" rel="noopener noreferrer">{T.voirGithub}</a>
+        </div>
+      )}
+    </section>
+  </div>
+</Base>
+<style>
+  .page :global(.empty-icon) { width: 36px; height: 36px; fill: var(--accent); }
+</style>

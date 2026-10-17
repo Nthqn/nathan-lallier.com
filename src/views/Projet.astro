@@ -1,0 +1,157 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icons.astro';
+import ProcedureRow from '../components/ProcedureRow.astro';
+import { getProcedures } from '../lib/procedures';
+import { getRepoInfo } from '../lib/github';
+import { relativeDate } from '../lib/format';
+import { projetVue, type Projet } from '../lib/projets';
+import { route, ui, type Lang } from '../i18n';
+
+interface Props { projet: Projet; lang: Lang }
+const { projet, lang } = Astro.props;
+const u = ui(lang);
+const T = {
+  fr: {
+    projets: 'Projets', depot: 'Voir le dépôt GitHub', commit: 'Dernier commit', licence: 'Licence',
+    besoin: 'Le besoin', fait: "Ce que j'ai fait", resultat: 'Le résultat',
+    technologies: 'Technologies', documents: 'Documents', liees: 'Procédures liées',
+    autreLangue: 'Le détail de ce projet est rédigé en anglais.',
+  },
+  en: {
+    projets: 'Projects', depot: 'View the GitHub repository', commit: 'Last commit', licence: 'Licence',
+    besoin: 'The need', fait: 'What I did', resultat: 'The outcome',
+    technologies: 'Technologies', documents: 'Documents', liees: 'Related procedures (in French)',
+    autreLangue: 'The detailed write-up and documents for this project are in French.',
+  },
+}[lang];
+const p = projetVue(projet, lang);
+const { Content } = await render(projet);
+const repo = p.depot ? await getRepoInfo(p.depot) : null;
+const depotUrl = repo?.url ?? (p.depot ? `https://github.com/${p.depot}` : null);
+const liees = (await getProcedures()).filter((proc) => p.proceduresLiees.includes(proc.id));
+const blocs = [
+  { titre: T.besoin, texte: p.besoin },
+  { titre: T.fait, texte: p.realisation },
+  { titre: T.resultat, texte: p.resultat },
+].filter((b) => b.texte);
+---
+<Base title={`${p.titre} ${p.titreAccent ?? ''}`.trim()} description={p.resume} type="article">
+  <div class="container page projet-page">
+    <header class="page-head">
+      <nav class="breadcrumb" aria-label={u.filAriane}>
+        <a href={route('projets', lang)}>{T.projets}</a><span aria-hidden="true">›</span>
+        <span aria-current="page">{p.titre} {p.titreAccent}</span>
+      </nav>
+      <div class="project-meta">
+        <span class={`status status-${p.statut}`}>{p.statut === 'termine' ? u.termine : u.enCours}</span>
+        <span class="eyebrow">{p.categorie} · {p.annee}</span>
+      </div>
+      <h1 class="title-xl">{p.titre}{p.titreAccent && <> <span class="highlight">{p.titreAccent}</span></>}</h1>
+      <p class="lead">{p.resume}</p>
+      {depotUrl && (
+        <div class="actions">
+          <a href={depotUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer"><Icon name="github" />{T.depot}</a>
+        </div>
+      )}
+    </header>
+
+    {repo && (
+      <div class="card repo">
+        <span class="repo-name">{repo.nom}</span>
+        {repo.langages.length > 0 && (
+          <div class="repo-bar" aria-hidden="true">{repo.langages.map((l) => <i style={`width:${l.part}%;background:${l.couleur}`}></i>)}</div>
+        )}
+        <ul class="repo-meta">
+          {repo.langages.map((l) => <li><i class="lang-dot" style={`background:${l.couleur}`}></i>{l.nom} {l.part} %</li>)}
+          <li>{T.commit} {relativeDate(repo.misAJour, lang)}</li>
+          {repo.version && <li>{repo.version}</li>}
+          {repo.licence && <li>{T.licence} {repo.licence}</li>}
+        </ul>
+      </div>
+    )}
+
+    {p.faits.length > 0 && (
+      <dl class="card faits">
+        {p.faits.map((f) => <div><dt>{f.label}</dt><dd>{f.valeur}</dd></div>)}
+      </dl>
+    )}
+
+    <div class="projet-layout">
+      <div class="projet-contenu">
+        {blocs.length > 0 && (
+          <div class="blocs">
+            {blocs.map((b) => <div class="card bloc"><h2>{b.titre}</h2><p>{b.texte}</p></div>)}
+          </div>
+        )}
+        {p.contenuAutreLangue && <p class="note-langue" lang={lang}>{T.autreLangue}</p>}
+        <div class="prose-projet" lang={p.langue}><Content /></div>
+      </div>
+      <aside class="projet-aside">
+        {p.technologies.length > 0 && (
+          <div class="card aside-card"><h2>{T.technologies}</h2><div class="tags">{p.technologies.map((t) => <span class="tag">{t}</span>)}</div></div>
+        )}
+        {p.documents.length > 0 && (
+          <div class="card aside-card"><h2>{T.documents}</h2>
+            <ul class="docs">{p.documents.map((d) => <li><a href={d.url} target="_blank" rel="noopener">{d.titre}</a>{d.detail && <small>{d.detail}</small>}</li>)}</ul>
+          </div>
+        )}
+        {liees.length > 0 && (
+          <div class="card aside-card aside-list"><h2>{T.liees}</h2>
+            <div class="list">{liees.map((proc) => <ProcedureRow procedure={proc} lang={lang} />)}</div>
+          </div>
+        )}
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .projet-page { gap: 36px; }
+  .repo { padding: 18px 22px; display: grid; gap: 12px; }
+  .repo-name { font-family: var(--font-mono); font-weight: 600; }
+  .repo-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; }
+  .repo-bar i { display: block; }
+  .repo-meta { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.88rem; color: var(--text-secondary); }
+  .faits { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+  .faits > div { padding: 18px 22px; border-left: 1px solid var(--border-color); margin-left: -1px; }
+  .faits dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+  .faits dd { font-weight: 600; margin-top: 4px; }
+  .projet-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; align-items: start; }
+  .projet-contenu { display: grid; gap: 32px; min-width: 0; }
+  .blocs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 16px; }
+  .bloc { padding: 20px; display: grid; gap: 8px; align-content: start; }
+  .bloc h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; }
+  .bloc p { color: var(--text-secondary); font-size: 0.95rem; }
+  .prose-projet { display: grid; gap: 14px; max-width: 72ch; }
+  .prose-projet :global(h2) { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; margin-top: 12px; }
+  .prose-projet :global(p), .prose-projet :global(li) { color: var(--text-secondary); }
+  .prose-projet :global(ul) { padding-left: 1.3em; display: grid; gap: 4px; }
+  .prose-projet :global(li::marker) { color: var(--accent); }
+  .prose-projet :global(strong) { color: var(--text-primary); }
+  .note-langue { justify-self: start; font-size: 0.88rem; font-weight: 600; color: var(--tag-fg); background: var(--bg-soft); border-radius: 999px; padding: 6px 14px; }
+  .projet-aside { display: grid; gap: 16px; }
+  .aside-card { padding: 20px; display: grid; gap: 12px; }
+  .aside-card h2 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+  .aside-list { padding: 20px 0 6px; }
+  .aside-list h2 { padding: 0 20px; }
+  .aside-list :global(.list-row) { padding: 10px 20px; grid-template-columns: 34px minmax(0, 1fr); }
+  .aside-list :global(.list-row) :global(.list-action) { display: none; }
+  .aside-list :global(.list-icon) { width: 34px; height: 34px; }
+  .aside-list :global(.list-row:last-child) { border-radius: 0 0 var(--radius-card) var(--radius-card); }
+  .docs { list-style: none; display: grid; gap: 8px; }
+  .docs li { display: flex; justify-content: space-between; gap: 10px; font-weight: 600; font-size: 0.95rem; }
+  .docs a:hover { color: var(--accent-text); }
+  .docs small { font-family: var(--font-mono); color: var(--text-muted); font-weight: 400; white-space: nowrap; }
+  /* Schéma d'architecture écrit dans le Markdown du projet */
+  .prose-projet :global(.archi) { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; background: var(--bg-card); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 22px; }
+  .prose-projet :global(.archi-zone) { border: 1.5px dashed #e2c690; border-radius: 14px; padding: 14px; display: grid; gap: 8px; background: var(--bg-soft); }
+  .prose-projet :global(.archi-label) { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-text); }
+  .prose-projet :global(.archi-fw) { background: var(--bg-card); border: 2px solid var(--accent); border-radius: 10px; padding: 8px; text-align: center; font-weight: 700; color: var(--text-primary); }
+  .prose-projet :global(.archi-vm) { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 6px 10px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-primary); }
+  .prose-projet :global(.archi-link) { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-text); text-align: center; }
+  .prose-projet :global(.archi-link)::before { content: '⇄'; display: block; font-size: 1.4rem; }
+  @media (max-width: 980px) { .projet-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .prose-projet :global(.archi) { grid-template-columns: 1fr; } }
+</style>

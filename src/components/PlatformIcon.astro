@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+import azure from '../assets/icons/azure.webp';
+import linux from '../assets/icons/linux.webp';
+import windows from '../assets/icons/windows.webp';
+import cisco from '../assets/icons/cisco.webp';
+import pareFeu from '../assets/icons/pare-feu.svg';
+
+interface Props { plateforme: string; size?: number }
+const icons = { azure, linux, windows, cisco, 'pare-feu': pareFeu } as const;
+const { plateforme, size = 22 } = Astro.props;
+const src = icons[plateforme as keyof typeof icons] ?? linux;
+---
+<Image src={src} alt="" width={size} height={size} />

@@ -1,0 +1,46 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icons.astro';
+import type { Lab } from '../lib/github-loader';
+import { langColor, relativeDate } from '../lib/format';
+import { route, ui, type Lang } from '../i18n';
+import '../styles/procedure.css';
+
+interface Props { lab: CollectionEntry<'labs'>; lang: Lang }
+const { lab, lang } = Astro.props;
+const u = ui(lang);
+const T = {
+  fr: { projets: 'Projets', maj: 'Mis à jour', code: 'Voir le code sur GitHub', demo: 'Démo', desc: (n: string) => `Lab ${n} de Nathan LALLIER, code disponible sur GitHub.` },
+  en: { projets: 'Projects', maj: 'Updated', code: 'View the code on GitHub', demo: 'Demo', desc: (n: string) => `${n}, a lab by Nathan LALLIER with its code on GitHub.` },
+}[lang];
+const data = lab.data as unknown as Lab;
+const { Content } = await render(lab);
+---
+<Base title={data.nom} description={data.description || T.desc(data.nom)} type="article">
+  <div class="container page" style="gap:32px">
+    <header class="page-head">
+      <nav class="breadcrumb" aria-label={u.filAriane}>
+        <a href={route('projets', lang)}>{T.projets}</a><span aria-hidden="true">›</span>
+        <a href={`${route('projets', lang)}#labs`}>Labs</a><span aria-hidden="true">›</span>
+        <span aria-current="page">{data.nom}</span>
+      </nav>
+      <h1 class="title-xl lab-titre">{data.nom}</h1>
+      {data.description && <p class="lead">{data.description}</p>}
+      <ul class="procedure-meta">
+        {data.langages.map((l) => <li><i class="lang-dot" style={`background:${langColor(l.nom)}`}></i>{l.nom} {l.part} %</li>)}
+        <li>{T.maj} {relativeDate(data.misAJour, lang)}</li>
+      </ul>
+      <div class="actions">
+        <a href={data.url} class="btn btn-primary" target="_blank" rel="noopener noreferrer"><Icon name="github" />{T.code}</a>
+        {data.homepage && <a href={data.homepage} class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><Icon name="external" />{T.demo}</a>}
+      </div>
+      {data.sujets.length > 0 && <div class="tags">{data.sujets.map((s) => <span class="tag">{s}</span>)}</div>}
+    </header>
+    <article class="prose lab-readme" lang="en"><Content /></article>
+  </div>
+</Base>
+<style>
+  .lab-titre { font-family: var(--font-mono); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+  .lab-readme :global(h2::before), .lab-readme :global(h3::before) { content: none; }
+</style>
