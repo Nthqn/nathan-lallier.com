@@ -2,7 +2,7 @@
 // Copie les procédures Markdown (et leurs images) depuis la bibliothèque Proton Drive
 // vers src/content/procedures, puis liste celles qui restent à valider.
 //
-// Publication : toute procédure rangée dans PLATEFORME/PILIER/markdown/ est publiée.
+// Publication : toute procédure rangée dans PLATEFORME/PILIER/ est publiée.
 // Les brouillons restent dans _A_VERIFIER, qui n'est jamais publié et sert de liste à valider.
 //
 // Usage : npm run sync [-- "C:\chemin\vers\Procèdures"]
@@ -47,7 +47,8 @@ function listMarkdown(dir) {
     if (IGNORED_DIRS.has(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) found.push(...listMarkdown(full));
-    else if (entry.name.endsWith('.md') && path.basename(dir) === 'markdown') found.push(full);
+    // Une procédure se trouve exactement dans PLATEFORME/PILIER/<titre>.md
+    else if (entry.name.endsWith('.md') && path.relative(SOURCE, full).split(path.sep).length === 3) found.push(full);
   }
   return found;
 }
@@ -155,7 +156,7 @@ function main() {
     '# Procédures à valider',
     '',
     `Ces brouillons sont dans \`${DRAFTS_DIR}\` et ne sont pas publiés.`,
-    'Pour en publier un, range-le dans `PLATEFORME/PILIER/markdown/` avec sa référence, puis relance `npm run sync`.',
+    'Pour en publier un, range-le dans `PLATEFORME/PILIER/` avec sa référence, puis relance `npm run sync`.',
     '',
     `Dernière mise à jour : ${new Date().toLocaleDateString('fr-FR')} · ${pending.length} procédure(s)`,
     '',
