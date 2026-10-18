@@ -329,7 +329,7 @@ getent group grp-linux-admins@lab.local
 
 ## Procédures Liées
 
-- Synchronisation de l'Heure avec chrony *(Heure synchronisée exigée par Kerberos)*
+- [Synchronisation de l'Heure avec chrony](/procedures/linux/synchronisation-de-lheure-avec-chrony) *(Heure synchronisée exigée par Kerberos)*
 - [Configuration Réseau avec Netplan](/procedures/linux/configuration-reseau-avec-netplan) *(DNS des contrôleurs de domaine sur le serveur Linux)*
 - [Gestion des Utilisateurs, Groupes et de sudo](/procedures/linux/gestion-des-utilisateurs-groupes-et-de-sudo) *(Gestion des droits sudo et des comptes locaux de secours)*
 - [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Restriction SSH par groupe)*
