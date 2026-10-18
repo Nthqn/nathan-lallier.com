@@ -33,6 +33,10 @@ const projets = defineCollection({
     resume: z.string(),
     statut: z.enum(['termine', 'en-cours']),
     categorie: z.string(),
+    // Cadre du projet (évaluation de formation, étude de cas…), affiché à côté de l'année
+    contexte: z.string().optional(),
+    // Projet présenté sur la page d'accueil
+    aLaUne: z.boolean().default(true),
     annee: z.number(),
     ordre: z.number().default(0),
     depot: z.string().optional(),
@@ -51,6 +55,7 @@ const projets = defineCollection({
       titreAccent: z.string().optional(),
       resume: z.string().optional(),
       categorie: z.string().optional(),
+      contexte: z.string().optional(),
       faits: z.array(z.object({ label: z.string(), valeur: z.string() })).optional(),
       besoin: z.string().optional(),
       realisation: z.string().optional(),

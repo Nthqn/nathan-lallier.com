@@ -46,7 +46,7 @@ const blocs = [
       </nav>
       <div class="project-meta">
         <span class={`status status-${p.statut}`}>{p.statut === 'termine' ? u.termine : u.enCours}</span>
-        <span class="eyebrow">{p.categorie} · {p.annee}</span>
+        <span class="eyebrow">{p.categorie}{p.contexte && ` · ${p.contexte}`} · {p.annee}</span>
       </div>
       <h1 class="title-xl">{p.titre}{p.titreAccent && <> <span class="highlight">{p.titreAccent}</span></>}</h1>
       <p class="lead">{p.resume}</p>

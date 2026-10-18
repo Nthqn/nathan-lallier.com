@@ -4,6 +4,7 @@ titreAccent: "Consulting Group"
 resume: "Infrastructure d'entreprise sur deux sites, avec segmentation réseau, identité centralisée, supervision, gestion de parc et réplication entre les deux sites."
 statut: "termine"
 categorie: "Infrastructure multisite"
+contexte: "Projet d'évaluation du BTS SIO, réalisé seul"
 annee: 2026
 ordre: 1
 depot: "Nthqn/orion-consulting-group"
@@ -17,14 +18,15 @@ besoin: "Relier deux sites, cloisonner le réseau par métier et continuer à tr
 realisation: "Architecture et plan d'adressage, déploiement des 9 VM, sécurisation (segmentation, droits, politiques) et rédaction du DRT."
 resultat: "Infrastructure fonctionnelle, testée et reproductible, livrée avec un DRT de 50 pages (version 2.0)."
 documents:
-  - { titre: "DRT complet", url: "/assets/docs/DRT-ORION-Consulting-Group.pdf", detail: "PDF · 7 Mo" }
+  - { titre: "DRT complet", url: "/assets/docs/DRT-ORION-Consulting-Group.pdf", detail: "PDF · 2,4 Mo" }
   - { titre: "Tunnel IPsec", url: "/assets/docs/DRT-ORION-Consulting-Group.pdf#page=16", detail: "p. 16" }
-  - { titre: "Règles pare-feu ORION", url: "/assets/docs/DRT-ORION-Consulting-Group.pdf#page=32", detail: "p. 32" }
+  - { titre: "Règles pare-feu ORION", url: "/assets/docs/DRT-ORION-Consulting-Group.pdf#page=35", detail: "p. 35" }
 traduction:
   titre: "Orion"
   titreAccent: "Consulting Group"
   resume: "Two-site corporate infrastructure with network segmentation, centralised identity, monitoring, asset management and replication between the two sites."
   categorie: "Multi-site infrastructure"
+  contexte: "BTS SIO assessment project, solo work"
   faits:
     - { label: "Scope", valeur: "9 virtual machines" }
     - { label: "Type", valeur: "Complete IT infrastructure" }

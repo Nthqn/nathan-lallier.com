@@ -11,10 +11,10 @@ export const SITE = {
   linkedin: 'https://www.linkedin.com/in/nathan-lallier',
   cv: '/assets/docs/CV-Nathan-LALLIER.pdf',
   description:
-    "Nathan LALLIER, apprenti ingénieur cloud chez SEMIN et élève ingénieur au CESI. Certifié AZ-104 et CCNA, spécialisé Azure, Entra ID, Intune et sécurité.",
+    "Nathan LALLIER, apprenti ingénieur cloud chez SEMIN et élève ingénieur au CESI. Certifié AZ-900 et AZ-104, modules CCNA 1 à 3 validés, spécialisé Azure, Entra ID, Intune et sécurité.",
   posteEn: 'Cloud Engineering Apprentice',
   descriptionEn:
-    'Nathan LALLIER, cloud engineering apprentice at SEMIN and engineering student at CESI. AZ-104 and CCNA certified, focused on Azure, Entra ID, Intune and security.',
+    'Nathan LALLIER, cloud engineering apprentice at SEMIN and engineering student at CESI. AZ-900 and AZ-104 certified, CCNA 1 to 3 courses completed, focused on Azure, Entra ID, Intune and security.',
   // Début de l'alternance, utilisé pour calculer les mois d'expérience
   debutExperience: new Date('2024-09-01'),
 };
@@ -57,14 +57,16 @@ export type Certification = {
   statut: 'obtenue' | 'en-cours' | 'a-venir';
   annee?: number;
   verification?: string;
+  // Module de formation (Cisco Networking Academy) : affiché avec les badges mais pas compté comme certification
+  module?: boolean;
 };
 
 export const CERTIFICATIONS: Certification[] = [
   { nom: 'Azure Fundamentals', editeur: 'Microsoft', badge: 'az900', statut: 'obtenue', verification: 'https://learn.microsoft.com/api/credentials/share/fr-fr/Nathan-4078/2A91CE2E0E0795?sharingId=8483823718AD9B12' },
   { nom: 'Azure Administrator', editeur: 'Microsoft', badge: 'az104', statut: 'obtenue', verification: 'https://learn.microsoft.com/api/credentials/share/fr-fr/Nathan-4078/535A320DB55E56C3?sharingId=8483823718AD9B12' },
-  { nom: 'CCNA 1', editeur: 'Cisco', badge: 'ccna1', statut: 'obtenue', verification: 'https://www.credly.com/badges/e9b05e6d-6cbc-4baf-8f7e-7e6b61f414ce/public_url' },
-  { nom: 'CCNA 2', editeur: 'Cisco', badge: 'ccna2', statut: 'obtenue', verification: 'https://www.credly.com/badges/973523ab-f891-4356-bb11-d1bdf6f0b09a/public_url' },
-  { nom: 'CCNA 3', editeur: 'Cisco', badge: 'ccna3', statut: 'obtenue', verification: 'https://www.credly.com/badges/dcd296ad-261b-49e4-a0ab-5f6df94d0020/public_url' },
+  { nom: 'CCNA 1 (ITN)', editeur: 'Cisco Networking Academy', badge: 'ccna1', statut: 'obtenue', module: true, verification: 'https://www.credly.com/badges/e9b05e6d-6cbc-4baf-8f7e-7e6b61f414ce/public_url' },
+  { nom: 'CCNA 2 (SRWE)', editeur: 'Cisco Networking Academy', badge: 'ccna2', statut: 'obtenue', module: true, verification: 'https://www.credly.com/badges/973523ab-f891-4356-bb11-d1bdf6f0b09a/public_url' },
+  { nom: 'CCNA 3 (ENSA)', editeur: 'Cisco Networking Academy', badge: 'ccna3', statut: 'obtenue', module: true, verification: 'https://www.credly.com/badges/dcd296ad-261b-49e4-a0ab-5f6df94d0020/public_url' },
   { nom: 'Azure Solutions Architect Expert', editeur: 'Microsoft', badge: 'az305', statut: 'a-venir', annee: 2027 },
   { nom: 'Azure Security Technologies', editeur: 'Microsoft', badge: 'az500', statut: 'a-venir', annee: 2028 },
   { nom: 'AWS Solutions Architect Associate', editeur: 'Amazon Web Services', badge: 'aws-saa-c03', statut: 'a-venir', annee: 2029 },

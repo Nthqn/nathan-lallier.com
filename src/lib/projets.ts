@@ -13,6 +13,7 @@ export function projetVue(projet: Projet, lang: Lang) {
     titreAccent: tr.titreAccent ?? d.titreAccent,
     resume: tr.resume ?? d.resume,
     categorie: tr.categorie ?? d.categorie,
+    contexte: tr.contexte ?? d.contexte,
     faits: tr.faits ?? d.faits,
     besoin: tr.besoin ?? d.besoin,
     realisation: tr.realisation ?? d.realisation,
