@@ -136,6 +136,6 @@ Votre infrastructure Active Directory est maintenant hautement disponible.
 
 - [Installation d'un Contrôleur de Domaine Active Directory](/procedures/windows/installation-dun-controleur-de-domaine-active-directory) *(Premier contrôleur de domaine)*
 - Configuration des Sites et de la Réplication AD *(Réplication entre contrôleurs)*
-- Transfert et Prise de Rôles FSMO *(Répartition des rôles maîtres)*
+- [Transfert et Prise de Rôles FSMO](/procedures/windows/transfert-et-prise-de-roles-fsmo) *(Répartition des rôles maîtres)*
 - [Mise en Place de la Redondance DNS avec une Zone Secondaire](/procedures/windows/mise-en-place-de-la-redondance-dns-avec-une-zone-secondaire) *(Redondance DNS hors zones intégrées)*
 - Dépannage de la Réplication AD et de Kerberos *(Diagnostic de la réplication)*
