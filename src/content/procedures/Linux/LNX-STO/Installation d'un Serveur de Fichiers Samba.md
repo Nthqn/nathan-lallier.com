@@ -178,7 +178,7 @@ sudo systemctl restart smbd
 ## Procédures Liées
 
 - [Déploiement d'un Serveur NFS](/procedures/linux/deploiement-dun-serveur-nfs) *(Alternative pour les clients Linux)*
-- Intégration d'un Serveur Linux à Active Directory (realmd et SSSD) *(Authentification par Active Directory)*
+- [Intégration d'un Serveur Linux à Active Directory (realmd et SSSD)](/procedures/linux/integration-dun-serveur-linux-a-active-directory-realmd-et-sssd) *(Authentification par Active Directory)*
 - [Gestion des Permissions, ACL et Droits Spéciaux](/procedures/linux/gestion-des-permissions-acl-et-droits-speciaux) *(Droits Unix sur les dossiers partagés)*
 - [Mise en Place d'un Serveur de Fichiers avec Partages et Sécurité NTFS](/procedures/windows/mise-en-place-dun-serveur-de-fichiers-avec-partages-et-securite-ntfs) *(Équivalent sous Windows Server)*
 - [Mise en Place d'un Volume RAID 5 Logiciel sous Linux](/procedures/linux/mise-en-place-dun-volume-raid-5-logiciel-sous-linux) *(Stockage redondant des données)*

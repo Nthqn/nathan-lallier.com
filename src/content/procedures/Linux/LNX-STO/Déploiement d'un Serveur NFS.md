@@ -302,7 +302,7 @@ Les utilisateurs doivent alors détenir un ticket Kerberos valide (obtenu à la 
 
 - [Gestion des Disques avec LVM et Montage par fstab](/procedures/linux/gestion-des-disques-avec-lvm-et-montage-par-fstab) *(Volume dédié et montage persistant)*
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(Ouverture du port 2049)*
-- Intégration d'un Serveur Linux à Active Directory (realmd et SSSD) *(Identités cohérentes et Kerberos)*
+- [Intégration d'un Serveur Linux à Active Directory (realmd et SSSD)](/procedures/linux/integration-dun-serveur-linux-a-active-directory-realmd-et-sssd) *(Identités cohérentes et Kerberos)*
 - [Gestion des Permissions, ACL et Droits Spéciaux](/procedures/linux/gestion-des-permissions-acl-et-droits-speciaux) *(Droits Unix sur les dossiers exportés)*
 - [Installation d'un Serveur de Fichiers Samba](/procedures/linux/installation-dun-serveur-de-fichiers-samba) *(Alternative pour les postes Windows)*
 - Sauvegarde de Serveurs Linux avec rsync et BorgBackup *(Sauvegarde des données partagées)*

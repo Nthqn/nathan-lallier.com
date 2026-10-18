@@ -331,7 +331,7 @@ sudo sudoreplay <ID-de-session>
 
 ## Procédures Liées
 
-- Intégration d'un Serveur Linux à Active Directory (realmd et SSSD) *(Comptes et groupes sudo pilotés par AD)*
+- [Intégration d'un Serveur Linux à Active Directory (realmd et SSSD)](/procedures/linux/integration-dun-serveur-linux-a-active-directory-realmd-et-sssd) *(Comptes et groupes sudo pilotés par AD)*
 - [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Restriction des connexions par groupe)*
 - [Gestion des Permissions, ACL et Droits Spéciaux](/procedures/linux/gestion-des-permissions-acl-et-droits-speciaux) *(Droits des groupes sur les fichiers)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Conservation des traces sudo hors du serveur)*

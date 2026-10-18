@@ -324,6 +324,6 @@ sudo systemctl restart fail2ban
 - [Gestion des Utilisateurs, Groupes et de sudo](/procedures/linux/gestion-des-utilisateurs-groupes-et-de-sudo) *(Comptes nominatifs et groupe ssh-users)*
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(Filtrage du port SSH et actions de bannissement)*
 - [Accès distant sécurisé via WireGuard](/procedures/pare-feu/acces-distant-securise-via-wireguard) *(Administration sans exposer SSH)*
-- Intégration d'un Serveur Linux à Active Directory (realmd et SSSD) *(Connexion SSH avec des comptes AD)*
+- [Intégration d'un Serveur Linux à Active Directory (realmd et SSSD)](/procedures/linux/integration-dun-serveur-linux-a-active-directory-realmd-et-sssd) *(Connexion SSH avec des comptes AD)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Suivi des connexions et des bannissements)*
 - [Gestion des Services avec systemd et journald](/procedures/linux/gestion-des-services-avec-systemd-et-journald) *(Unités ssh.service et ssh.socket)*
