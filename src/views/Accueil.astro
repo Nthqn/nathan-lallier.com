@@ -17,7 +17,7 @@ const { lang } = Astro.props;
 const u = ui(lang);
 const T = {
   fr: {
-    lead: "Je conçois et j'administre des <strong class=\"accent-strong\">infrastructures cloud sécurisées</strong> en environnement industriel chez SEMIN. Azure, Entra ID, Intune et Microsoft 365 au quotidien, en cycle ingénieur au CESI jusqu'en 2029.",
+    lead: "Chez SEMIN, groupe industriel de plus de 500 collaborateurs, je gère au quotidien les identités Entra ID, le déploiement des postes avec Intune et Autopilot, et Microsoft 365. Élève ingénieur au CESI jusqu'en 2029, je cherche un <strong class=\"accent-strong\">stage à l'international pour l'été 2028</strong>.",
     voirProjets: 'Voir mes projets', parcours: 'Mon parcours',
     chiffres: 'En chiffres', mois: "mois d'expérience en production", certifs: 'certifications obtenues', procs: 'procédures publiées',
     projetsTitre: ['Projets', 'à la une'], tousProjets: 'Tous les projets et labs →',
@@ -27,7 +27,7 @@ const T = {
     enCours: 'en cours', toutesCertifs: 'Toutes mes certifications →',
   },
   en: {
-    lead: 'I design and run <strong class="accent-strong">secure cloud infrastructure</strong> in an industrial environment at SEMIN. Azure, Entra ID, Intune and Microsoft 365 every day, alongside an engineering degree at CESI until 2029.',
+    lead: 'At SEMIN, an industrial group of more than 500 people, I manage Entra ID identities, device deployment with Intune and Autopilot, and Microsoft 365 every day. An engineering student at CESI until 2029, I am looking for an <strong class="accent-strong">international internship for summer 2028</strong>.',
     voirProjets: 'See my projects', parcours: 'My background',
     chiffres: 'At a glance', mois: 'months of hands-on production experience', certifs: 'certifications earned', procs: 'published procedures',
     projetsTitre: ['Featured', 'projects'], tousProjets: 'All projects and labs →',
@@ -42,8 +42,9 @@ const procedures = await getProcedures();
 const dernieres = [...procedures]
   .sort((a, b) => (b.revisionDate?.getTime() ?? 0) - (a.revisionDate?.getTime() ?? 0))
   .slice(0, 4);
-const projets = (await getProjets()).slice(0, 2);
+const projets = (await getProjets()).filter((p) => p.data.aLaUne).slice(0, 2);
 const obtenues = CERTIFICATIONS.filter((c) => c.statut === 'obtenue');
+const certifications = obtenues.filter((c) => !c.module);
 const enCours = CERTIFICATIONS.find((c) => c.statut === 'en-cours');
 
 const jsonLd = {
@@ -58,7 +59,7 @@ const jsonLd = {
     { '@type': 'EducationalOrganization', name: 'MEWO Campus Métiers' },
     { '@type': 'EducationalOrganization', name: 'CESI École d\'ingénieurs' },
   ],
-  hasCredential: obtenues.map((c) => ({
+  hasCredential: certifications.map((c) => ({
     '@type': 'EducationalOccupationalCredential',
     name: `${c.editeur} ${c.nom}`,
     credentialCategory: 'certification',
@@ -99,7 +100,7 @@ const jsonLd = {
 
     <section class="card chiffres reveal" aria-label={T.chiffres}>
       <div><strong>{moisExperience()}<span class="highlight">+</span></strong><span>{T.mois}</span></div>
-      <div><strong>{obtenues.length}</strong><span>{T.certifs}</span></div>
+      <div><strong>{certifications.length}</strong><span>{T.certifs}</span></div>
       <div><strong>{procedures.length}</strong><span>{T.procs}</span></div>
     </section>
 
