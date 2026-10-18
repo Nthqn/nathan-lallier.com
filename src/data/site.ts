@@ -9,7 +9,8 @@ export const SITE = {
   email: 'contact@nathan-lallier.com',
   github: 'https://github.com/Nthqn',
   linkedin: 'https://www.linkedin.com/in/nathan-lallier',
-  cv: '/assets/docs/CV-Nathan-LALLIER.pdf',
+  // PDF générés au build à partir de cv/cv-fr.md et cv/cv-en.md (scripts/cv.mjs)
+  cv: { fr: '/assets/docs/CV-Nathan-LALLIER.pdf', en: '/assets/docs/CV-Nathan-LALLIER-EN.pdf' },
   description:
     "Nathan LALLIER, apprenti ingénieur cloud chez SEMIN et élève ingénieur au CESI. Certifié AZ-900 et AZ-104, modules CCNA 1 à 3 validés, spécialisé Azure, Entra ID, Intune et sécurité.",
   posteEn: 'Cloud Engineering Apprentice',
