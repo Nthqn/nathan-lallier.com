@@ -15,7 +15,7 @@ const t = ui(lang);
   <div class="project-body">
     <div class="project-meta">
       <span class={`status status-${p.statut}`}>{p.statut === 'termine' ? t.termine : t.enCours}</span>
-      <span class="eyebrow">{t.projetComplet} · {p.annee}</span>
+      <span class="eyebrow">{p.contexte ?? t.projetComplet} · {p.annee}</span>
     </div>
     <H>{p.titre}{p.titreAccent && <> <span class="highlight">{p.titreAccent}</span></>}</H>
     <p>{p.resume}</p>

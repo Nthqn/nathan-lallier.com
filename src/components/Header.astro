@@ -27,11 +27,11 @@ const isActive = (href: string) => current === href || current.startsWith(href +
         </a>
       ))}
       <a href={route('contact', lang)} aria-current={isActive(route('contact', lang)) ? 'page' : undefined}>{t.nav.contact}</a>
-      <a href={SITE.cv} class="nav-cv" download>{t.cvLong}</a>
+      <a href={SITE.cv[lang]} class="nav-cv" download>{t.cvLong}</a>
     </nav>
     <div class="header-actions">
       <a href={lienLangue} class="lang-switch" hreflang={autre} lang={autre} aria-label={t.langue.label}>{t.langue.court}</a>
-      <a href={SITE.cv} class="btn btn-secondary btn-small" download><Icon name="download" />{t.cvCourt}</a>
+      <a href={SITE.cv[lang]} class="btn btn-secondary btn-small" download><Icon name="download" />{t.cvCourt}</a>
       <button type="button" class="icon-btn theme-toggle" aria-label={t.theme}>
         <Icon name="moon" class="icon-moon" /><Icon name="sun" class="icon-sun" />
       </button>
