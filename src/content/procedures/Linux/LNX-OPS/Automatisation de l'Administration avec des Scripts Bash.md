@@ -397,7 +397,7 @@ Pour déployer le même script et son timer sur tous les serveurs, un playbook A
 
 **« unbound variable » :** une variable est utilisée sans être définie alors que `set -u` est actif. Initialisez-la ou utilisez une valeur par défaut `${VAR:-}`.
 
-**« [: not found » ou « Illegal option -o pipefail » :** le script est exécuté par `sh` (dash). Lancez-le directement ou avec `bash`.
+**« [[: not found » ou « Illegal option -o pipefail » :** le script est exécuté par `sh` (dash). Lancez-le directement ou avec `bash`.
 
 **« Le script fonctionne à la main mais pas depuis le timer » :** le `PATH` ou une variable d'environnement diffère. Définissez le `PATH` en tête de script et consultez `journalctl -u verif-disque.service`.
 
@@ -419,7 +419,7 @@ Pour déployer le même script et son timer sur tous les serveurs, un playbook A
 
 ## Procédures Liées
 
-- [Planification des Tâches avec cron et les Timers systemd *(Planification des scripts)*
+- [Planification des Tâches avec cron et les Timers systemd](/procedures/linux/planification-des-taches-avec-cron-et-les-timers-systemd) *(Planification des scripts)*
 - [Gestion des Services avec systemd et journald](/procedures/linux/gestion-des-services-avec-systemd-et-journald) *(Lecture des journaux des scripts)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Remontée des alertes des scripts vers le collecteur)*
 - Déploiement Continu avec GitHub Actions *(Contrôle automatique des scripts par ShellCheck)*

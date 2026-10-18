@@ -305,4 +305,4 @@ Les utilisateurs doivent alors détenir un ticket Kerberos valide (obtenu à la 
 - [Intégration d'un Serveur Linux à Active Directory (realmd et SSSD)](/procedures/linux/integration-dun-serveur-linux-a-active-directory-realmd-et-sssd) *(Identités cohérentes et Kerberos)*
 - [Gestion des Permissions, ACL et Droits Spéciaux](/procedures/linux/gestion-des-permissions-acl-et-droits-speciaux) *(Droits Unix sur les dossiers exportés)*
 - [Installation d'un Serveur de Fichiers Samba](/procedures/linux/installation-dun-serveur-de-fichiers-samba) *(Alternative pour les postes Windows)*
-- Sauvegarde de Serveurs Linux avec rsync et BorgBackup *(Sauvegarde des données partagées)*
+- [Sauvegarde de Serveurs Linux avec rsync et BorgBackup](/procedures/linux/sauvegarde-de-serveurs-linux-avec-rsync-et-borgbackup) *(Sauvegarde des données partagées)*

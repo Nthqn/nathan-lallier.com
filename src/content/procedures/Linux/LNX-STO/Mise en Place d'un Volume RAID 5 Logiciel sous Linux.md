@@ -170,5 +170,5 @@ sudo mdadm --detail /dev/md0
 - [Gestion des Disques avec LVM et Montage par fstab](/procedures/linux/gestion-des-disques-avec-lvm-et-montage-par-fstab) *(Volumes logiques sur le RAID)*
 - [Installation d'un Serveur de Fichiers Samba](/procedures/linux/installation-dun-serveur-de-fichiers-samba) *(Partage des données stockées)*
 - [Déploiement d'un Serveur NFS](/procedures/linux/deploiement-dun-serveur-nfs) *(Export des données stockées)*
-- Sauvegarde de Serveurs Linux avec rsync et BorgBackup *(Le RAID ne remplace pas la sauvegarde)*
+- [Sauvegarde de Serveurs Linux avec rsync et BorgBackup](/procedures/linux/sauvegarde-de-serveurs-linux-avec-rsync-et-borgbackup) *(Le RAID ne remplace pas la sauvegarde)*
 - [Mise en Place d'un Volume à Tolérance de Panne (RAID)](/procedures/windows/mise-en-place-dun-volume-a-tolerance-de-panne-raid) *(Équivalent sous Windows Server)*

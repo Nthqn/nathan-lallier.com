@@ -327,7 +327,7 @@ Sur Debian 13 et Ubuntu 24.04, `/var/log/journal` existe déjà et le journal es
 
 ## Procédures Liées
 
-- Planification des Tâches avec cron et les Timers systemd *(Unités .timer associées aux services)*
+- [Planification des Tâches avec cron et les Timers systemd](/procedures/linux/planification-des-taches-avec-cron-et-les-timers-systemd) *(Unités .timer associées aux services)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Conservation des journaux hors du serveur)*
 - [Gestion des Utilisateurs, Groupes et de sudo](/procedures/linux/gestion-des-utilisateurs-groupes-et-de-sudo) *(Comptes dédiés aux services)*
 - [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Unités ssh.service et ssh.socket)*

@@ -272,6 +272,6 @@ sudo pvresize /dev/sdb1
 
 - [Mise en Place d'un Volume RAID 5 Logiciel sous Linux](/procedures/linux/mise-en-place-dun-volume-raid-5-logiciel-sous-linux) *(Redondance placée sous LVM)*
 - [Gestion des Permissions, ACL et Droits Spéciaux](/procedures/linux/gestion-des-permissions-acl-et-droits-speciaux) *(Droits sur les volumes montés)*
-- Sauvegarde de Serveurs Linux avec rsync et BorgBackup *(Sauvegarde des volumes de données)*
+- [Sauvegarde de Serveurs Linux avec rsync et BorgBackup](/procedures/linux/sauvegarde-de-serveurs-linux-avec-rsync-et-borgbackup) *(Sauvegarde des volumes de données)*
 - [Déploiement d'un Serveur NFS](/procedures/linux/deploiement-dun-serveur-nfs) *(Partage des volumes créés)*
 - [Installation d'un Serveur Ubuntu en Ligne de Commande (CLI)](/procedures/linux/installation-dun-serveur-ubuntu-en-ligne-de-commande-cli) *(Partitionnement LVM à l'installation)*

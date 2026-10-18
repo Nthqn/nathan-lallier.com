@@ -214,4 +214,4 @@ sudo a2dissite 000-default.conf
 - [Installation d'un Serveur Web LAMP](/procedures/linux/installation-dun-serveur-web-lamp) *(Pile web requise)*
 - [Déploiement de GLPI (Conteneurisé)](/procedures/linux/deploiement-de-glpi-conteneurise) *(Alternative conteneurisée)*
 - [Déploiement Automatique de l'Agent GLPI via GPO](/procedures/windows/deploiement-automatique-de-lagent-glpi-via-gpo) *(Déploiement de l'agent sur les postes)*
-- Sauvegarde de Serveurs Linux avec rsync et BorgBackup *(Sauvegarde de l'application et de la base)*
+- [Sauvegarde de Serveurs Linux avec rsync et BorgBackup](/procedures/linux/sauvegarde-de-serveurs-linux-avec-rsync-et-borgbackup) *(Sauvegarde de l'application et de la base)*

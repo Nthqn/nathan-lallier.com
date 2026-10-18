@@ -151,4 +151,4 @@ services:
 - [Installation de GLPI](/procedures/linux/installation-de-glpi) *(Installation classique sans conteneur)*
 - [Installation de Docker et Portainer sur Ubuntu](/procedures/linux/installation-de-docker-et-portainer-sur-ubuntu) *(Socle Docker et Portainer)*
 - [Déploiement Automatique de l'Agent GLPI via GPO](/procedures/windows/deploiement-automatique-de-lagent-glpi-via-gpo) *(Inventaire automatique des postes Windows)*
-- Sauvegarde de Serveurs Linux avec rsync et BorgBackup *(Sauvegarde des volumes et de la base)*
+- [Sauvegarde de Serveurs Linux avec rsync et BorgBackup](/procedures/linux/sauvegarde-de-serveurs-linux-avec-rsync-et-borgbackup) *(Sauvegarde des volumes et de la base)*

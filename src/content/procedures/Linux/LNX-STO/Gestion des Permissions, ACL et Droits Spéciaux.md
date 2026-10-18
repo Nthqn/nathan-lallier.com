@@ -268,4 +268,4 @@ cd / && sudo setfacl --restore=/root/acl-projets-2026-10-16.txt
 - [Gestion des Disques avec LVM et Montage par fstab](/procedures/linux/gestion-des-disques-avec-lvm-et-montage-par-fstab) *(Options de montage nosuid, nodev et noexec)*
 - [Installation d'un Serveur de Fichiers Samba](/procedures/linux/installation-dun-serveur-de-fichiers-samba) *(Exposition des répertoires partagés aux postes Windows)*
 - [Déploiement d'un Serveur NFS](/procedures/linux/deploiement-dun-serveur-nfs) *(Partage d'arborescences et conservation des droits)*
-- Sauvegarde de Serveurs Linux avec rsync et BorgBackup *(Sauvegarde conservant les ACL)*
+- [Sauvegarde de Serveurs Linux avec rsync et BorgBackup](/procedures/linux/sauvegarde-de-serveurs-linux-avec-rsync-et-borgbackup) *(Sauvegarde conservant les ACL)*
