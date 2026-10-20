@@ -122,5 +122,5 @@ Sur un serveur du LAB, configurez la passerelle par défaut sur `192.168.1.254`,
 - [Installation et Configuration d'un Serveur DHCP](/procedures/windows/installation-et-configuration-dun-serveur-dhcp) *(Distribution de la passerelle aux clients)*
 - [NAT Dynamique et PAT](/procedures/cisco/nat-dynamique-et-pat) *(Équivalent sur un routeur Cisco)*
 - [Installation et Configuration Initiale de pfSense](/procedures/pare-feu/installation-et-configuration-initiale-de-pfsense) *(Alternative avec un pare-feu dédié)*
-- Configuration du Pare-feu Windows et des Règles de Sécurité de Connexion *(Filtrage sur la passerelle)*
+- [Configuration du Pare-feu Windows et des Règles de Sécurité de Connexion](/procedures/windows/configuration-du-pare-feu-windows-et-des-regles-de-securite-de-connexion) *(Filtrage sur la passerelle)*
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(Équivalent NAT sous Linux)*

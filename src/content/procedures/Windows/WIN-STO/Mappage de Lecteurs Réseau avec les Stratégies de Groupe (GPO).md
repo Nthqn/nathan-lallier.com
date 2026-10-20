@@ -116,5 +116,5 @@ Cette étape garantit que le lecteur n'est mappé que pour les membres d'un grou
 
 - [Mise en Place d'un Serveur de Fichiers avec Partages et Sécurité NTFS](/procedures/windows/mise-en-place-dun-serveur-de-fichiers-avec-partages-et-securite-ntfs) *(Partages à mapper)*
 - [Gestion des Objets dans Active Directory](/procedures/windows/gestion-des-objets-dans-active-directory) *(Ciblage par groupes)*
-- Déploiement de DFS Namespaces et DFS Replication *(Chemins indépendants du serveur)*
-- Configuration de FSRM (Quotas et Filtrage de Fichiers) *(Quotas sur les partages)*
+- [Déploiement de DFS Namespaces et DFS Replication](/procedures/windows/deploiement-de-dfs-namespaces-et-dfs-replication) *(Chemins indépendants du serveur)*
+- [Configuration de FSRM (Quotas et Filtrage de Fichiers)](/procedures/windows/configuration-de-fsrm-quotas-et-filtrage-de-fichiers) *(Quotas sur les partages)*

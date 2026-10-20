@@ -317,4 +317,4 @@ sudo grep -r "Test de centralisation" /var/log/remote/srv-lnx-01/
 - [Configuration du Pare-feu avec UFW et nftables](/procedures/linux/configuration-du-pare-feu-avec-ufw-et-nftables) *(Ouverture du port 514 sur le collecteur)*
 - [Gestion des Disques avec LVM et Montage par fstab](/procedures/linux/gestion-des-disques-avec-lvm-et-montage-par-fstab) *(Volume dédié aux journaux centralisés)*
 - [Installation de Zabbix](/procedures/linux/installation-de-zabbix) *(Supervision du collecteur et de son espace disque)*
-- Supervision avec l'Analyseur de Performances et le Transfert d'Événements *(Équivalent Windows de la centralisation des journaux)*
+- [Supervision avec l'Analyseur de Performances et le Transfert d'Événements](/procedures/windows/supervision-avec-lanalyseur-de-performances-et-le-transfert-devenements) *(Équivalent Windows de la centralisation des journaux)*

@@ -126,6 +126,6 @@ C'est ici que nous mettons en place la vraie sécurité.
 
 - [Mappage de Lecteurs Réseau avec les Stratégies de Groupe (GPO)](/procedures/windows/mappage-de-lecteurs-reseau-avec-les-strategies-de-groupe-gpo) *(Mappage des partages par GPO)*
 - [Mise en Place d'un Volume à Tolérance de Panne (RAID)](/procedures/windows/mise-en-place-dun-volume-a-tolerance-de-panne-raid) *(Stockage redondant)*
-- Configuration de FSRM (Quotas et Filtrage de Fichiers) *(Quotas et filtrage de fichiers)*
-- Déploiement de DFS Namespaces et DFS Replication *(Espace de noms et réplication)*
+- [Configuration de FSRM (Quotas et Filtrage de Fichiers)](/procedures/windows/configuration-de-fsrm-quotas-et-filtrage-de-fichiers) *(Quotas et filtrage de fichiers)*
+- [Déploiement de DFS Namespaces et DFS Replication](/procedures/windows/deploiement-de-dfs-namespaces-et-dfs-replication) *(Espace de noms et réplication)*
 - [Installation d'un Serveur de Fichiers Samba](/procedures/linux/installation-dun-serveur-de-fichiers-samba) *(Équivalent sous Linux)*

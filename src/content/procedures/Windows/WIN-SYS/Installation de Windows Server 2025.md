@@ -149,7 +149,7 @@ Votre serveur Windows est désormais installé, optimisé pour la virtualisation
 ## Procédures Liées
 
 - [Installation d'un Contrôleur de Domaine Active Directory](/procedures/windows/installation-dun-controleur-de-domaine-active-directory) *(Promotion en contrôleur de domaine)*
-- Durcissement de Windows Server avec OSConfig et Credential Guard *(Durcissement du système)*
-- Déploiement de Windows Admin Center *(Administration à distance)*
-- Déploiement de Hyper-V et Gestion des VM *(Hôte de virtualisation)*
-- Configuration de PowerShell Remoting et de JEA *(Administration par PowerShell)*
+- [Durcissement de Windows Server avec OSConfig et Credential Guard](/procedures/windows/durcissement-de-windows-server-avec-osconfig-et-credential-guard) *(Durcissement du système)*
+- [Déploiement de Windows Admin Center](/procedures/windows/deploiement-de-windows-admin-center) *(Administration à distance)*
+- [Déploiement de Hyper-V et Gestion des VM](/procedures/windows/deploiement-de-hyper-v-et-gestion-des-vm) *(Hôte de virtualisation)*
+- [Configuration de PowerShell Remoting et de JEA](/procedures/windows/configuration-de-powershell-remoting-et-de-jea) *(Administration par PowerShell)*

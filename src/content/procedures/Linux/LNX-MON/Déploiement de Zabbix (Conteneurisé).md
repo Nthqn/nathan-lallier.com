@@ -200,4 +200,4 @@ En `network_mode: host`, l'agent ne peut plus joindre le serveur par le nom `zab
 - [Installation de Zabbix](/procedures/linux/installation-de-zabbix) *(Installation classique sans conteneur)*
 - [Installation de Docker et Portainer sur Ubuntu](/procedures/linux/installation-de-docker-et-portainer-sur-ubuntu) *(Socle Docker et Portainer)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Centralisation des journaux en complément)*
-- Supervision avec l'Analyseur de Performances et le Transfert d'Événements *(Supervision native côté Windows)*
+- [Supervision avec l'Analyseur de Performances et le Transfert d'Événements](/procedures/windows/supervision-avec-lanalyseur-de-performances-et-le-transfert-devenements) *(Supervision native côté Windows)*

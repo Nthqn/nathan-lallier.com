@@ -295,4 +295,4 @@ Adaptez le nom du site dans le DN à votre environnement. Dans un lab non décou
 - [Ajout d'un Contrôleur de Domaine Secondaire](/procedures/windows/ajout-dun-controleur-de-domaine-secondaire) *(Contrôleur candidat à la reprise des rôles)*
 - [Configuration d'un Serveur de Temps (NTP) pour un Domaine AD](/procedures/windows/configuration-dun-serveur-de-temps-ntp-pour-un-domaine-ad) *(Source de temps liée au PDC émulateur)*
 - [Restauration d'Objets et Récupération d'Active Directory](/procedures/windows/restauration-dobjets-et-recuperation-dactive-directory) *(Restauration et reconstruction d'un contrôleur)*
-- Dépannage de la Réplication AD et de Kerberos *(Contrôle de la réplication avant et après opération)*
+- [Dépannage de la Réplication AD et de Kerberos](/procedures/windows/depannage-de-la-replication-ad-et-de-kerberos) *(Contrôle de la réplication avant et après opération)*

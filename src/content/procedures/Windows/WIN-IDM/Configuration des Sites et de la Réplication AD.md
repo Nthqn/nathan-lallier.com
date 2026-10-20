@@ -296,7 +296,7 @@ repadmin /syncall SRV-DC-03 /AdeP
 ## Procédures Liées
 
 - [Ajout d'un Contrôleur de Domaine Secondaire](/procedures/windows/ajout-dun-controleur-de-domaine-secondaire) *(Promotion de SRV-DC-03 dans le site de l'agence)*
-- Déploiement d'un Contrôleur de Domaine en Lecture Seule (RODC) *(Contrôleur adapté aux agences peu sécurisées)*
-- Dépannage de la Réplication AD et de Kerberos *(Analyse des erreurs de réplication)*
-- Déploiement de DFS Namespaces et DFS Replication *(Services orientés par la notion de site)*
+- [Déploiement d'un Contrôleur de Domaine en Lecture Seule (RODC)](/procedures/windows/deploiement-dun-controleur-de-domaine-en-lecture-seule-rodc) *(Contrôleur adapté aux agences peu sécurisées)*
+- [Dépannage de la Réplication AD et de Kerberos](/procedures/windows/depannage-de-la-replication-ad-et-de-kerberos) *(Analyse des erreurs de réplication)*
+- [Déploiement de DFS Namespaces et DFS Replication](/procedures/windows/deploiement-de-dfs-namespaces-et-dfs-replication) *(Services orientés par la notion de site)*
 - [Configuration d'un Serveur DNS Dédié](/procedures/windows/configuration-dun-serveur-dns-dedie) *(Résolution des enregistrements SRV entre sites)*

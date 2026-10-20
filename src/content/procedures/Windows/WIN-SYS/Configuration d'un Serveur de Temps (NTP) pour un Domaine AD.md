@@ -82,5 +82,5 @@ w32tm /config /manualpeerlist:"0.fr.pool.ntp.org,0x8 1.fr.pool.ntp.org,0x8 2.fr.
 
 - [Installation d'un Contrôleur de Domaine Active Directory](/procedures/windows/installation-dun-controleur-de-domaine-active-directory) *(Émulateur PDC, source de temps du domaine)*
 - [Transfert et Prise de Rôles FSMO](/procedures/windows/transfert-et-prise-de-roles-fsmo) *(À reconfigurer après un déplacement du PDC)*
-- Dépannage de la Réplication AD et de Kerberos *(Écart d'horloge et Kerberos)*
+- [Dépannage de la Réplication AD et de Kerberos](/procedures/windows/depannage-de-la-replication-ad-et-de-kerberos) *(Écart d'horloge et Kerberos)*
 - [Synchronisation de l'Heure avec chrony](/procedures/linux/synchronisation-de-lheure-avec-chrony) *(Synchronisation des serveurs Linux)*

@@ -207,4 +207,4 @@ sudo ufw allow 10051/tcp   # Serveur / trapper
 - [Déploiement de Zabbix (Conteneurisé)](/procedures/linux/deploiement-de-zabbix-conteneurise) *(Alternative conteneurisée)*
 - [Installation d'un Serveur Web LAMP](/procedures/linux/installation-dun-serveur-web-lamp) *(Pile web de l'interface)*
 - [Centralisation des Journaux avec rsyslog](/procedures/linux/centralisation-des-journaux-avec-rsyslog) *(Centralisation des journaux en complément)*
-- Supervision avec l'Analyseur de Performances et le Transfert d'Événements *(Supervision native côté Windows)*
+- [Supervision avec l'Analyseur de Performances et le Transfert d'Événements](/procedures/windows/supervision-avec-lanalyseur-de-performances-et-le-transfert-devenements) *(Supervision native côté Windows)*

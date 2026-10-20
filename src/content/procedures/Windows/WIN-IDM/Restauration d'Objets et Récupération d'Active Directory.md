@@ -401,7 +401,7 @@ dfsrdiag pollad /member:SRV-DC-02
 
 - [Installation d'un Contrôleur de Domaine Active Directory](/procedures/windows/installation-dun-controleur-de-domaine-active-directory) *(Mot de passe DSRM défini à la promotion)*
 - [Ajout d'un Contrôleur de Domaine Secondaire](/procedures/windows/ajout-dun-controleur-de-domaine-secondaire) *(Reconstruction d'un DC par nouvelle promotion)*
-- Dépannage de la Réplication AD et de Kerberos *(Contrôle de la réplication après restauration)*
+- [Dépannage de la Réplication AD et de Kerberos](/procedures/windows/depannage-de-la-replication-ad-et-de-kerberos) *(Contrôle de la réplication après restauration)*
 - [Transfert et Prise de Rôles FSMO](/procedures/windows/transfert-et-prise-de-roles-fsmo) *(Rôles à reprendre si le DC perdu les détenait)*
-- Déploiement de DFS Namespaces et DFS Replication *(Fonctionnement de DFSR utilisé par SYSVOL)*
+- [Déploiement de DFS Namespaces et DFS Replication](/procedures/windows/deploiement-de-dfs-namespaces-et-dfs-replication) *(Fonctionnement de DFSR utilisé par SYSVOL)*
 - [Gestion des Objets dans Active Directory](/procedures/windows/gestion-des-objets-dans-active-directory) *(Protection des OU contre la suppression accidentelle)*

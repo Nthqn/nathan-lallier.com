@@ -333,5 +333,5 @@ getent group grp-linux-admins@lab.local
 - [Configuration Réseau avec Netplan](/procedures/linux/configuration-reseau-avec-netplan) *(DNS des contrôleurs de domaine sur le serveur Linux)*
 - [Gestion des Utilisateurs, Groupes et de sudo](/procedures/linux/gestion-des-utilisateurs-groupes-et-de-sudo) *(Gestion des droits sudo et des comptes locaux de secours)*
 - [Sécurisation d'OpenSSH (Clés, Durcissement, Fail2ban)](/procedures/linux/securisation-dopenssh-cles-durcissement-fail2ban) *(Restriction SSH par groupe)*
-- Délégation de l'Administration Active Directory *(Délégation de la jonction sur l'OU des serveurs Linux)*
+- [Délégation de l'Administration Active Directory](/procedures/windows/delegation-de-ladministration-active-directory) *(Délégation de la jonction sur l'OU des serveurs Linux)*
 - [Installation d'un Serveur de Fichiers Samba](/procedures/linux/installation-dun-serveur-de-fichiers-samba) *(Alternative Winbind pour un serveur de fichiers)*

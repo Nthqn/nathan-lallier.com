@@ -254,7 +254,7 @@ Ne passez pas directement en Enforce rules. Le workflow recommandé : audit pend
 ## Procédures Liées
 
 - [Gestion des Objets dans Active Directory](/procedures/windows/gestion-des-objets-dans-active-directory) *(Ciblage des GPO par OU)*
-- Durcissement de Windows Server avec OSConfig et Credential Guard *(Durcissement complémentaire)*
-- Mise en Place du Modèle d'Administration en Tiers (Tiering) *(Restriction des postes d'administration)*
+- [Durcissement de Windows Server avec OSConfig et Credential Guard](/procedures/windows/durcissement-de-windows-server-avec-osconfig-et-credential-guard) *(Durcissement complémentaire)*
+- [Mise en Place du Modèle d'Administration en Tiers (Tiering)](/procedures/windows/mise-en-place-du-modele-dadministration-en-tiers-tiering) *(Restriction des postes d'administration)*
 - [Installation d'un Client Windows 11 Professionnel](/procedures/windows/installation-dun-client-windows-11-professionnel) *(Postes clients ciblés)*
-- Déploiement de Windows LAPS *(Protection des comptes locaux)*
+- [Déploiement de Windows LAPS](/procedures/windows/deploiement-de-windows-laps) *(Protection des comptes locaux)*

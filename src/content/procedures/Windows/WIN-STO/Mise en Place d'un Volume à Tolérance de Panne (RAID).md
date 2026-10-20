@@ -148,7 +148,7 @@ Vous devez **toujours** avoir une stratégie de sauvegarde distincte et réguli�
 ## Procédures Liées
 
 - [Mise en Place d'un Serveur de Fichiers avec Partages et Sécurité NTFS](/procedures/windows/mise-en-place-dun-serveur-de-fichiers-avec-partages-et-securite-ntfs) *(Données hébergées sur le volume)*
-- Configuration des Storage Spaces et de la Déduplication *(Alternative moderne avec Storage Spaces)*
+- [Configuration des Storage Spaces et de la Déduplication](/procedures/windows/configuration-des-storage-spaces-et-de-la-deduplication) *(Alternative moderne avec Storage Spaces)*
 - [Mise en Place d'un Volume RAID 5 Logiciel sous Linux](/procedures/linux/mise-en-place-dun-volume-raid-5-logiciel-sous-linux) *(Équivalent sous Linux)*
-- Chiffrement des Volumes avec BitLocker *(Chiffrement du volume)*
+- [Chiffrement des Volumes avec BitLocker](/procedures/windows/chiffrement-des-volumes-avec-bitlocker) *(Chiffrement du volume)*
 - [Installation de Windows Server 2025](/procedures/windows/installation-de-windows-server-2025) *(Installation du serveur)*

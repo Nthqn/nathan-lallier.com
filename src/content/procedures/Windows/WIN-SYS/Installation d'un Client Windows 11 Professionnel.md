@@ -87,4 +87,4 @@ C'est la phase de configuration finale où vous personnalisez Windows.
 - [Gestion des Objets dans Active Directory](/procedures/windows/gestion-des-objets-dans-active-directory) *(Jonction et rangement dans le domaine)*
 - [Mappage de Lecteurs Réseau avec les Stratégies de Groupe (GPO)](/procedures/windows/mappage-de-lecteurs-reseau-avec-les-strategies-de-groupe-gpo) *(Lecteurs réseau des utilisateurs)*
 - [Configuration d'AppLocker par GPO](/procedures/windows/configuration-dapplocker-par-gpo) *(Contrôle des applications)*
-- Déploiement de Windows LAPS *(Mot de passe administrateur local)*
+- [Déploiement de Windows LAPS](/procedures/windows/deploiement-de-windows-laps) *(Mot de passe administrateur local)*
