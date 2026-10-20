@@ -161,6 +161,6 @@ Règle AGDLP : on met les **utilisateurs** dans des groupes **globaux**, on donn
 
 - [Installation d'un Contrôleur de Domaine Active Directory](/procedures/windows/installation-dun-controleur-de-domaine-active-directory) *(Domaine à administrer)*
 - Délégation de l'Administration Active Directory *(Déléguer la gestion des objets)*
-- Restauration d'Objets et Récupération d'Active Directory *(Récupérer un objet supprimé)*
+- [Restauration d'Objets et Récupération d'Active Directory](/procedures/windows/restauration-dobjets-et-recuperation-dactive-directory) *(Récupérer un objet supprimé)*
 - Stratégies de Mots de Passe Affinées et Groupe Protected Users *(Politiques de mots de passe par groupe)*
 - [Mappage de Lecteurs Réseau avec les Stratégies de Groupe (GPO)](/procedures/windows/mappage-de-lecteurs-reseau-avec-les-strategies-de-groupe-gpo) *(GPO ciblant utilisateurs et groupes)*
